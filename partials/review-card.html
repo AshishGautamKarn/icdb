@@ -1,0 +1,86 @@
+partials/review-card.html (Conceptual Path)
+<!-- ========================================================================= -->
+<!-- partials/review-card.html - Reusable User Review Card Snippet           -->
+<!-- Displays a single user review for various entity types.               -->
+<!-- All content needs to be populated dynamically.                        -->
+<!-- Requires conditional logic for type-specific fields & actions.        -->
+<!-- ========================================================================= -->
+
+<article class="review-card card" data-review-id="[REVIEW_ID]"> <!-- Unique ID for JS targeting -->
+
+    <!-- Optional: Link back to the reviewed item (useful on profile pages) -->
+    <!-- Hide/Show this block based on context -->
+    <div class="review-context" style="display: none;"> <!-- Initially hidden -->
+        Reviewed: <a href="[ITEM_DETAIL_URL]">[ITEM_NAME]</a> <!-- Dynamic link and name -->
+    </div>
+
+    <!-- Author Information -->
+    <div class="review-author">
+        <a href="profile.html?user=[USERNAME]" aria-label="View profile for [USERNAME]"> <!-- Dynamic link & username -->
+            <img src="images/placeholder/user-avatar.png" alt="Avatar for [USERNAME]" class="avatar"> <!-- Dynamic src, alt, username -->
+        </a>
+        <div class="author-details">
+            <a href="profile.html?user=[USERNAME]" class="username">[USERNAME]</a> <!-- Dynamic link & username -->
+            <span class="review-date">[REVIEW_DATE]</span> <!-- Dynamic date, e.g., Nov 5, 2023 -->
+        </div>
+    </div>
+
+    <!-- Rating Display -->
+    <div class="review-rating">
+        <!-- Option 1: Overall Stars/Score -->
+        <span class="rating-stars" aria-label="Rating: [OVERALL_RATING_VALUE] out of 10">[STARS_★★★★☆]</span> <!-- Dynamic stars/label -->
+        <span class="rating-text">([OVERALL_RATING_VALUE]/10 Overall)</span> <!-- Dynamic value -->
+
+        <!-- Option 2: Sub-Ratings (Conditional based on entity type) -->
+        <!-- Example for Recipe -->
+        <!-- <span class="sub-rating">Taste: [TASTE_RATING]/10</span> | <span class="sub-rating">Ease: [EASE_RATING]/10</span> -->
+        <!-- Example for Chef -->
+        <!-- <span class="sub-rating">Influence: [INFLUENCE_RATING]/10</span> | <span class="sub-rating">Clarity: [CLARITY_RATING]/10</span> -->
+        <!-- Example for Equipment -->
+        <!-- <span class="sub-rating">Performance: [PERF_RATING]/10</span> | <span class="sub-rating">Durability: [DUR_RATING]/10</span> | <span class="sub-rating">Value: [VAL_RATING]/10</span> -->
+    </div>
+
+    <!-- Review Body -->
+    <div class="review-body">
+        <!-- Recipe-Specific Fields (Conditional) -->
+        <!-- Hide/Show based on entityType === 'recipe' and if data exists -->
+        <p class="recipe-specific-info" style="display: none;"> <!-- Hide container if no recipe info -->
+            <strong class="made-it-status">Made This:</strong> <span class="made-it-value">[Yes/No]</span> <!-- Dynamic value -->
+            <br>
+            <strong class="substitutions-label" style="display: none;">Substitutions:</strong> <span class="substitutions-value">[SUBSTITUTION_NOTES]</span> <!-- Show label/value if notes exist -->
+        </p>
+
+        <!-- Main Review Text -->
+        <p class="review-text">[USER_REVIEW_TEXT_CONTENT]</p> <!-- Dynamic text -->
+
+        <!-- Recipe-Specific Photo (Conditional) -->
+        <!-- Hide/Show based on entityType === 'recipe' and if photo exists -->
+        <a href="[FULL_IMAGE_URL]" class="review-photo-link" style="display: none;" target="_blank"> <!-- Optional link to larger image -->
+             <img src="images/placeholder/user-recipe-photo.jpg" alt="User photo for [ITEM_NAME] review" class="review-photo"> <!-- Dynamic src, alt -->
+        </a>
+    </div>
+
+    <!-- Review Actions -->
+    <div class="review-actions">
+        <!-- Helpfulness Voting -->
+        <span class="helpful-prompt">Was this review helpful?</span>
+        <button class="btn btn-text btn-small vote-helpful-yes" aria-label="Vote yes as helpful">
+            Yes (<span class="helpful-yes-count">[YES_COUNT]</span>) <!-- Dynamic count -->
+        </button>
+        <button class="btn btn-text btn-small vote-helpful-no" aria-label="Vote no as not helpful">
+            No (<span class="helpful-no-count">[NO_COUNT]</span>) <!-- Dynamic count -->
+        </button>
+
+        <!-- Report Button -->
+        <button class="btn btn-text btn-small report-review" aria-label="Report this review">
+            Report
+        </button>
+
+        <!-- Author Actions (Conditional - Show only if viewing own profile/review) -->
+        <div class="author-actions" style="display: none;"> <!-- Hide container by default -->
+             <button class="btn btn-secondary btn-small edit-review-btn" aria-label="Edit this review">Edit</button>
+             <button class="btn btn-danger btn-small delete-review-btn" aria-label="Delete this review">Delete</button>
+        </div>
+    </div>
+
+</article> <!-- End .review-card -->

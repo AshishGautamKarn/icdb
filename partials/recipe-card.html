@@ -1,0 +1,52 @@
+<!-- ========================================================================= -->
+<!-- partials/recipe-card.html - Reusable Recipe Card Snippet              -->
+<!-- Used in grids/lists to display recipe summary information.            -->
+<!-- All content (images, links, text) needs to be populated dynamically.  -->
+<!-- ========================================================================= -->
+
+<article class="recipe-card card card-interactive">
+
+    <!-- Recipe Thumbnail Image - Links to detail page -->
+    <a href="recipe-detail.html?id=[RECIPE_ID]" class="card-image-link" aria-label="View recipe: [RECIPE_TITLE]"> <!-- Update href, aria-label, title -->
+        <img src="images/placeholder/recipe-thumb-generic.jpg" alt="Image of [RECIPE_TITLE]"> <!-- Update src, alt -->
+    </a>
+
+    <!-- Card Content Area -->
+    <div class="card-content">
+
+        <!-- Recipe Title - Links to detail page -->
+        <h3 class="card-title">
+            <a href="recipe-detail.html?id=[RECIPE_ID]">[RECIPE_TITLE]</a> <!-- Update href, text -->
+        </h3>
+
+        <!-- Rating Display -->
+        <div class="card-rating">
+            <!-- Option 1: Star Characters (Needs styling) -->
+            <span class="rating-stars" aria-label="Rating: [RATING_VALUE] out of 10">[STARS_★★★★☆]</span> <!-- Update stars, aria-label -->
+            <!-- Option 2: Numerical Score -->
+            <span class="rating-text">([RATING_VALUE]/10)</span> <!-- Update rating value -->
+            <!-- Optional: Vote Count -->
+            <!-- <span class="rating-count">([VOTE_COUNT] votes)</span> -->
+        </div>
+
+        <!-- Short Description (Optional) -->
+        <p class="card-description">
+            [SHORT_RECIPE_DESCRIPTION_OR_TAGLINE] <!-- Update text -->
+        </p>
+
+        <!-- Metadata (e.g., Author, Cuisine) -->
+        <div class="card-meta">
+            <!-- Example: Author -->
+            <span class="meta-author">By <a href="chef-detail.html?id=[AUTHOR_ID]">[AUTHOR_NAME]</a></span> <!-- Update href, text -->
+            <!-- Example: Separator -->
+            <span class="meta-separator">|</span>
+            <!-- Example: Cuisine -->
+            <span class="meta-cuisine"><a href="cuisine-detail.html?name=[CUISINE_SLUG]">[CUISINE_NAME]</a></span> <!-- Update href, text -->
+            <!-- Add other relevant metadata like difficulty, time if needed -->
+            <!-- <span class="meta-separator">|</span> -->
+            <!-- <span class="meta-difficulty">[DIFFICULTY]</span> -->
+        </div>
+
+    </div> <!-- End .card-content -->
+
+</article> <!-- End .recipe-card -->

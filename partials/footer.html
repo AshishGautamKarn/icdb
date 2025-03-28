@@ -1,0 +1,49 @@
+<!-- ========================================================================= -->
+<!-- partials/footer.html - Reusable Site Footer                             -->
+<!-- Contains copyright, navigation links, and optional social media links.  -->
+<!-- ========================================================================= -->
+
+<footer class="site-footer">
+    <div class="container">
+
+        <!-- Footer Navigation Links -->
+        <nav class="footer-nav" aria-label="Footer Navigation">
+            <a href="/about.html">About Us</a> |
+            <a href="/contact.html">Contact</a> |
+            <a href="/faq.html">FAQ</a> |
+            <a href="/terms.html">Terms of Service</a> |
+            <a href="/privacy.html">Privacy Policy</a> |
+            <a href="/community-guidelines.html">Community Guidelines</a>
+            <!-- Add other footer links like Sitemap if needed -->
+            <!-- | <a href="/sitemap.html">Sitemap</a> -->
+        </nav>
+
+        <!-- Optional: Social Media Links -->
+        <div class="social-links">
+            <!-- Replace # with actual profile URLs and update alt text -->
+            <a href="#" target="_blank" rel="noopener noreferrer" aria-label="ICDB on Facebook">
+                <img src="images/icons/facebook.svg" alt="Facebook"> <!-- Update path -->
+            </a>
+            <a href="#" target="_blank" rel="noopener noreferrer" aria-label="ICDB on Instagram">
+                <img src="images/icons/instagram.svg" alt="Instagram"> <!-- Update path -->
+            </a>
+            <a href="#" target="_blank" rel="noopener noreferrer" aria-label="ICDB on Pinterest">
+                <img src="images/icons/pinterest.svg" alt="Pinterest"> <!-- Update path -->
+            </a>
+            <a href="#" target="_blank" rel="noopener noreferrer" aria-label="ICDB on Twitter">
+                <img src="images/icons/twitter.svg" alt="Twitter / X"> <!-- Update path -->
+            </a>
+            <!-- Add other social links (e.g., YouTube) if applicable -->
+        </div>
+
+        <!-- Copyright Notice -->
+        <p class="copyright">
+            © <span id="copyright-year">2023</span> ICDB. All rights reserved.
+            <!-- Simple JS to keep the year updated -->
+            <script>
+                document.getElementById('copyright-year').textContent = new Date().getFullYear();
+            </script>
+        </p>
+
+    </div> <!-- End .container -->
+</footer>

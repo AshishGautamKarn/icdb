@@ -1,0 +1,43 @@
+<!-- ========================================================================= -->
+<!-- partials/rating-stars.html - Reusable Star Rating Display Snippet       -->
+<!-- Displays a visual star rating (e.g., 5 stars representing a 0-10 scale).-->
+<!-- Requires pre-calculated number of full/half/empty stars.              -->
+<!-- Relies on SVG icons for stars.                                        -->
+<!-- ========================================================================= -->
+
+<!--
+    Placeholders:
+    [ACCESSIBLE_LABEL]: Required. A screen-reader-friendly description of the rating.
+                        Example: "Rating: 7.5 out of 10 stars" or "Average rating: 4.5 out of 5 stars"
+    [NUM_FULL_STARS]: Required. The number of full stars to display (integer).
+    [HAS_HALF_STAR]:  Required. Boolean (true/false) indicating if a half star should be shown.
+    [NUM_EMPTY_STARS]: Required. The number of empty stars to display (integer).
+                       Should satisfy: [NUM_FULL_STARS] + ([HAS_HALF_STAR] ? 1 : 0) + [NUM_EMPTY_STARS] === 5 (for a 5-star display)
+
+    Example Calculation (for a 0-10 score mapped to 5 stars):
+    - score = 7.5
+    - fullStars = floor(score / 2) = floor(3.75) = 3
+    - hasHalfStar = (score % 2 >= 1) = (1.5 >= 1) = true
+    - emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0) = 5 - 3 - 1 = 1
+    - accessibleLabel = "Rating: 7.5 out of 10 stars"
+-->
+
+<div class="rating-stars-display" aria-label="[ACCESSIBLE_LABEL]">
+    <!-- Loop [NUM_FULL_STARS] times -->
+    <!-- Example for 3 full stars -->
+    <img src="images/icons/star-filled.svg" alt="" aria-hidden="true" class="star-icon filled">
+    <img src="images/icons/star-filled.svg" alt="" aria-hidden="true" class="star-icon filled">
+    <img src="images/icons/star-filled.svg" alt="" aria-hidden="true" class="star-icon filled">
+
+    <!-- Output half star if [HAS_HALF_STAR] is true -->
+    <!-- Example for 1 half star -->
+    <img src="images/icons/star-half.svg" alt="" aria-hidden="true" class="star-icon half">
+
+    <!-- Loop [NUM_EMPTY_STARS] times -->
+    <!-- Example for 1 empty star -->
+    <img src="images/icons/star-empty.svg" alt="" aria-hidden="true" class="star-icon empty">
+
+    <!-- Note: The loops/conditionals above are conceptual. -->
+    <!-- Your templating engine or JS rendering logic will generate -->
+    <!-- the correct sequence of <img> tags based on the calculated values. -->
+</div>

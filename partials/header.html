@@ -1,0 +1,109 @@
+<!-- ========================================================================= -->
+<!-- partials/header.html - Reusable Site Header                             -->
+<!-- Contains Logo, Main Navigation, Search, User Actions.                   -->
+<!-- Dynamic logic (backend or JS) needed to show correct user state.      -->
+<!-- ========================================================================= -->
+
+<header class="site-header">
+    <div class="container header-container">
+
+        <!-- Site Logo -->
+        <a href="index.html" class="logo" aria-label="ICDB Homepage">
+            <img src="images/logo.png" alt="ICDB Logo"> <!-- Update path as needed -->
+            <span>ICDB</span>
+        </a>
+
+        <!-- Main Navigation -->
+        <nav class="main-navigation" aria-label="Main Site Navigation">
+            <ul>
+                <li><a href="search-results.html?type=recipe">Recipes</a></li>
+                <li><a href="search-results.html?type=chef">Chefs</a></li>
+                <li><a href="search-results.html?type=ingredient">Ingredients</a></li>
+                <li><a href="search-results.html?type=cuisine">Cuisines</a></li>
+                <li><a href="forums.html">Community</a></li>
+                <li><a href="submit-recipe.html">Submit Recipe</a></li>
+                <!-- Add more top-level nav items if needed -->
+            </ul>
+        </nav>
+
+        <!-- Header Search Bar -->
+        <!-- The 'value' attribute should be dynamically populated on search results page -->
+        <form action="search-results.html" method="get" class="header-search">
+            <input type="search" name="q" placeholder="Search recipes, chefs..." aria-label="Site Search" value=""> <!-- Clear value by default -->
+            <button type="submit" class="btn btn-icon" aria-label="Search">
+                <img src="images/icons/search.svg" alt="Search Icon" class="icon"> <!-- Update path -->
+            </button>
+        </form>
+
+        <!-- User Actions (Conditional Display: Logged In vs Logged Out) -->
+        <div class="user-actions">
+
+            <!-- == Logged Out State (Shown if user is not logged in) == -->
+            <!-- Use server-side logic or JS to hide/show this block -->
+            <div class="logged-out-state" style="display: none;"> <!-- Hide by default, show dynamically -->
+                 <a href="login.html" class="btn btn-secondary">Login</a>
+                 <a href="register.html" class="btn btn-primary">Sign Up</a>
+            </div>
+
+            <!-- == Logged In State (Shown if user is logged in) == -->
+            <!-- Use server-side logic or JS to hide/show this block -->
+            <div class="logged-in-state"> <!-- Show by default, hide dynamically if logged out -->
+                <div class="user-menu">
+                    <!-- User menu trigger button -->
+                    <button class="btn btn-icon profile-btn" aria-label="User Menu" aria-haspopup="true" aria-expanded="false">
+                        <!-- User Avatar - Update src dynamically -->
+                        <img src="images/placeholder/user-avatar.png" alt="User Avatar" class="avatar-small">
+                    </button>
+                    <!-- Dropdown Menu (Initially hidden by CSS, shown by JS) -->
+                    <div class="dropdown-menu" role="menu">
+                        <!-- Dynamic Link to user's profile -->
+                        <a href="profile.html?user=myCurrentUser" role="menuitem">My Profile</a>
+                        <a href="settings.html" role="menuitem">Settings</a>
+                        <a href="shopping-list.html" role="menuitem">Shopping List</a>
+                        <!-- Maybe link to user's cooklists -->
+                        <a href="/my-cooklists.html" role="menuitem">My Cooklists</a>
+                         <hr role="separator">
+                        <!-- Logout Action - Link or form submit depending on backend -->
+                        <a href="/logout" role="menuitem">Logout</a> <!-- Replace /logout with actual endpoint -->
+                    </div>
+                </div>
+            </div>
+
+        </div> <!-- End .user-actions -->
+
+        <!-- Mobile Navigation Toggle (Hamburger) -->
+        <!-- Add this inside header-container if implementing mobile nav -->
+        <!-- Needs corresponding CSS and JS (main.js) to function -->
+        <!--
+        <button class="mobile-nav-toggle" aria-label="Toggle Navigation" aria-expanded="false" aria-controls="mobile-navigation" style="display: none;"> // Initially hidden, shown via CSS media query
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        -->
+
+    </div> <!-- End .header-container -->
+
+     <!-- Mobile Navigation Container (Placed outside container for full width potentially) -->
+     <!-- Needs corresponding CSS and JS (main.js) to function -->
+     <!--
+     <nav class="mobile-navigation" id="mobile-navigation">
+        // Mobile navigation links copied from main-navigation or simplified
+        <ul>
+            <li><a href="search-results.html?type=recipe">Recipes</a></li>
+            // ... etc ...
+            <li><a href="submit-recipe.html">Submit Recipe</a></li>
+             <hr> // Separator
+             // Include profile/settings/logout links for logged-in mobile users
+            <li><a href="profile.html?user=myCurrentUser">My Profile</a></li>
+            <li><a href="settings.html">Settings</a></li>
+            <li><a href="/logout">Logout</a></li>
+            // Or Login/Sign Up links for logged-out mobile users
+            // <li><a href="login.html">Login</a></li>
+            // <li><a href="register.html">Sign Up</a></li>
+        </ul>
+     </nav>
+     <div class="mobile-nav-overlay" style="display: none;"></div> // Optional overlay
+     -->
+
+</header>
