@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Detailed view of the Classic Lasagna Bolognese recipe, including ingredients, steps, ratings, reviews, and user photos.">
+    <title>Classic Lasagna Bolognese - ICDB</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+
+    <!-- CSS Stylesheets -->
+    <link rel="stylesheet" href="css/layout.css">         <!-- Core layout -->
+    <link rel="stylesheet" href="css/components.css">     <!-- Component styles -->
+    <link rel="stylesheet" href="css/style.css">          <!-- Main theme & overrides -->
+    <link rel="stylesheet" href="css/responsive.css">     <!-- Responsive adjustments -->
+    <link rel="stylesheet" href="css/print.css" media="print"> <!-- Print-specific styles -->
+
+    <!-- Potential JS Libraries (e.g., Material Design Components Web, Chart.js) -->
+    <!-- <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet"> -->
+    <!-- <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script> -->
+
+    <!-- Structured Data (SEO - Important for recipes!) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org/",
+      "@type": "Recipe",
+      "name": "Classic Lasagna Bolognese",
+      "image": [
+        "images/placeholder/recipe-hero.jpg"
+       ],
+      "author": {
+        "@type": "Person",
+        "name": "Chef Anna Rossi"
+      },
+      "datePublished": "2023-10-27",
+      "description": "A rich and meaty lasagna with layers of bolognese sauce, béchamel, pasta, and cheese.",
+      "prepTime": "PT45M",
+      "cookTime": "PT1H30M",
+      "totalTime": "PT2H15M",
+      "recipeYield": "8 servings",
+      "recipeCuisine": "Italian",
+      "keywords": "lasagna, bolognese, italian, pasta, comfort food",
+      // ... other schema properties (ingredients, instructions, nutrition, aggregateRating)
+    }
+    </script>
+
+</head>
+<body>
+
+    <!-- ========================================================================= -->
+    <!-- HEADER                                                                    -->
+    <!-- Includes navigation, search bar, user profile/login actions.            -->
+    <!-- In a dynamic setup, this would be included via templating engine.       -->
+    <!-- ========================================================================= -->
+    <header class="site-header">
+        <!-- Placeholder for header content (Logo, Nav, Search, User Menu) -->
+        <!-- See partials/header.html concept -->
+        <nav>...</nav>
+        <div class="search-bar">...</div>
+        <div class="user-actions">...</div>
+    </header>
+
+    <!-- ========================================================================= -->
+    <!-- MAIN CONTENT AREA                                                         -->
+    <!-- ========================================================================= -->
+    <main class="recipe-detail-page container">
+
+        <!-- == Recipe Header Section == -->
+        <section class="recipe-header card">
+            <!-- Recipe Title -->
+            <h1 class="recipe-title">Classic Lasagna Bolognese</h1>
+
+            <!-- Author/Source Link -->
+            <div class="recipe-author">
+                By <a href="chef-detail.html?id=123">Chef Anna Rossi</a> | Published: Oct 27, 2023
+            </div>
+
+            <!-- Ratings Summary -->
+            <div class="ratings-summary">
+                <!-- Overall Score -->
+                <div class="overall-rating">
+                    <span class="rating-value">8.8</span>/10
+                    <span class="rating-count">(1,234 votes)</span>
+                </div>
+                <!-- Detailed Ratings (Taste, Ease, Authenticity, Visual) -->
+                <div class="detailed-sub-ratings">
+                    <span>Taste: 9.2</span> | <span>Ease: 7.5</span> | <span>Authenticity: 9.0</span> | <span>Visual: 8.5</span>
+                </div>
+                <!-- Placeholder for rating stars component -->
+                <!-- See partials/rating-stars.html concept -->
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="recipe-actions">
+                <button class="btn btn-primary btn-icon" id="add-to-cooklist-btn">
+                    <img src="images/icons/add-to-list.svg" alt="" class="icon"> Add to Cooklist
+                </button>
+                <button class="btn btn-secondary btn-icon" id="add-to-shopping-list-btn">
+                     <img src="images/icons/shopping-cart.svg" alt="" class="icon"> Add to Shopping List
+                </button>
+                <button class="btn btn-secondary btn-icon" id="share-btn">
+                    <img src="images/icons/share.svg" alt="" class="icon"> Share
+                </button>
+                 <button class="btn btn-secondary btn-icon" onclick="window.print();">
+                    <img src="images/icons/print.svg" alt="" class="icon"> Print
+                </button>
+            </div>
+
+            <!-- Hero Image -->
+            <div class="recipe-hero-image">
+                <img src="images/placeholder/recipe-hero.jpg" alt="Delicious looking Classic Lasagna Bolognese">
+            </div>
+
+             <!-- Short Description/Intro -->
+            <p class="recipe-description">
+                A rich and meaty lasagna featuring layers of slow-cooked bolognese sauce, creamy béchamel, fresh pasta sheets, and generous amounts of Parmesan and Mozzarella cheese. A true Italian classic perfect for family dinners.
+            </p>
+        </section>
+
+        <!-- == Recipe Details Tabs/Sections == -->
+        <!-- Using tabs for organization is common, or just sequential sections -->
+        <div class="recipe-content-tabs card">
+            <!-- Tab Navigation -->
+            <nav class="tabs">
+                <button class="tab-link active" data-tab="tab-ingredients">Ingredients</button>
+                <button class="tab-link" data-tab="tab-instructions">Instructions</button>
+                <button class="tab-link" data-tab="tab-details">Details & Info</button>
+                <button class="tab-link" data-tab="tab-notes">Tips & Variations</button>
+                <button class="tab-link" data-tab="tab-media">Photos & Videos</button>
+            </nav>
+
+            <!-- Tab Content: Ingredients -->
+            <section id="tab-ingredients" class="tab-content active">
+                <h2>Ingredients</h2>
+                <div class="recipe-meta-controls">
+                    <!-- Serving Size Adjuster -->
+                    <div class="serving-scaler">
+                        <label for="serving-size">Servings:</label>
+                        <input type="number" id="serving-size" value="8" min="1" step="1">
+                        <button id="update-servings-btn" class="btn btn-small">Update</button>
+                    </div>
+                    <!-- Unit Conversion Toggle -->
+                    <div class="unit-converter">
+                        <button id="toggle-units-btn" class="btn btn-small">Switch to Metric</button>
+                    </div>
+                </div>
+                <ul class="ingredient-list">
+                    <!-- Example Ingredient Item -->
+                    <li data-original-amount="1" data-unit="lb">
+                        <span class="amount">1</span> <span class="unit">lb</span>
+                        <a href="ingredient-detail.html?name=ground-beef" class="ingredient-link">Ground Beef</a> (80/20 lean)
+                    </li>
+                    <li data-original-amount="1" data-unit="large">
+                        <span class="amount">1</span> <span class="unit">large</span>
+                        <a href="ingredient-detail.html?name=onion" class="ingredient-link">Onion</a>, finely chopped
+                    </li>
+                    <li data-original-amount="2" data-unit="cloves">
+                        <span class="amount">2</span> <span class="unit">cloves</span>
+                        <a href="ingredient-detail.html?name=garlic" class="ingredient-link">Garlic</a>, minced
+                    </li>
+                    <li data-original-amount="28" data-unit="oz">
+                        <span class="amount">28</span> <span class="unit">oz</span>
+                        <a href="ingredient-detail.html?name=crushed-tomatoes" class="ingredient-link">Crushed Tomatoes</a>
+                    </li>
+                    <!-- ... More ingredients ... -->
+                    <li data-original-amount="1" data-unit="box">
+                        <span class="amount">1</span> <span class="unit">box</span>
+                        <a href="ingredient-detail.html?name=lasagna-noodles" class="ingredient-link">Lasagna Noodles</a> (oven-ready recommended)
+                    </li>
+                    <!-- Béchamel Sauce Ingredients -->
+                    <!-- Cheese Ingredients -->
+                </ul>
+                <!-- Link to Shopping List Feature -->
+                <p><a href="shopping-list.html">View/Manage My Shopping List</a></p>
+                <!-- Link to Ingredient Substitution Helper -->
+                 <p>Need a substitution? Check the <a href="/forums?topic=substitutions">Ingredient Substitution Forum</a> or the <a href="ingredient-detail.html?name=...">ingredient page</a>.</p>
+            </section>
+
+            <!-- Tab Content: Instructions -->
+            <section id="tab-instructions" class="tab-content">
+                <h2>Instructions</h2>
+                <ol class="instruction-steps">
+                    <!-- Example Instruction Step -->
+                    <li class="step">
+                        <input type="checkbox" id="step-1-check" class="step-checkbox">
+                        <label for="step-1-check" class="step-label">
+                            <strong>Make the Bolognese Sauce:</strong> Heat olive oil in a large pot or Dutch oven over medium heat. Add onion and cook until softened, about 5 minutes. Add ground beef and cook, breaking it up, until browned. Drain excess fat. Stir in garlic and cook for 1 minute until fragrant.
+                            <span class="step-timer" data-duration="300">Start 5 min Timer</span> <!-- Interactive Timer Example -->
+                        </label>
+                        <div class="step-technique-tags">
+                           Techniques: <a href="technique-detail.html?name=sauteing">Sautéing</a>, <a href="technique-detail.html?name=browning">Browning</a>
+                        </div>
+                    </li>
+                    <li class="step">
+                        <input type="checkbox" id="step-2-check" class="step-checkbox">
+                        <label for="step-2-check" class="step-label">
+                            Stir in crushed tomatoes, tomato paste, herbs (oregano, basil), salt, pepper, and a pinch of sugar. Bring to a simmer, then reduce heat and cook, partially covered, for at least 1 hour, stirring occasionally.
+                             <span class="step-timer" data-duration="3600">Start 1 hr Timer</span>
+                        </label>
+                         <div class="step-technique-tags">
+                           Techniques: <a href="technique-detail.html?name=simmering">Simmering</a>
+                        </div>
+                    </li>
+                    <!-- ... More instructions ... -->
+                     <li class="step">
+                        <input type="checkbox" id="step-assembly-check" class="step-checkbox">
+                        <label for="step-assembly-check" class="step-label">
+                           <strong>Assemble the Lasagna:</strong> Preheat oven to 375°F (190°C). Spread a thin layer of bolognese sauce on the bottom of a 9x13 inch baking dish... [Layering instructions]
+                        </label>
+                    </li>
+                    <li class="step">
+                        <input type="checkbox" id="step-bake-check" class="step-checkbox">
+                        <label for="step-bake-check" class="step-label">
+                           <strong>Bake:</strong> Cover with foil and bake for 45 minutes. Remove foil and bake for another 15-20 minutes, or until bubbly and golden brown. Let rest for 10-15 minutes before slicing.
+                            <span class="step-timer" data-duration="2700">Start 45 min Timer</span>
+                        </label>
+                    </li>
+                </ol>
+                <!-- Voice Command Placeholder -->
+                <!-- <button id="voice-command-btn">Use Voice Commands (Next Step, Start Timer)</button> -->
+            </section>
+
+            <!-- Tab Content: Details & Info -->
+            <section id="tab-details" class="tab-content">
+                <h2>Details & Information</h2>
+                <ul class="details-list">
+                    <li><strong>Prep Time:</strong> 45 minutes</li>
+                    <li><strong>Cook Time:</strong> 1 hour 30 minutes</li>
+                    <li><strong>Total Time:</strong> 2 hours 15 minutes</li>
+                    <li><strong>Yield:</strong> 8 servings</li>
+                    <li><strong>Difficulty:</strong> Intermediate</li>
+                    <li><strong>Cuisine:</strong> <a href="cuisine-detail.html?name=italian">Italian</a></li>
+                    <li><strong>Category:</strong> Main Course, Pasta</li>
+                    <li><strong>Nutritional Estimate (per serving):</strong> ~650 calories, 35g Fat, 40g Protein, 45g Carbs (Note: Estimates vary)</li>
+                    <li>
+                        <strong>Dietary & Allergen Tags:</strong> Contains Gluten, Contains Dairy.
+                        <!-- Potentially add icons/badges here -->
+                        <span class="dietary-tag warning">Contains Gluten</span>
+                        <span class="dietary-tag warning">Contains Dairy</span>
+                        <!-- <span class="dietary-tag info">Can be made Gluten-Free (use GF noodles/flour)</span> -->
+                    </li>
+                    <li><strong>Equipment Needed:</strong> <a href="equipment-detail.html?name=dutch-oven">Dutch Oven</a>, <a href="equipment-detail.html?name=baking-dish-9x13">9x13 Baking Dish</a>, Large Saucepan</li>
+                </ul>
+
+                 <!-- Trivia Section -->
+                 <div class="trivia-section">
+                     <h3>Trivia & Fun Facts</h3>
+                     <ul>
+                         <li>The earliest known recipe resembling modern lasagna dates back to Naples in the Middle Ages.</li>
+                         <li>Bolognese sauce traditionally includes milk or cream for richness.</li>
+                     </ul>
+                 </div>
+
+                 <!-- Goofs Section -->
+                  <div class="goofs-section">
+                     <h3>Common Goofs (Community Sourced)</h3>
+                     <ul>
+                         <li>Not letting the lasagna rest before slicing (results in a sloppy serve).</li>
+                         <li>Using no-boil noodles without enough sauce moisture (can result in dry noodles).</li>
+                         <li>Overcooking the bolognese, making it too dry.</li>
+                     </ul>
+                     <button class="btn btn-small">Suggest a Goof</button>
+                 </div>
+            </section>
+
+            <!-- Tab Content: Tips & Variations -->
+            <section id="tab-notes" class="tab-content">
+                <h2>Tips, Notes & Variations</h2>
+                <!-- Official Tips from Author -->
+                <div class="author-tips">
+                    <h3>Chef's Tips</h3>
+                    <ul>
+                        <li>For a richer flavor, use a mix of beef and pork in the bolognese.</li>
+                        <li>Let the bolognese simmer for longer (up to 2-3 hours) for deeper flavor development.</li>
+                        <li>Use fresh mozzarella for a superior melt and taste.</li>
+                    </ul>
+                </div>
+                <!-- Community Variations -->
+                <div class="community-variations">
+                    <h3>Community Variations (Top Voted)</h3>
+                    <div class="variation-card">
+                        <h4>Vegetarian Mushroom Bolognese Lasagna</h4>
+                        <p>Submitted by: <a href="profile.html?user=foodie123">Foodie123</a></p>
+                        <p>Notes: Replaced ground meat with finely chopped cremini mushrooms and lentils. Added extra herbs. Delicious!</p>
+                        <div class="variation-voting">
+                            <span>Helpful?</span>
+                            <button class="vote-up">👍 (15)</button>
+                            <button class="vote-down">👎 (2)</button>
+                        </div>
+                    </div>
+                    <!-- More variation cards -->
+                    <button class="btn btn-primary">Submit Your Variation</button>
+                </div>
+            </section>
+
+            <!-- Tab Content: Media (Photos/Videos) -->
+            <section id="tab-media" class="tab-content">
+                <h2>Photos & Videos</h2>
+                <!-- Official Video Embed -->
+                <div class="video-embed">
+                    <h3>Video Tutorial</h3>
+                    <!-- Placeholder for YouTube/Vimeo embed -->
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/..." frameborder="0" allowfullscreen></iframe>
+                </div>
+                 <!-- "I Made This!" Gallery -->
+                 <div class="i-made-this-gallery">
+                     <h3>"I Made This!" Community Photos</h3>
+                     <div class="photo-grid">
+                         <!-- Example User Photo Card -->
+                         <div class="user-photo-card card-interactive">
+                             <img src="images/placeholder/user-lasagna-1.jpg" alt="User photo of lasagna">
+                             <div class="photo-info">
+                                 <p>By <a href="profile.html?user=cookmaster99">CookMaster99</a></p>
+                                 <p>Notes: Substituted ricotta for béchamel. Turned out great!</p>
+                                 <p>Rated: ★★★★☆</p>
+                             </div>
+                         </div>
+                         <!-- More user photos -->
+                     </div>
+                     <button id="i-made-this-btn" class="btn btn-primary btn-large">
+                         I Made This! (Upload Your Photo & Review)
+                     </button>
+                     <!-- Modal form for upload/review appears on click -->
+                 </div>
+            </section>
+
+        </div> <!-- End Tabs/Sections -->
+
+        <!-- == User Reviews & Ratings Section == -->
+        <section class="reviews-section card">
+            <h2>User Reviews & Ratings</h2>
+
+            <!-- Submit Review Form (Could be a modal triggered by a button) -->
+            <div class="submit-review-form">
+                <h3>Rate & Review This Recipe</h3>
+                <!-- Star Rating Inputs (Taste, Ease, etc.) -->
+                <!-- Review Text Area -->
+                <!-- "Did you make it?" Checkbox -->
+                <!-- Substitution Notes Input -->
+                <!-- Photo Upload -->
+                <!-- Submit Button -->
+                <form id="review-form">
+                    <!-- ... form elements ... -->
+                    <button type="submit" class="btn btn-primary">Submit Review</button>
+                </form>
+            </div>
+
+            <!-- Existing Reviews List -->
+            <div class="reviews-list">
+                <!-- Review Sort/Filter Options -->
+                <div class="review-controls">
+                    <label for="sort-reviews">Sort by:</label>
+                    <select id="sort-reviews">
+                        <option value="helpful">Most Helpful</option>
+                        <option value="newest">Newest</option>
+                        <option value="highest">Highest Rated</option>
+                        <option value="lowest">Lowest Rated</option>
+                    </select>
+                </div>
+
+                <!-- Single Review Card (Placeholder) -->
+                <!-- See partials/review-card.html concept -->
+                <article class="review-card">
+                    <div class="review-author">
+                        <img src="images/placeholder/user-avatar.png" alt="User Avatar" class="avatar">
+                        <a href="profile.html?user=reviewer1">ReviewerOne</a>
+                        <span class="review-date">Nov 5, 2023</span>
+                    </div>
+                    <div class="review-rating">
+                        <!-- Placeholder for rating stars -->
+                        ★★★★☆ (Overall: 8/10)
+                    </div>
+                    <div class="review-body">
+                        <p><strong>Made This:</strong> Yes</p>
+                        <p><strong>Substitutions:</strong> Used cottage cheese instead of béchamel.</p>
+                        <p>This was absolutely fantastic! The bolognese sauce has incredible depth. Took a while but worth it. Using cottage cheese worked surprisingly well for a quicker version. My family loved it!</p>
+                        <img src="images/placeholder/user-lasagna-2.jpg" alt="Reviewer's photo of lasagna" class="review-photo">
+                    </div>
+                    <div class="review-actions">
+                        <span>Was this review helpful?</span>
+                        <button class="vote-helpful-yes">Yes (42)</button>
+                        <button class="vote-helpful-no">No (3)</button>
+                        <button class="report-review">Report</button>
+                    </div>
+                </article>
+                <!-- ... More reviews ... -->
+
+                <!-- Pagination for reviews -->
+                <nav class="pagination">...</nav>
+            </div>
+        </section>
+
+        <!-- == Related Recipes Section == -->
+        <section class="related-recipes card">
+            <h2>You Might Also Like</h2>
+            <div class="recipe-card-grid">
+                <!-- Recipe Card (Placeholder) -->
+                <!-- See partials/recipe-card.html concept -->
+                <div class="recipe-card">
+                    <img src="images/placeholder/related-recipe-1.jpg" alt="Related Recipe">
+                    <h3><a href="recipe-detail.html?id=456">Spaghetti Carbonara</a></h3>
+                    <div class="recipe-card-rating">★★★★☆ (8.5)</div>
+                    <p>Quick Italian classic...</p>
+                </div>
+                <!-- ... More related recipe cards ... -->
+            </div>
+        </section>
+
+         <!-- == Recipe Q&A Section == -->
+         <section class="recipe-qa-section card">
+             <h2>Questions & Answers</h2>
+             <!-- Form to ask a question -->
+             <form id="ask-question-form">
+                 <textarea placeholder="Ask a question about this recipe..."></textarea>
+                 <button type="submit" class="btn btn-primary">Ask Question</button>
+             </form>
+             <!-- List of existing Q&As -->
+             <div class="qa-list">
+                 <div class="qa-item">
+                     <p class="question"><strong>Q:</strong> Can I make this ahead of time?</p>
+                     <p class="answer"><strong>A:</strong> Yes! You can assemble the lasagna completely, cover tightly, and refrigerate for up to 2 days before baking. You might need to add 10-15 minutes to the initial baking time if baking from cold. - Chef Anna Rossi</p>
+                 </div>
+                 <!-- More Q&A -->
+             </div>
+             <a href="/forums?recipeId=123">View All Q&A / Discuss in Forum</a>
+         </section>
+
+    </main>
+
+    <!-- ========================================================================= -->
+    <!-- FOOTER                                                                    -->
+    <!-- Includes copyright, links to about, contact, terms, privacy policy.     -->
+    <!-- In a dynamic setup, this would be included via templating engine.       -->
+    <!-- ========================================================================= -->
+    <footer class="site-footer">
+        <!-- Placeholder for footer content -->
+        <!-- See partials/footer.html concept -->
+        <p>© 2023 ICDB. All rights reserved.</p>
+        <nav>
+            <a href="/about.html">About Us</a> |
+            <a href="/contact.html">Contact</a> |
+            <a href="/terms.html">Terms of Service</a> |
+            <a href="/privacy.html">Privacy Policy</a>
+        </nav>
+    </footer>
+
+    <!-- ========================================================================= -->
+    <!-- SCRIPTS                                                                   -->
+    <!-- ========================================================================= -->
+    <!-- Core JS Libraries (if any, e.g., jQuery - though often avoided now) -->
+    <!-- <script src="js/vendor/jquery.min.js"></script> -->
+
+    <!-- Main Site Logic -->
+    <script src="js/main.js"></script>
+    <!-- Page-Specific Logic -->
+    <script src="js/recipe.js"></script> <!-- Handles scaling, timers, etc. -->
+    <script src="js/reviews.js"></script> <!-- Handles review form submission, voting -->
+    <!-- Component Initializers -->
+    <script src="js/components/tabs.js"></script>
+    <!-- <script src="js/components/modal.js"></script> -->
+
+    <!-- Inline script for initializing components on this page (example) -->
+    <script>
+        // Initialize tabs on this page after DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Example: Assuming Tabs component exists and needs initialization
+             const tabContainer = document.querySelector('.recipe-content-tabs');
+             if (tabContainer) {
+                 // Hypothetical initialization function
+                 // initializeTabs(tabContainer);
+                 console.log("Recipe detail page JS loaded, tabs initialized (concept).");
+             }
+
+             // Add event listeners for recipe-specific buttons
+             // e.g., document.getElementById('add-to-shopping-list-btn').addEventListener('click', addToShoppingList);
+        });
+    </script>
+
+</body>
+</html>

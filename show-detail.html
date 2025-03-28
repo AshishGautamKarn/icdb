@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Update Title and Description Dynamically -->
+    <meta name="description" content="Explore 'Chef's Table': episode guide, featured chefs, reviews, ratings, and culinary insights on ICDB.">
+    <title>Chef's Table - Cooking Show Details - ICDB</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon"> <!-- Update path if needed -->
+
+    <!-- CSS Stylesheets -->
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <!-- Structured Data (SEO for TV Series) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TVSeries",
+      "name": "Chef's Table", // Update dynamically
+      "image": "images/placeholder/show-chefstable.jpg", // Update dynamically (Show Poster/Key Art)
+      "description": "An Emmy-nominated docu-series profiling the world's most renowned and innovative chefs, delving into their philosophies, inspirations, and unique culinary journeys.", // Update dynamically
+      "numberOfSeasons": "6", // Update dynamically (Example)
+      "actor": [ // Use 'actor' or 'creator'/'director' - link to Person schema if available
+        // Example: Listing profiled chefs if appropriate, or creator David Gelb
+        // { "@type": "Person", "name": "Massimo Bottura", "url": "chef-detail.html?id=501" },
+        // { "@type": "Person", "name": "Francis Mallmann" }
+      ],
+       "creator": { // Example creator
+           "@type": "Person",
+           "name": "David Gelb"
+       },
+      "genre": ["Documentary", "Food", "Biography"], // Update dynamically
+      "publisher": { // Network/Streaming Service
+        "@type": "Organization",
+        "name": "Netflix" // Update dynamically
+      },
+      "datePublished": "2015-04-26", // First air date (Update dynamically)
+      "url": "show-detail.html?id=305", // Update dynamically with actual URL
+      // Aggregate Rating based on user reviews
+      // "aggregateRating": {
+      //   "@type": "AggregateRating",
+      //   "ratingValue": "9.2", // Update dynamically
+      //   "reviewCount": "980" // Update dynamically
+      // }
+      // Potential: hasPart for TVSeason/TVEpisode linking
+    }
+    </script>
+
+</head>
+<body>
+
+    <!-- ========================================================================= -->
+    <!-- HEADER (Consistent across site)                                         -->
+    <!-- Include via server-side templating or copy/paste for static version.    -->
+    <!-- ========================================================================= -->
+    <header class="site-header">
+        <!-- Placeholder for header content (Logo, Nav, Search, User Menu) -->
+        <!-- Refer to index.html for full header structure -->
+        <div class="container header-container">
+             <a href="index.html" class="logo" aria-label="ICDB Homepage"><img src="images/logo.png" alt="ICDB Logo"><span>ICDB</span></a>
+             <nav class="main-navigation">...</nav>
+             <form class="header-search">...</form>
+             <div class="user-actions">...</div>
+        </div>
+    </header>
+
+    <!-- ========================================================================= -->
+    <!-- MAIN CONTENT AREA - SHOW DETAIL PAGE                                    -->
+    <!-- ========================================================================= -->
+    <main class="show-detail-page container">
+
+        <!-- == Show Header Section == -->
+        <section class="show-header card">
+            <div class="show-header-content">
+                <!-- Show Poster/Key Art -->
+                <div class="show-poster">
+                    <!-- Update src and alt dynamically -->
+                    <img src="images/placeholder/show-chefstable.jpg" alt="Poster for Chef's Table">
+                </div>
+
+                <!-- Show Core Information -->
+                <div class="show-info">
+                    <!-- Title -->
+                    <h1 class="show-title">Chef's Table</h1> <!-- Update dynamically -->
+                    <!-- Network/Platform, Genre, Status -->
+                    <p class="show-meta">
+                        <!-- Update dynamically -->
+                        <span class="network">Netflix</span> |
+                        <span class="genre">Documentary</span> |
+                        <span class="status">Ended (Original Run) / Specials Ongoing</span> |
+                        <span class="runtime">~50 min/episode</span>
+                    </p>
+                     <!-- Brief Synopsis -->
+                     <p class="show-synopsis-short">A visually stunning docu-series profiling acclaimed international chefs and their unique approaches to food.</p> <!-- Update dynamically -->
+
+                    <!-- Ratings Summary -->
+                    <div class="ratings-summary">
+                        <!-- Overall Score -->
+                        <div class="overall-rating">
+                            <span class="rating-value">9.2</span>/10 <!-- Update dynamically -->
+                            <span class="rating-count">(980 votes)</span> <!-- Update dynamically -->
+                        </div>
+                        <!-- Detailed Ratings (Entertainment, Usefulness/Inspiration) -->
+                        <div class="detailed-sub-ratings">
+                             <!-- Update dynamically -->
+                            <span>Entertainment Value: 9.5</span> | <span>Inspiration/Usefulness: 8.9</span>
+                        </div>
+                         <!-- Placeholder for interactive rating stars component -->
+                         <div class="rating-stars" aria-label="Average rating: 9.2 out of 10">★★★★★</div> <!-- Update dynamically -->
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="show-actions">
+                         <!-- Add to a user list (e.g., 'Watchlist', 'Seen It') -->
+                         <button class="btn btn-primary btn-icon" id="add-to-watchlist-btn" data-show-id="305">
+                            <img src="images/icons/add-to-list.svg" alt="" class="icon"> Add to Watchlist
+                        </button>
+                        <button class="btn btn-secondary btn-icon" id="share-show-btn">
+                            <img src="images/icons/share.svg" alt="" class="icon"> Share
+                        </button>
+                         <!-- Link to official site or streaming platform (optional) -->
+                         <a href="https://www.netflix.com/title/80007945" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-icon"> <!-- Update URL -->
+                            <img src="images/icons/play.svg" alt="" class="icon"> Watch on Netflix
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- == Show Content Tabs/Sections == -->
+        <div class="show-content-tabs card">
+            <!-- Tab Navigation -->
+            <nav class="tabs">
+                <button class="tab-link active" data-tab="tab-overview">Overview</button>
+                <button class="tab-link" data-tab="tab-episodes">Seasons & Episodes</button>
+                <button class="tab-link" data-tab="tab-cast">Featured Chefs</button>
+                <button class="tab-link" data-tab="tab-recipes">Featured Recipes</button>
+                <button class="tab-link" data-tab="tab-reviews">User Reviews</button> <!-- Might show review count -->
+            </nav>
+
+            <!-- Tab Content: Overview -->
+            <section id="tab-overview" class="tab-content active">
+                <h2>About Chef's Table</h2> <!-- Update dynamically -->
+
+                <!-- Full Synopsis -->
+                <div class="content-section">
+                    <h3>Synopsis</h3>
+                    <!-- Update dynamically -->
+                    <p>"Chef's Table" goes inside the lives and kitchens of six of the world's most renowned international chefs. Each episode focuses on a single chef and their unique look at their lives, talents and passion from their piece of culinary heaven. The series provides an intimate, informative, and visually stunning exploration of the culinary world, highlighting personal stories, inspirations, and the evolution of each chef's craft.</p>
+                    <p>Created by David Gelb (director of "Jiro Dreams of Sushi"), the series has expanded beyond its initial run with several spin-offs focusing on specific themes like Pastry, BBQ, and France.</p>
+                </div>
+
+                <!-- Style & Format -->
+                <div class="content-section">
+                    <h3>Style & Format</h3>
+                    <!-- Update dynamically -->
+                    <p>Known for its high production values, cinematic visuals, and in-depth biographical storytelling. Each episode is a self-contained portrait of a chef, combining interviews, kitchen footage, and exploration of their environment and influences.</p>
+                </div>
+            </section>
+
+            <!-- Tab Content: Seasons & Episodes -->
+            <section id="tab-episodes" class="tab-content">
+                <h2>Seasons & Episodes</h2>
+                 <!-- Optional: Season Selector (Dropdown or Links) -->
+                <div class="season-selector">
+                    <label for="select-season">Select Season:</label>
+                    <select id="select-season">
+                        <!-- Update dynamically -->
+                        <option value="1">Season 1 (2015)</option>
+                        <option value="2">Season 2 (2016)</option>
+                        <option value="3">Season 3 (2017)</option>
+                        <option value="4">Pastry (2018)</option>
+                        <option value="5">Season 5 (2018)</option>
+                        <option value="6">Season 6 (2019)</option>
+                        <option value="bbq">BBQ (2020)</option>
+                        <option value="pizza">Pizza (2022)</option>
+                    </select>
+                     <!-- JS would handle updating the episode list based on selection -->
+                </div>
+
+                <!-- Episode List (Dynamically loaded based on selected season) -->
+                <div class="episode-list content-section" id="episode-list-container">
+                    <h3>Season 1 Episodes</h3> <!-- Update dynamically -->
+                    <ol class="episodes">
+                        <!-- Episode Item (Example - Update dynamically) -->
+                        <li class="episode-item">
+                            <div class="episode-header">
+                                <strong>S01E01: Massimo Bottura</strong>
+                                <span class="air-date">April 26, 2015</span>
+                            </div>
+                            <p class="episode-summary">Chef Massimo Bottura balances tradition with modernity at his three-Michelin-star Osteria Francescana in Modena, Italy.</p>
+                            <div class="episode-links">
+                                Featured Chef: <a href="chef-detail.html?id=501">Massimo Bottura</a> |
+                                <!-- If specific recipes are tied to episode -->
+                                <!-- Featured Recipe: <a href="recipe-detail.html?id=...">Recipe Name</a> -->
+                            </div>
+                        </li>
+                         <!-- Episode Item (Example) -->
+                         <li class="episode-item">
+                            <div class="episode-header">
+                                <strong>S01E02: Dan Barber</strong>
+                                <span class="air-date">April 26, 2015</span>
+                            </div>
+                            <p class="episode-summary">Exploring farm-to-table philosophy with Chef Dan Barber at Blue Hill at Stone Barns in New York.</p>
+                             <div class="episode-links">
+                                Featured Chef: <a href="chef-detail.html?id=705">Dan Barber</a>
+                            </div>
+                        </li>
+                        <!-- Add more episodes dynamically -->
+                         <li class="episode-item">
+                            <div class="episode-header">
+                                <strong>S01E03: Francis Mallmann</strong>
+                                <!-- ... -->
+                            </div>
+                             <!-- ... -->
+                        </li>
+                    </ol>
+                </div>
+            </section>
+
+            <!-- Tab Content: Cast (Featured Chefs) -->
+            <section id="tab-cast" class="tab-content">
+                <h2>Featured Chefs</h2>
+                <p>A selection of the globally renowned chefs profiled in the series.</p>
+                <!-- List or Grid of Chefs -->
+                <ul class="featured-chefs-list">
+                     <!-- Update dynamically, link to chef profiles -->
+                     <li><a href="chef-detail.html?id=501"><img src="images/placeholder/chef-bottura-thumb.jpg" alt="Massimo Bottura" class="avatar-medium"> Massimo Bottura</a> (S01E01)</li>
+                     <li><a href="chef-detail.html?id=705"><img src="images/placeholder/chef-barber-thumb.jpg" alt="Dan Barber" class="avatar-medium"> Dan Barber</a> (S01E02)</li>
+                     <li><a href="chef-detail.html?id=706"><img src="images/placeholder/chef-mallmann-thumb.jpg" alt="Francis Mallmann" class="avatar-medium"> Francis Mallmann</a> (S01E03)</li>
+                     <li><a href="chef-detail.html?id=707"><img src="images/placeholder/chef-adria-thumb.jpg" alt="Albert Adria" class="avatar-medium"> Albert Adrià</a> (S02E04)</li>
+                     <li><a href="chef-detail.html?id=708"><img src="images/placeholder/chef-nilsson-thumb.jpg" alt="Magnus Nilsson" class="avatar-medium"> Magnus Nilsson</a> (S01E06)</li>
+                     <li><a href="chef-detail.html?id=709"><img src="images/placeholder/chef-goldfarb-thumb.jpg" alt="Will Goldfarb" class="avatar-medium"> Will Goldfarb</a> (Pastry S04E04)</li>
+                     <!-- Add many more -->
+                </ul>
+                 <div class="section-link">
+                    <a href="search-results.html?type=chef&show=305" class="link-more">View All Featured Chefs...</a> <!-- Update link -->
+                 </div>
+            </section>
+
+            <!-- Tab Content: Featured Recipes -->
+            <section id="tab-recipes" class="tab-content">
+                <h2>Recipes Inspired by Chef's Table</h2>
+                <p>While the show focuses on philosophy, here are recipes inspired by the chefs or dishes featured.</p>
+                 <div class="recipe-card-grid">
+                     <!-- Recipe Card 1 (Placeholder - Load dynamically) -->
+                     <div class="recipe-card card card-interactive">
+                        <a href="recipe-detail.html?id=5001" class="card-image-link"> <!-- Example Link -->
+                            <img src="images/placeholder/recipe-oops-lemon-tart.jpg" alt="Oops! I Dropped The Lemon Tart Thumbnail"> <!-- Update path -->
+                        </a>
+                        <div class="card-content">
+                            <h3 class="card-title"><a href="recipe-detail.html?id=5001">"Oops! I Dropped The Lemon Tart" Inspired Dessert</a></h3>
+                            <div class="card-rating">★★★★★ <span class="rating-text">(9.4/10)</span></div>
+                            <p class="card-description">Inspired by Massimo Bottura's famous deconstructed dessert.</p>
+                        </div>
+                    </div>
+                    <!-- Recipe Card 2 (Placeholder) -->
+                    <div class="recipe-card card card-interactive">
+                        <a href="recipe-detail.html?id=5002" class="card-image-link"> <!-- Example Link -->
+                            <img src="images/placeholder/recipe-pit-cooking.jpg" alt="Open Fire Cooking Thumbnail"> <!-- Update path -->
+                        </a>
+                        <div class="card-content">
+                            <h3 class="card-title"><a href="recipe-detail.html?id=5002">Open Fire Cooking Techniques (Inspired by Mallmann)</a></h3>
+                            <div class="card-rating">★★★★☆ <span class="rating-text">(9.1/10)</span></div>
+                            <p class="card-description">Recipes and techniques reflecting Francis Mallmann's Patagonian style.</p>
+                        </div>
+                    </div>
+                     <!-- Add more representative recipe cards dynamically -->
+                </div>
+                <!-- Link to view all recipes associated with the show -->
+                <div class="section-link">
+                    <a href="search-results.html?type=recipe&show=305" class="btn btn-secondary">View All Recipes Inspired by Chef's Table</a> <!-- Update link -->
+                </div>
+            </section>
+
+            <!-- Tab Content: User Reviews -->
+            <section id="tab-reviews" class="tab-content">
+                <h2>User Reviews & Ratings for Chef's Table</h2> <!-- Update dynamically -->
+
+                <!-- Submit Review Form (Logged-in users only) -->
+                <div class="submit-review-form card-inset">
+                    <h3>Rate & Review This Show</h3>
+                    <form id="show-review-form">
+                         <!-- Rating fields specific to shows -->
+                        <div class="form-group rating-group">
+                            <label>Your Rating:</label>
+                             <div class="sub-rating">
+                                <label for="rating-entertainment">Entertainment Value:</label>
+                                <!-- Star rating input component placeholder -->
+                                <div class="stars" id="rating-entertainment"> ☆☆☆☆☆ </div>
+                            </div>
+                             <div class="sub-rating">
+                                <label for="rating-inspiration">Inspiration / Usefulness:</label>
+                                <div class="stars" id="rating-inspiration"> ☆☆☆☆☆ </div>
+                            </div>
+                             <div class="sub-rating">
+                                <label for="rating-overall-show">Overall:</label>
+                                <div class="stars" id="rating-overall-show"> ☆☆☆☆☆ </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="review-text-show">Your Review:</label>
+                            <textarea id="review-text-show" name="review_text" rows="4" required placeholder="Share your thoughts on the show's storytelling, visuals, featured chefs, and impact..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit Review</button>
+                    </form>
+                </div>
+
+                <!-- Existing Reviews List -->
+                <div class="reviews-list">
+                    <!-- Review Sort/Filter Options -->
+                    <div class="review-controls">
+                        <label for="sort-reviews">Sort by:</label>
+                        <select id="sort-reviews">
+                            <option value="helpful">Most Helpful</option>
+                            <option value="newest">Newest</option>
+                            <option value="highest">Highest Rated</option>
+                            <option value="lowest">Lowest Rated</option>
+                        </select>
+                    </div>
+
+                    <!-- Single Review Card (Placeholder - Load dynamically) -->
+                    <article class="review-card">
+                        <div class="review-author">
+                            <img src="images/placeholder/user-avatar-5.png" alt="User Avatar" class="avatar"> <!-- Update path -->
+                            <a href="profile.html?user=cinephile_foodie">Cinephile_Foodie</a> <!-- Update dynamically -->
+                            <span class="review-date">Mar 01, 2024</span> <!-- Update dynamically -->
+                        </div>
+                        <div class="review-rating">
+                             <!-- Display overall or specific sub-ratings given by this user -->
+                            ★★★★★ (Overall: 10/10, Entertainment: 10/10, Inspiration: 9/10) <!-- Update dynamically -->
+                        </div>
+                        <div class="review-body">
+                             <!-- Update dynamically -->
+                            <p>Absolutely breathtaking television. Each episode is a masterpiece of cinematography and storytelling. It's less about recipes and more about the art, philosophy, and dedication behind high-level cuisine. Incredibly inspiring, even if you'll never cook like them!</p>
+                        </div>
+                        <div class="review-actions">
+                            <span>Was this review helpful?</span>
+                             <!-- Update counts dynamically -->
+                            <button class="vote-helpful-yes">Yes (98)</button>
+                            <button class="vote-helpful-no">No (1)</button>
+                            <button class="report-review">Report</button>
+                        </div>
+                    </article>
+
+                     <!-- Add more review cards dynamically -->
+                     <article class="review-card"> ... </article>
+
+                    <!-- Pagination for reviews -->
+                    <nav class="pagination" aria-label="Review Pagination">
+                        <!-- Pagination links go here -->
+                        <span class="current-page">1</span>
+                        <a href="?id=305&page=2">2</a>
+                        <a href="?id=305&page=3">3</a>
+                        <a href="?id=305&page=2" class="next">Next »</a>
+                    </nav>
+                </div>
+            </section>
+
+        </div> <!-- End Tabs/Sections -->
+
+         <!-- == Related Shows Section == -->
+        <section class="related-shows card">
+            <h2>You Might Also Like</h2>
+            <p>Similar documentary series or cooking shows.</p>
+            <div class="related-items-list">
+                 <!-- Item 1 (Placeholder - Update dynamically) -->
+                <a href="show-detail.html?id=310" class="related-item">
+                     <img src="images/placeholder/show-uglydelicious-thumb.jpg" alt="Ugly Delicious"> <!-- Update path -->
+                     <span>Ugly Delicious</span>
+                 </a>
+                 <!-- Item 2 (Placeholder) -->
+                 <a href="show-detail.html?id=311" class="related-item">
+                     <img src="images/placeholder/show-saltfatacidheat-thumb.jpg" alt="Salt Fat Acid Heat Series"> <!-- Update path -->
+                     <span>Salt Fat Acid Heat</span>
+                 </a>
+                  <!-- Item 3 (Placeholder) -->
+                 <a href="show-detail.html?id=304" class="related-item"> <!-- Link to existing Ramsay example -->
+                     <img src="images/placeholder/show-uncharted-thumb.jpg" alt="Gordon Ramsay: Uncharted"> <!-- Update path -->
+                     <span>Gordon Ramsay: Uncharted</span>
+                 </a>
+                 <!-- Add more related items -->
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ========================================================================= -->
+    <!-- FOOTER (Consistent across site)                                         -->
+    <!-- Include via server-side templating or copy/paste for static version.    -->
+    <!-- ========================================================================= -->
+    <footer class="site-footer">
+        <!-- Placeholder for footer content -->
+        <!-- Refer to index.html for full footer structure -->
+        <div class="container">
+             <nav class="footer-nav">...</nav>
+             <div class="social-links">...</div>
+             <p class="copyright">© 2023 ICDB. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- ========================================================================= -->
+    <!-- SCRIPTS                                                                   -->
+    <!-- ========================================================================= -->
+    <!-- Main Site Logic -->
+    <script src="js/main.js"></script> <!-- Handles header dropdowns, etc. -->
+    <!-- Component Initializers -->
+    <script src="js/components/tabs.js"></script> <!-- To handle tab switching -->
+    <!-- Page-Specific Logic -->
+    <script src="js/reviews.js"></script> <!-- Handles review form submission, voting -->
+    <script src="js/show.js"></script> <!-- Handles show-specific actions like add to list, season selection -->
+
+    <!-- Inline script for initializing components on this page -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize tabs
+            const tabContainer = document.querySelector('.show-content-tabs');
+            if (tabContainer) {
+                // Assuming initializeTabs is defined in tabs.js
+                // initializeTabs(tabContainer);
+                 console.log("Show detail page JS loaded, tabs initialized (concept).");
+            }
+
+            // Add event listeners for show-specific buttons/interactions
+            // e.g., document.getElementById('add-to-watchlist-btn').addEventListener('click', handleAddToWatchlist);
+            // e.g., document.getElementById('show-review-form').addEventListener('submit', handleShowReviewSubmit);
+            // e.g., document.getElementById('select-season').addEventListener('change', handleSeasonChange);
+
+             // Initialize interactive star ratings if using a JS component
+            // e.g., initializeStarRatings(document.querySelectorAll('.stars'));
+        });
+    </script>
+
+</body>
+</html>

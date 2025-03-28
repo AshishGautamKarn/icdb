@@ -1,0 +1,753 @@
+/* ========================================================================= */
+/* components.css - Reusable Component Styles for ICDB                 */
+/* Styles for cards, buttons, forms, tabs, avatars, tags, lists, etc.      */
+/* ========================================================================= */
+
+/* ========================================================================= */
+/* Cards                                                                   */
+/* ========================================================================= */
+.card {
+    background-color: var(--md-surface-color);
+    border-radius: var(--md-border-radius);
+    box-shadow: var(--md-shadow-1);
+    padding: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg); /* Default spacing below cards */
+    overflow: hidden; /* Prevent content overflow issues */
+    transition: box-shadow 0.2s ease-in-out;
+}
+
+/* Elevated shadow on hover for interactive cards */
+.card-interactive:hover {
+    box-shadow: var(--md-shadow-3);
+}
+
+/* Card content areas */
+.card-content {
+    /* Can add padding here if not directly on .card, but usually padding is on .card */
+}
+
+.card-title {
+    margin-top: 0; /* Remove top margin if it's the first element */
+    margin-bottom: var(--spacing-sm);
+    font-size: 1.25rem; /* Example size for card titles */
+    font-weight: 500;
+}
+.card-title a {
+     color: inherit; /* Inherit color from heading */
+     text-decoration: none;
+}
+.card-title a:hover {
+    color: var(--md-primary-color);
+    text-decoration: underline;
+}
+
+.card-description {
+    color: var(--md-text-secondary-color);
+    font-size: 0.9rem;
+    margin-bottom: var(--spacing-md);
+    line-height: 1.5;
+}
+
+.card-meta {
+    font-size: 0.85rem;
+    color: var(--md-text-hint-color);
+}
+.card-meta a {
+    color: var(--md-text-secondary-color); /* Slightly darker than hint */
+}
+.card-meta a:hover {
+    color: var(--md-primary-color);
+}
+
+.card-image-link {
+    display: block;
+    margin: calc(-1 * var(--spacing-lg)) calc(-1 * var(--spacing-lg)) var(--spacing-md) calc(-1 * var(--spacing-lg)); /* Make image flush with card top/sides */
+    overflow: hidden;
+}
+.card-image-link img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9; /* Common aspect ratio for thumbs */
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+.card-interactive:hover .card-image-link img {
+    transform: scale(1.03); /* Subtle zoom on hover */
+}
+
+/* Card overlay (used in 'I Made This' gallery) */
+.card-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 100%);
+    padding: var(--spacing-lg) var(--spacing-md) var(--spacing-sm) var(--spacing-md);
+    color: #fff;
+    font-size: 0.9rem;
+    opacity: 0; /* Hidden by default */
+    transition: opacity 0.3s ease;
+}
+.card-overlay p {
+    margin: 0 0 var(--spacing-xs) 0;
+    font-weight: 500;
+}
+.card-overlay span {
+    font-size: 0.8rem;
+    opacity: 0.8;
+}
+.card-interactive:hover .card-overlay {
+    opacity: 1; /* Show overlay on hover */
+}
+.i-made-this-card, .user-photo-card { /* Ensure position relative for overlay */
+    position: relative;
+}
+
+/* Specific Card Type: Recipe Card */
+.recipe-card .card-rating {
+    margin-bottom: var(--spacing-sm);
+    font-size: 0.9rem;
+}
+
+
+/* ========================================================================= */
+/* Buttons                                                                 */
+/* ========================================================================= */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-sm) var(--spacing-md);
+    font-family: var(--md-font-family);
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border: none;
+    border-radius: var(--md-border-radius);
+    cursor: pointer;
+    text-decoration: none;
+    line-height: 1.5;
+    transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out, border-color 0.2s ease-in-out, color 0.2s ease-in-out;
+    position: relative;
+    overflow: hidden;
+    vertical-align: middle;
+    text-align: center;
+    user-select: none; /* Prevent text selection on click */
+}
+.btn:hover, .btn:focus {
+    text-decoration: none;
+    outline: none;
+}
+.btn:focus-visible { /* Use focus-visible for accessibility */
+    box-shadow: 0 0 0 3px rgba(var(--md-primary-color-rgb, 255, 111, 0), 0.3); /* Needs RGB variable */
+}
+.btn:disabled, .btn.disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+/* -- Button Types -- */
+/* Primary (Filled) */
+.btn-primary {
+    background-color: var(--md-primary-color);
+    color: var(--md-on-primary-color);
+    box-shadow: var(--md-shadow-1);
+}
+.btn-primary:hover {
+    background-color: var(--md-primary-dark-color);
+    box-shadow: var(--md-shadow-2);
+}
+.btn-primary:disabled { background-color: var(--md-primary-color); }
+
+/* Secondary (Outlined) */
+.btn-secondary {
+    background-color: transparent;
+    color: var(--md-primary-color);
+    border: 1px solid var(--md-primary-color);
+    box-shadow: none;
+}
+.btn-secondary:hover {
+    background-color: rgba(var(--md-primary-color-rgb, 255, 111, 0), 0.08); /* Needs RGB variable */
+    border-color: var(--md-primary-dark-color);
+    color: var(--md-primary-dark-color);
+}
+.btn-secondary:disabled { color: var(--md-primary-color); border-color: var(--md-primary-color); }
+
+/* Text Button */
+.btn-text {
+     background-color: transparent;
+     color: var(--md-primary-color);
+     box-shadow: none;
+     border: none;
+     padding-left: var(--spacing-sm);
+     padding-right: var(--spacing-sm);
+}
+.btn-text:hover {
+     background-color: rgba(var(--md-primary-color-rgb, 255, 111, 0), 0.08);
+}
+.btn-text:disabled { color: var(--md-primary-color); }
+
+/* Danger Button */
+.btn-danger {
+    background-color: var(--md-error-color);
+    color: var(--md-on-error-color);
+    box-shadow: var(--md-shadow-1);
+}
+.btn-danger:hover {
+    /* Use a slightly darker red, maybe define --md-error-dark-color */
+    background-color: #98001a; /* Darker red example */
+    box-shadow: var(--md-shadow-2);
+}
+.btn-danger:disabled { background-color: var(--md-error-color); }
+
+/* -- Button Sizes -- */
+.btn-small {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    font-size: 0.8rem;
+}
+.btn-large {
+    padding: var(--spacing-md) var(--spacing-lg);
+    font-size: 1rem;
+}
+
+/* -- Icon Handling -- */
+.btn .icon {
+    width: 1.2em;
+    height: 1.2em;
+    /* Adjust based on icon style/library */
+    fill: currentColor; /* Make SVG icons inherit button text color */
+}
+.btn:not(.btn-icon) .icon { /* If button has text AND icon */
+    margin-right: var(--spacing-sm);
+}
+.btn-icon { /* Button with only an icon */
+    padding: var(--spacing-sm);
+    min-width: auto;
+    border-radius: 50%; /* Make icon buttons circular */
+}
+.btn-icon .icon {
+    margin-right: 0;
+}
+
+/* -- Other Button Styles -- */
+.btn-block {
+    display: block;
+    width: 100%;
+}
+
+
+/* ========================================================================= */
+/* Forms                                                                   */
+/* ========================================================================= */
+.form-group {
+    margin-bottom: var(--spacing-lg);
+}
+.form-group label:not(.checkbox-group label) { /* Exclude checkbox labels */
+    display: block;
+    font-weight: 500;
+    margin-bottom: var(--spacing-sm);
+    font-size: 0.9em;
+    color: var(--md-text-secondary-color);
+}
+
+/* Standard Text Inputs, Textarea, Select */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="search"],
+input[type="number"],
+input[type="url"],
+input[type="tel"],
+textarea,
+select {
+    display: block;
+    width: 100%;
+    padding: var(--spacing-md); /* Slightly more padding */
+    font-family: var(--md-font-family);
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--md-on-surface-color);
+    background-color: var(--md-surface-color);
+    border: 1px solid var(--md-border-color);
+    border-radius: var(--md-border-radius);
+    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    background-clip: padding-box; /* Ensure background doesn't overlap border */
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="search"]:focus,
+input[type="number"]:focus,
+input[type="url"]:focus,
+input[type="tel"]:focus,
+textarea:focus,
+select:focus {
+    border-color: var(--md-primary-color);
+    box-shadow: 0 0 0 2px rgba(var(--md-primary-color-rgb, 255, 111, 0), 0.2); /* Needs RGB */
+    outline: none;
+}
+
+/* Readonly/Disabled Inputs */
+input[readonly], input[disabled], textarea[readonly], textarea[disabled], select[disabled] {
+    background-color: var(--md-background-color); /* Slightly different background */
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+/* Input specific styles */
+textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23757575'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E"); /* Arrow Icon */
+    background-repeat: no-repeat;
+    background-position: right var(--spacing-md) center;
+    background-size: 1.3em;
+    padding-right: calc(var(--spacing-md) * 3); /* More space for arrow */
+}
+
+/* Checkbox & Radio */
+.checkbox-group, .radio-buttons {
+    /* No specific styles needed on container unless grouping visually */
+}
+.checkbox-group label,
+.radio-buttons label {
+    display: inline-flex;
+    align-items: center;
+    margin-right: var(--spacing-lg);
+    margin-bottom: var(--spacing-sm);
+    font-weight: 400;
+    font-size: 1rem;
+    cursor: pointer;
+    position: relative;
+}
+.checkbox-group input[type="checkbox"],
+.radio-buttons input[type="radio"] {
+    /* Using appearance:none and custom styling is complex. */
+    /* Using browser defaults with minor adjustments for consistency: */
+    margin-right: var(--spacing-sm);
+    width: 1.1em;
+    height: 1.1em;
+    flex-shrink: 0;
+    /* Basic accent color */
+    accent-color: var(--md-primary-color);
+}
+
+/* Filter List Styling (used with checkboxes/radios in filters) */
+.filter-list {
+    list-style: none;
+    padding-left: 0;
+    margin-top: var(--spacing-sm);
+}
+.filter-list li {
+    margin-bottom: var(--spacing-xs);
+}
+
+/* Form Messages (Success/Error) */
+.form-message {
+    padding: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+    border-radius: var(--md-border-radius);
+    border: 1px solid transparent;
+    font-size: 0.9em;
+    display: none; /* Hidden by default, shown by JS */
+}
+.form-message.error {
+    color: var(--md-error-color);
+    background-color: rgba(var(--md-error-color-rgb, 176, 0, 32), 0.1); /* Needs RGB */
+    border-color: rgba(var(--md-error-color-rgb, 176, 0, 32), 0.3);
+}
+.form-message.success {
+    color: var(--md-secondary-dark-color); /* Green */
+    background-color: rgba(var(--md-secondary-color-rgb, 76, 175, 80), 0.1); /* Needs RGB */
+    border-color: rgba(var(--md-secondary-color-rgb, 76, 175, 80), 0.3);
+}
+/* Field specific error message */
+.field-error {
+    color: var(--md-error-color);
+    font-size: 0.8em;
+    display: block;
+    margin-top: var(--spacing-xs);
+    min-height: 1em; /* Prevent layout shifts when shown/hidden */
+}
+
+/* Form Actions (Button grouping) */
+.form-actions {
+    margin-top: var(--spacing-lg);
+    display: flex;
+    flex-wrap: wrap; /* Allow buttons to wrap */
+    gap: var(--spacing-md);
+    justify-content: flex-start;
+}
+
+/* Image Upload Previews */
+.upload-preview {
+    margin-top: var(--spacing-md);
+    max-width: 200px; /* Limit preview size */
+    border: 1px dashed var(--md-border-color);
+    padding: var(--spacing-xs);
+    display: none; /* Hidden initially */
+}
+.upload-preview img {
+    max-width: 100%;
+    display: block;
+}
+
+
+/* ========================================================================= */
+/* Tabs                                                                    */
+/* ========================================================================= */
+.tabs {
+    display: flex;
+    border-bottom: 1px solid var(--md-border-color);
+    margin-bottom: var(--spacing-lg);
+    overflow-x: auto; /* Horizontal scroll on small screens */
+    background-color: var(--md-surface-color); /* Ensure bg color */
+    -webkit-overflow-scrolling: touch; /* Smooth scroll on iOS */
+}
+.tab-link {
+    padding: var(--spacing-md) var(--spacing-lg);
+    cursor: pointer;
+    border: none;
+    background: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--md-text-secondary-color);
+    border-bottom: 3px solid transparent;
+    margin-bottom: -1px; /* Overlap container border */
+    white-space: nowrap;
+    text-decoration: none;
+    transition: color 0.2s ease, border-color 0.2s ease;
+    flex-shrink: 0; /* Prevent tabs shrinking too much */
+}
+.tab-link:hover {
+    color: var(--md-primary-dark-color);
+    background-color: rgba(var(--md-primary-color-rgb, 255, 111, 0), 0.04); /* Subtle hover */
+    text-decoration: none;
+}
+.tab-link.active,
+.tab-link[aria-current="page"] {
+    color: var(--md-primary-color);
+    border-bottom-color: var(--md-primary-color);
+    font-weight: 700;
+}
+/* Tab Content handled in style.css/layout.css */
+
+
+/* ========================================================================= */
+/* Avatars                                                                 */
+/* ========================================================================= */
+.avatar, .avatar-small, .avatar-medium, .avatar-large {
+    border-radius: 50%;
+    object-fit: cover;
+    background-color: var(--md-border-color); /* Placeholder background */
+    vertical-align: middle;
+    flex-shrink: 0; /* Prevent shrinking in flex layouts */
+}
+.avatar-small { width: 32px; height: 32px; }
+.avatar { width: 40px; height: 40px; }
+.avatar-medium { width: 60px; height: 60px; }
+.avatar-large { width: 120px; height: 120px; }
+
+
+/* ========================================================================= */
+/* Tags                                                                    */
+/* ========================================================================= */
+.tag, .dietary-tag, .characteristic-tags span, .badge-name { /* Include badge names for similar styling */
+    display: inline-block;
+    background-color: rgba(0,0,0,0.08); /* Subtle background */
+    color: var(--md-text-secondary-color);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: 1em; /* Pill shape */
+    font-size: 0.8em;
+    font-weight: 500;
+    margin-right: var(--spacing-sm);
+    margin-bottom: var(--spacing-sm);
+    white-space: nowrap;
+    line-height: 1.4;
+}
+/* Specific Tag types */
+.dietary-tag.warning {
+    background-color: rgba(var(--md-error-color-rgb, 176, 0, 32), 0.1);
+    color: var(--md-error-color);
+    border: 1px solid rgba(var(--md-error-color-rgb, 176, 0, 32), 0.3);
+}
+.characteristic-tags { /* Container for multiple tags */
+    margin-top: var(--spacing-md);
+}
+
+
+/* ========================================================================= */
+/* Badges (Gamification)                                                   */
+/* ========================================================================= */
+.badge-grid {
+    display: grid;
+    gap: var(--spacing-md);
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); /* Grid for badges */
+    text-align: center;
+}
+.badge-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+.badge-item img {
+    width: 64px; /* Adjust badge image size */
+    height: 64px;
+    object-fit: contain;
+}
+.badge-item .badge-name {
+    margin: 0; /* Reset tag margins */
+    border-radius: var(--md-border-radius); /* Slightly less rounded than tags */
+}
+
+
+/* ========================================================================= */
+/* Lists (Ingredients, Instructions, Users, Activity Feed)                 */
+/* ========================================================================= */
+
+/* Basic List Resets */
+.ingredient-list,
+.instruction-steps,
+.activity-feed,
+.user-list,
+.cooklist-list,
+.works-list, /* Cookbooks/Shows lists */
+.key-elements-list,
+.notable-list, /* Chef/Cookbook list on Cuisine page */
+.related-items-list,
+.tips-list,
+.goofs-list,
+.substitution-list {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: var(--spacing-lg);
+}
+.ingredient-list li,
+.instruction-steps li,
+.activity-feed li,
+.user-list li,
+.cooklist-list li,
+.works-list li,
+.key-elements-list li,
+.notable-list li,
+.tips-list li,
+.goofs-list li,
+.substitution-list li {
+    margin-bottom: var(--spacing-md); /* Consistent spacing between list items */
+}
+
+/* Ingredient List (Recipe Detail) */
+.ingredient-list .amount { font-weight: 500; margin-right: var(--spacing-xs); }
+.ingredient-list .unit { margin-right: var(--spacing-sm); }
+.ingredient-list .ingredient-link { font-weight: 500; }
+
+/* Instruction Steps (Recipe Detail & Technique How-To) */
+.instruction-steps {
+    list-style: decimal inside; /* Numbered steps */
+    padding-left: var(--spacing-md);
+}
+.instruction-steps .step {
+    margin-bottom: var(--spacing-lg);
+}
+.instruction-steps .step-label {
+    display: block; /* Ensure label takes width */
+    line-height: 1.5;
+}
+.instruction-steps input[type="checkbox"] { /* Optional interactive checkbox */
+    margin-right: var(--spacing-md);
+    vertical-align: top; /* Align checkbox with start of text */
+}
+.step-technique-tags, .step-timer {
+    font-size: 0.85em;
+    color: var(--md-text-hint-color);
+    margin-top: var(--spacing-xs);
+    padding-left: 2.2em; /* Indent under step text if checkbox used */
+}
+
+/* User List (Following/Followers) */
+.user-list-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    padding: var(--spacing-sm) 0;
+    border-bottom: 1px solid var(--md-border-color);
+}
+.user-list-item:last-child { border-bottom: none; }
+.user-list-item .username { font-weight: 500; }
+.user-list-item a { display: flex; align-items: center; gap: var(--spacing-md); color: inherit; text-decoration: none; }
+.user-list-item a:hover .username { color: var(--md-primary-color); }
+
+/* Activity Feed */
+.activity-item {
+    display: flex;
+    gap: var(--spacing-md);
+    padding: var(--spacing-md) 0;
+    border-bottom: 1px solid var(--md-border-color);
+}
+.activity-item:last-child { border-bottom: none; }
+.activity-icon {
+    width: 24px; height: 24px; flex-shrink: 0; margin-top: var(--spacing-xs);
+    fill: var(--md-text-secondary-color); /* SVG icon color */
+}
+.activity-content p { margin-bottom: var(--spacing-xs); }
+.activity-content .activity-snippet { font-style: italic; color: var(--md-text-secondary-color); font-size: 0.9em; }
+.activity-timestamp { font-size: 0.8em; color: var(--md-text-hint-color); }
+.activity-photo-thumb { max-width: 80px; border-radius: var(--md-border-radius); margin-top: var(--spacing-sm); }
+
+/* Forum List Items */
+.forum-item {
+    display: grid;
+    grid-template-columns: auto 1fr auto auto; /* Icon | Info | Stats | Last Post */
+    gap: var(--spacing-md);
+    align-items: center;
+    padding: var(--spacing-md) 0;
+    border-bottom: 1px solid var(--md-border-color);
+}
+.forum-item:last-child { border-bottom: none; }
+.forum-icon img { width: 32px; height: 32px; }
+.forum-info h3 { font-size: 1.1rem; margin: 0 0 var(--spacing-xs) 0; }
+.forum-info .forum-description { font-size: 0.9em; color: var(--md-text-secondary-color); margin: 0; }
+.forum-stats { font-size: 0.85em; color: var(--md-text-hint-color); text-align: right; white-space: nowrap; }
+.forum-stats span { display: block; }
+.forum-last-post { font-size: 0.85em; text-align: right; min-width: 180px; }
+.forum-last-post a { font-weight: 500; }
+.forum-last-post p { margin: 0; color: var(--md-text-secondary-color); }
+.forum-last-post .timestamp { display: block; color: var(--md-text-hint-color); font-size: 0.9em; margin-top: var(--spacing-xs); }
+
+/* Shopping List Item */
+.shopping-list-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-bottom: 1px solid var(--md-border-color);
+    transition: background-color 0.2s;
+}
+.shopping-list-item:hover {
+    background-color: rgba(0,0,0,0.03);
+}
+.shopping-list-item:last-child { border-bottom: none; }
+.shopping-list-item .item-checkbox { width: 1.2em; height: 1.2em; flex-shrink: 0; accent-color: var(--md-primary-color); }
+.shopping-list-item .item-details { flex-grow: 1; display: flex; flex-wrap: wrap; gap: var(--spacing-sm); align-items: baseline; cursor: pointer; }
+.shopping-list-item .item-qty-unit { font-weight: 500; white-space: nowrap; }
+.shopping-list-item .item-qty-input { /* Style inline editable qty */
+    width: 40px; padding: 2px 4px; font-size: 0.9em; text-align: right; border: 1px solid transparent; background: transparent; border-radius: 3px;
+}
+.shopping-list-item .item-qty-input:focus { border-color: var(--md-primary-color); background: white; box-shadow: 0 0 0 1px var(--md-primary-color); }
+.shopping-list-item .item-name { flex-grow: 1; }
+.shopping-list-item .item-name a { color: inherit; text-decoration: none; }
+.shopping-list-item .item-name a:hover { color: var(--md-primary-color); text-decoration: underline; }
+.shopping-list-item .item-source { font-size: 0.8em; color: var(--md-text-hint-color); font-style: italic; }
+.shopping-list-item .item-actions { flex-shrink: 0; }
+.shopping-list-item .remove-item-btn { padding: var(--spacing-xs); } /* Smaller remove button */
+/* Checked State for Shopping List Item */
+.shopping-list-item .item-details.item-checked {
+    text-decoration: line-through;
+    opacity: 0.7;
+}
+.shopping-list-item .item-details.item-checked .item-name a {
+     /* Optional: change link color when checked */
+}
+
+/* ========================================================================= */
+/* Rating Stars (Basic Display)                                            */
+/* ========================================================================= */
+.rating-stars { /* Basic display using text characters */
+    color: #FFC107; /* Gold color for stars */
+    font-size: 1.2em; /* Adjust size */
+    letter-spacing: 2px;
+}
+/* Interactive stars (for input) would require more complex CSS/JS */
+.rating-value { font-weight: 700; font-size: 1.1em; }
+.rating-count, .rating-text { font-size: 0.9em; color: var(--md-text-hint-color); margin-left: var(--spacing-sm); }
+.ratings-summary { margin-bottom: var(--spacing-md); }
+.detailed-sub-ratings { font-size: 0.9em; color: var(--md-text-secondary-color); margin-top: var(--spacing-xs); }
+
+
+/* ========================================================================= */
+/* Pagination                                                              */
+/* ========================================================================= */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: var(--spacing-lg);
+    gap: var(--spacing-sm);
+}
+.pagination a, .pagination span {
+    padding: var(--spacing-sm) var(--spacing-md);
+    border: 1px solid var(--md-border-color);
+    border-radius: var(--md-border-radius);
+    text-decoration: none;
+    color: var(--md-primary-color);
+    background-color: var(--md-surface-color);
+    transition: background-color 0.2s, color 0.2s;
+    white-space: nowrap;
+}
+.pagination a:hover {
+    background-color: rgba(var(--md-primary-color-rgb, 255, 111, 0), 0.08);
+    border-color: var(--md-primary-color);
+}
+.pagination .current-page {
+    background-color: var(--md-primary-color);
+    color: var(--md-on-primary-color);
+    border-color: var(--md-primary-color);
+    font-weight: 700;
+    z-index: 1;
+}
+.pagination .ellipsis {
+    border: none;
+    background: none;
+    padding: var(--spacing-sm) var(--spacing-xs);
+    color: var(--md-text-hint-color);
+}
+.pagination .prev.disabled, .pagination .next.disabled {
+    color: var(--md-text-hint-color);
+    background-color: var(--md-background-color);
+    border-color: var(--md-border-color);
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+
+/* ========================================================================= */
+/* Modals / Dropdowns (Placeholder Structure - Needs JS)                   */
+/* ========================================================================= */
+/* Basic Dropdown */
+.dropdown-menu {
+    display: none; /* Hidden by default */
+    position: absolute;
+    background-color: var(--md-surface-color);
+    box-shadow: var(--md-shadow-3);
+    border-radius: var(--md-border-radius);
+    z-index: 1000;
+    min-width: 160px;
+    overflow: hidden; /* Clips ripple effect if added */
+}
+.user-menu { position: relative; } /* Position dropdown relative to trigger */
+.user-menu .dropdown-menu { /* Example positioning */
+     right: 0;
+     top: 100%;
+     margin-top: var(--spacing-sm);
+}
+.dropdown-menu a {
+    display: block;
+    padding: var(--spacing-sm) var(--spacing-md);
+    color: var(--md-on-surface-color);
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+.dropdown-menu a:hover {
+    background-color: rgba(0,0,0,0.05);
+}
+/* JS will toggle display: block/none or add/remove an 'open' class */
+
+/* --- Add more component styles as needed --- */

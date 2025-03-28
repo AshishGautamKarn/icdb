@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Manage your ICDB account settings, profile information, preferences, notifications, and security.">
+    <!-- Noindex is generally appropriate for settings pages -->
+    <meta name="robots" content="noindex, nofollow">
+    <title>Account Settings - ICDB</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon"> <!-- Update path if needed -->
+
+    <!-- CSS Stylesheets -->
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+</head>
+<body>
+
+    <!-- ========================================================================= -->
+    <!-- HEADER (Consistent across site)                                         -->
+    <!-- Include via server-side templating or copy/paste for static version.    -->
+    <!-- ========================================================================= -->
+    <header class="site-header">
+        <!-- Placeholder for header content (Logo, Nav, Search, User Menu showing logged-in state) -->
+        <div class="container header-container">
+             <a href="index.html" class="logo" aria-label="ICDB Homepage"><img src="images/logo.png" alt="ICDB Logo"><span>ICDB</span></a>
+             <nav class="main-navigation">...</nav>
+             <form class="header-search">...</form>
+             <div class="user-actions">
+                <!-- Assume Logged In State -->
+                <div class="user-menu">
+                    <button class="btn btn-icon profile-btn" aria-label="User Menu">
+                        <img src="images/placeholder/user-avatar.png" alt="User Avatar" class="avatar-small"> <!-- Dynamic Avatar -->
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="profile.html?user=myCurrentUser">My Profile</a> <!-- Dynamic Link -->
+                        <a href="settings.html">Settings</a>
+                        <a href="#">My Cooklists</a>
+                        <a href="#">Logout</a> <!-- Placeholder action -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ========================================================================= -->
+    <!-- MAIN CONTENT AREA - SETTINGS PAGE                                       -->
+    <!-- ========================================================================= -->
+    <main class="settings-page container">
+
+        <h1 class="page-title">Account Settings</h1>
+
+        <div class="settings-layout">
+
+            <!-- == Settings Navigation Sidebar == -->
+            <aside class="settings-nav card">
+                <nav aria-label="Settings Sections">
+                    <ul>
+                        <li><a href="#profile-settings" class="nav-link active" aria-current="page">Profile Information</a></li>
+                        <li><a href="#account-settings" class="nav-link">Account & Security</a></li>
+                        <li><a href="#preferences-settings" class="nav-link">Site Preferences</a></li>
+                        <li><a href="#notifications-settings" class="nav-link">Notifications</a></li>
+                        <li><a href="#privacy-settings" class="nav-link">Privacy & Data</a></li>
+                         <!-- Optional: <li><a href="#connected-accounts" class="nav-link">Connected Accounts</a></li> -->
+                    </ul>
+                </nav>
+            </aside>
+
+            <!-- == Settings Content Area == -->
+            <div class="settings-content">
+
+                <!-- Section: Profile Information -->
+                <section id="profile-settings" class="settings-section card active">
+                    <h2>Profile Information</h2>
+                    <form id="profile-info-form">
+                        <!-- User Feedback Area -->
+                        <div class="form-message" id="profile-message" role="alert"></div>
+
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <input type="text" id="username" name="username" value="Foodie123" readonly disabled> <!-- Usually username is not changeable or requires special process -->
+                            <small>Username cannot be changed.</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="real_name">Real Name (Optional)</label>
+                            <input type="text" id="real_name" name="real_name" value="Alice Smith" placeholder="Your full name (publicly visible if filled)"> <!-- Load dynamically -->
+                        </div>
+
+                        <div class="form-group">
+                            <label for="location">Location (Optional)</label>
+                            <input type="text" id="location" name="location" value="London, UK" placeholder="E.g., City, Country"> <!-- Load dynamically -->
+                        </div>
+
+                        <div class="form-group">
+                            <label for="bio">Bio</label>
+                            <textarea id="bio" name="bio" rows="5" placeholder="Tell us a little about yourself... (Appears on your profile)">Passionate home cook exploring world cuisines. Loves baking and trying new techniques!</textarea> <!-- Load dynamically -->
+                        </div>
+
+                        <div class="form-group avatar-upload">
+                            <label>Avatar</label>
+                            <div class="current-avatar">
+                                <img src="images/placeholder/user-avatar-lg.png" alt="Current Avatar" id="current-avatar-img"> <!-- Load dynamically -->
+                            </div>
+                            <label for="avatar-upload-input" class="btn btn-secondary">Upload New Avatar</label>
+                            <input type="file" id="avatar-upload-input" name="avatar" accept="image/png, image/jpeg, image/gif" style="display: none;">
+                            <small>Recommended size: 200x200px. Max file size: 2MB.</small>
+                             <div id="avatar-preview" class="upload-preview"></div>
+                        </div>
+
+                        <div class="form-group cover-photo-upload">
+                            <label>Profile Cover Photo</label>
+                            <div class="current-cover-photo">
+                                <img src="images/placeholder/profile-cover.jpg" alt="Current Cover Photo" id="current-cover-img"> <!-- Load dynamically -->
+                            </div>
+                            <label for="cover-upload-input" class="btn btn-secondary">Upload New Cover Photo</label>
+                            <input type="file" id="cover-upload-input" name="cover_photo" accept="image/png, image/jpeg" style="display: none;">
+                             <small>Recommended size: 1200x300px. Max file size: 5MB.</small>
+                             <div id="cover-preview" class="upload-preview"></div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary">Save Profile Changes</button>
+                        </div>
+                    </form>
+                </section>
+
+                <!-- Section: Account & Security -->
+                <section id="account-settings" class="settings-section card">
+                    <h2>Account & Security</h2>
+                    <!-- User Feedback Area -->
+                    <div class="form-message" id="account-message" role="alert"></div>
+
+                    <!-- Change Email -->
+                    <form id="change-email-form">
+                        <fieldset>
+                            <legend>Change Email Address</legend>
+                             <div class="form-group">
+                                <label>Current Email</label>
+                                <p><strong>user@example.com</strong></p> <!-- Load dynamically -->
+                            </div>
+                            <div class="form-group">
+                                <label for="new_email">New Email Address</label>
+                                <input type="email" id="new_email" name="new_email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="current_password_email">Current Password (to confirm)</label>
+                                <input type="password" id="current_password_email" name="current_password" required autocomplete="current-password">
+                            </div>
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-primary">Change Email</button>
+                            </div>
+                        </fieldset>
+                    </form>
+
+                     <hr class="section-divider">
+
+                    <!-- Change Password -->
+                     <form id="change-password-form">
+                         <fieldset>
+                            <legend>Change Password</legend>
+                            <div class="form-group">
+                                <label for="current_password_pwd">Current Password</label>
+                                <input type="password" id="current_password_pwd" name="current_password" required autocomplete="current-password">
+                            </div>
+                             <div class="form-group">
+                                <label for="new_password">New Password</label>
+                                <input type="password" id="new_password" name="new_password" required autocomplete="new-password">
+                                <small>Minimum 8 characters.</small> <!-- Add password strength indicator JS -->
+                            </div>
+                            <div class="form-group">
+                                <label for="confirm_new_password">Confirm New Password</label>
+                                <input type="password" id="confirm_new_password" name="confirm_new_password" required autocomplete="new-password">
+                            </div>
+                             <div class="form-actions">
+                                <button type="submit" class="btn btn-primary">Change Password</button>
+                            </div>
+                         </fieldset>
+                     </form>
+                      <!-- Optional: 2FA Section Placeholder -->
+                      <!-- <hr class="section-divider"> -->
+                      <!-- <div class="two-factor-auth"><h3>Two-Factor Authentication</h3><p>Status: Disabled</p><button>Enable 2FA</button></div> -->
+                </section>
+
+                <!-- Section: Site Preferences -->
+                <section id="preferences-settings" class="settings-section card">
+                    <h2>Site Preferences</h2>
+                     <form id="preferences-form">
+                         <!-- User Feedback Area -->
+                        <div class="form-message" id="prefs-message" role="alert"></div>
+
+                         <div class="form-group">
+                            <label for="skill_level">My Cooking Skill Level</label>
+                            <select id="skill_level" name="skill_level">
+                                <!-- Load current selection dynamically -->
+                                <option value="beginner">Beginner</option>
+                                <option value="intermediate" selected>Intermediate</option>
+                                <option value="advanced">Advanced</option>
+                                <option value="professional">Professional</option>
+                            </select>
+                            <small>Helps us recommend appropriate recipes and techniques.</small>
+                         </div>
+
+                        <fieldset class="form-group">
+                            <legend>Dietary Preferences (Select all that apply)</legend>
+                            <ul class="filter-list checkboxes">
+                                <!-- Check boxes based on user's current settings -->
+                                <li><label><input type="checkbox" name="diet[]" value="vegetarian"> Vegetarian</label></li>
+                                <li><label><input type="checkbox" name="diet[]" value="vegan"> Vegan</label></li>
+                                <li><label><input type="checkbox" name="diet[]" value="gluten-free"> Gluten-Free</label></li>
+                                <li><label><input type="checkbox" name="diet[]" value="dairy-free"> Dairy-Free</label></li>
+                                <li><label><input type="checkbox" name="diet[]" value="low-carb"> Low-Carb</label></li>
+                                <li><label><input type="checkbox" name="diet[]" value="pescatarian"> Pescatarian</label></li>
+                            </ul>
+                            <small>Used to filter recipes and provide personalized recommendations.</small>
+                        </fieldset>
+
+                        <fieldset class="form-group">
+                             <legend>Known Allergies (Select all that apply)</legend>
+                            <ul class="filter-list checkboxes">
+                                <!-- Check boxes based on user's current settings -->
+                                <li><label><input type="checkbox" name="allergy[]" value="nuts"> Nuts</label></li>
+                                <li><label><input type="checkbox" name="allergy[]" value="peanuts"> Peanuts</label></li>
+                                <li><label><input type="checkbox" name="allergy[]" value="shellfish"> Shellfish</label></li>
+                                <li><label><input type="checkbox" name="allergy[]" value="soy"> Soy</label></li>
+                                <li><label><input type="checkbox" name="allergy[]" value="eggs"> Eggs</label></li>
+                                <li><label><input type="checkbox" name="allergy[]" value="fish"> Fish</label></li>
+                            </ul>
+                             <small>Helps us highlight potential allergens in recipes (use with caution, always double-check ingredients).</small>
+                        </fieldset>
+
+                        <!-- Links to other personalization features -->
+                        <div class="form-group">
+                            <label>Personalization Features</label>
+                             <p><a href="/my-pantry.html" class="btn btn-secondary">Manage My Pantry</a></p> <!-- Link to hypothetical pantry page -->
+                             <p><a href="/my-kitchen.html" class="btn btn-secondary">Manage My Kitchen Tools</a></p> <!-- Link to hypothetical kitchen tools page -->
+                        </div>
+
+                         <div class="form-actions">
+                            <button type="submit" class="btn btn-primary">Save Preferences</button>
+                        </div>
+                     </form>
+                </section>
+
+                <!-- Section: Notifications -->
+                <section id="notifications-settings" class="settings-section card">
+                    <h2>Notifications</h2>
+                    <form id="notifications-form">
+                         <!-- User Feedback Area -->
+                        <div class="form-message" id="notif-message" role="alert"></div>
+
+                        <fieldset>
+                             <legend>Email Notifications</legend>
+                             <ul class="filter-list checkboxes">
+                                 <!-- Check boxes based on user's current settings -->
+                                <li><label><input type="checkbox" name="email_notify[]" value="new_follower" checked> Someone follows me</label></li>
+                                <li><label><input type="checkbox" name="email_notify[]" value="recipe_comment" checked> Comment on my submitted recipe</label></li>
+                                <li><label><input type="checkbox" name="email_notify[]" value="review_comment"> Comment on my review</label></li>
+                                <li><label><input type="checkbox" name="email_notify[]" value="helpful_vote"> My review is voted helpful</label></li>
+                                <li><label><input type="checkbox" name="email_notify[]" value="challenge_updates"> New cooking challenges & updates</label></li>
+                                <li><label><input type="checkbox" name="email_notify[]" value="newsletter"> ICDB Newsletter (occasional)</label></li>
+                             </ul>
+                        </fieldset>
+                        <!-- Optional: In-App Notification Settings -->
+                        <!-- <fieldset><legend>In-App Notifications</legend>...</fieldset> -->
+                         <div class="form-actions">
+                            <button type="submit" class="btn btn-primary">Save Notification Settings</button>
+                        </div>
+                    </form>
+                </section>
+
+                <!-- Section: Privacy & Data -->
+                <section id="privacy-settings" class="settings-section card">
+                    <h2>Privacy & Data</h2>
+                     <form id="privacy-form">
+                        <!-- User Feedback Area -->
+                        <div class="form-message" id="privacy-message" role="alert"></div>
+
+                        <!-- Optional: Profile Visibility -->
+                         <!--
+                         <fieldset class="form-group">
+                             <legend>Profile Visibility</legend>
+                              <ul class="filter-list radio-buttons">
+                                 <li><label><input type="radio" name="profile_visibility" value="public" checked> Public (Visible to everyone)</label></li>
+                                 <li><label><input type="radio" name="profile_visibility" value="members"> Members Only (Visible only to logged-in users)</label></li>
+                              </ul>
+                        </fieldset>
+                         -->
+                         <div class="form-group">
+                             <label>Data Management</label>
+                             <p><button type="button" id="export-data-btn" class="btn btn-secondary">Request My Data Export</button></p>
+                             <small>Request a copy of your personal data stored on ICDB.</small>
+                         </div>
+
+                        <hr class="section-divider">
+
+                        <!-- Account Deletion (Danger Zone) -->
+                        <div class="danger-zone">
+                            <details>
+                                <summary><strong>Delete Account</strong></summary>
+                                <div class="form-group danger-content">
+                                    <p><strong>Warning:</strong> Deleting your account is permanent and cannot be undone. All your reviews, submitted recipes, cooklists, and profile information will be removed.</p>
+                                    <label for="confirm_delete">Please type "DELETE" to confirm:</label>
+                                    <input type="text" id="confirm_delete" name="confirm_delete" pattern="DELETE" required>
+                                     <button type="button" id="delete-account-btn" class="btn btn-danger" disabled>Delete My Account Permanently</button>
+                                </div>
+                            </details>
+                         </div>
+                        <!-- No save button needed if visibility was the only saveable option -->
+                     </form>
+                </section>
+
+                <!-- Optional Section: Connected Accounts -->
+                <!-- <section id="connected-accounts" class="settings-section card"><h2>Connected Accounts</h2>...</section> -->
+
+            </div> <!-- End .settings-content -->
+
+        </div> <!-- End .settings-layout -->
+
+    </main>
+
+    <!-- ========================================================================= -->
+    <!-- FOOTER (Consistent across site)                                         -->
+    <!-- Include via server-side templating or copy/paste for static version.    -->
+    <!-- ========================================================================= -->
+    <footer class="site-footer">
+        <!-- Placeholder for footer content -->
+        <!-- Refer to index.html for full footer structure -->
+        <div class="container">
+             <nav class="footer-nav">...</nav>
+             <div class="social-links">...</div>
+             <p class="copyright">© 2023 ICDB. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- ========================================================================= -->
+    <!-- SCRIPTS                                                                   -->
+    <!-- ========================================================================= -->
+    <!-- Main Site Logic -->
+    <script src="js/main.js"></script> <!-- Handles header dropdowns, etc. -->
+    <!-- Page-Specific Logic -->
+    <script src="js/settings.js"></script> <!-- Handles settings navigation, form submissions (AJAX), previews, danger zone confirmation -->
+
+    <!-- Inline script for initializing components on this page -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize settings page functionality (defined in settings.js)
+            // This would handle sidebar navigation active states,
+            // potentially loading settings via AJAX, setting up form submissions,
+            // image previews, and the delete confirmation logic.
+            // Example: initializeSettingsPage();
+            console.log("Settings page JS loaded (concept). Needs dynamic implementation.");
+
+            // Example: Add event listener for file inputs to show previews
+            // document.getElementById('avatar-upload-input').addEventListener('change', handleAvatarPreview);
+            // document.getElementById('cover-upload-input').addEventListener('change', handleCoverPreview);
+
+            // Example: Add logic for delete confirmation enable/disable
+            const confirmDeleteInput = document.getElementById('confirm_delete');
+            const deleteBtn = document.getElementById('delete-account-btn');
+            if(confirmDeleteInput && deleteBtn) {
+                confirmDeleteInput.addEventListener('input', () => {
+                    deleteBtn.disabled = (confirmDeleteInput.value !== 'DELETE');
+                });
+                // deleteBtn.addEventListener('click', handleDeleteAccount);
+            }
+        });
+    </script>
+
+</body>
+</html>

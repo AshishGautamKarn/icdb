@@ -1,0 +1,651 @@
+/* ========================================================================= */
+/* style.css - Main Stylesheet for ICDB (Material Design Inspired)       */
+/* ========================================================================= */
+
+/* == Imports (Example: Google Fonts) == */
+/* @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap'); */
+
+/* ========================================================================= */
+/* CSS Variables (Custom Properties) for Theming                           */
+/* ========================================================================= */
+:root {
+    /* Color Palette (Example - Replace with ICDB brand colors) */
+    --md-primary-color: #FF6F00; /* Example: Deep Orange */
+    --md-primary-dark-color: #E65100;
+    --md-secondary-color: #4CAF50; /* Example: Green */
+    --md-secondary-dark-color: #388E3C;
+
+    --md-background-color: #f5f5f5; /* Light gray background */
+    --md-surface-color: #ffffff; /* Card backgrounds, dialogs */
+    --md-error-color: #b00020;
+
+    /* Text colors based on background */
+    --md-on-primary-color: #ffffff;
+    --md-on-secondary-color: #ffffff;
+    --md-on-background-color: #212121; /* Dark gray/black for light background */
+    --md-on-surface-color: #212121; /* Dark gray/black for light surfaces */
+    --md-on-error-color: #ffffff;
+    --md-text-secondary-color: #757575; /* Lighter gray for secondary text */
+    --md-text-hint-color: #9e9e9e;    /* Even lighter for hints/disabled */
+    --md-link-color: var(--md-secondary-color); /* Use secondary for links */
+
+    /* Typography */
+    --md-font-family: 'Roboto', sans-serif; /* Default Material font */
+    --md-font-family-headings: 'Roboto', sans-serif; /* Can be different */
+    --md-font-size-base: 16px; /* Typically 1rem */
+    --md-line-height-base: 1.6;
+
+    /* Spacing Unit (Based on Material 8dp grid) */
+    --spacing-unit: 8px;
+    --spacing-xs: calc(var(--spacing-unit) * 0.5); /* 4px */
+    --spacing-sm: var(--spacing-unit);             /* 8px */
+    --spacing-md: calc(var(--spacing-unit) * 2);   /* 16px */
+    --spacing-lg: calc(var(--spacing-unit) * 3);   /* 24px */
+    --spacing-xl: calc(var(--spacing-unit) * 4);   /* 32px */
+
+    /* Borders */
+    --md-border-color: #e0e0e0; /* Light gray border */
+    --md-border-radius: 4px;
+
+    /* Shadows (Material Elevation) */
+    --md-shadow-1: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); /* Cards */
+    --md-shadow-2: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23); /* Raised buttons, etc. */
+    --md-shadow-3: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    --md-shadow-4: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    --md-shadow-5: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22); /* Dialogs, Modals */
+}
+
+/* ========================================================================= */
+/* Resets & Base Styles                                                    */
+/* ========================================================================= */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: var(--md-font-size-base);
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--md-font-family);
+    line-height: var(--md-line-height-base);
+    color: var(--md-on-background-color);
+    background-color: var(--md-background-color);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+img, svg, video {
+    max-width: 100%;
+    height: auto;
+    display: block; /* Prevent bottom space */
+}
+
+/* ========================================================================= */
+/* Typography                                                              */
+/* ========================================================================= */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--md-font-family-headings);
+    font-weight: 500; /* Medium weight common for Material headings */
+    line-height: 1.3;
+    margin-bottom: var(--spacing-md);
+    color: var(--md-on-surface-color); /* Default to surface color if inside cards etc. */
+}
+/* Example Sizes (Adjust based on Material Guidelines) */
+h1 { font-size: 2.5rem; font-weight: 400; } /* Lighter weight for large h1 */
+h2 { font-size: 2rem; }
+h3 { font-size: 1.5rem; }
+h4 { font-size: 1.25rem; }
+h5 { font-size: 1.1rem; font-weight: 700; } /* Bold for smaller headings */
+h6 { font-size: 1rem; font-weight: 700; }
+
+p {
+    margin-bottom: var(--spacing-md);
+}
+
+a {
+    color: var(--md-link-color);
+    text-decoration: none;
+    transition: color 0.2s ease-in-out;
+}
+
+a:hover, a:focus {
+    color: var(--md-secondary-dark-color);
+    text-decoration: underline;
+    outline: none;
+}
+
+ul, ol {
+    list-style-position: inside; /* Or outside depending on preference */
+    margin-bottom: var(--spacing-md);
+    padding-left: var(--spacing-lg); /* Adjust as needed */
+}
+
+li {
+    margin-bottom: var(--spacing-sm);
+}
+
+blockquote {
+    border-left: 4px solid var(--md-primary-color);
+    padding-left: var(--spacing-md);
+    margin: var(--spacing-md) 0;
+    font-style: italic;
+    color: var(--md-text-secondary-color);
+}
+
+blockquote footer {
+    font-style: normal;
+    margin-top: var(--spacing-sm);
+    font-size: 0.9em;
+}
+
+small {
+    font-size: 0.85em;
+    color: var(--md-text-hint-color);
+}
+
+code, pre {
+    font-family: monospace;
+    background-color: rgba(0,0,0,0.05);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--md-border-radius);
+}
+
+pre {
+    overflow-x: auto;
+    padding: var(--spacing-md);
+}
+
+hr {
+    border: none;
+    border-top: 1px solid var(--md-border-color);
+    margin: var(--spacing-lg) 0;
+}
+
+/* Helper for required fields */
+.required {
+    color: var(--md-error-color);
+    margin-left: var(--spacing-xs);
+    font-weight: bold;
+}
+
+
+/* ========================================================================= */
+/* Layout (Core - Moved from layout.css for example simplicity)            */
+/* ========================================================================= */
+.container {
+    width: 90%;
+    max-width: 1200px; /* Adjust max width as needed */
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--spacing-md);
+    padding-right: var(--spacing-md);
+}
+
+/* Simple Grid Example (Use more robust grid in production) */
+.grid {
+    display: grid;
+    gap: var(--spacing-md);
+}
+
+.grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
+.grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
+.grid-cols-4 { grid-template-columns: repeat(4, 1fr); }
+
+/* Spacing helpers (Use as needed) */
+.section-padding { padding: var(--spacing-xl) 0; }
+.alternate-bg { background-color: var(--md-surface-color); }
+
+
+/* ========================================================================= */
+/* Components (Core - Moved from components.css for example simplicity)   */
+/* ========================================================================= */
+
+/* --- Cards --- */
+.card {
+    background-color: var(--md-surface-color);
+    border-radius: var(--md-border-radius);
+    box-shadow: var(--md-shadow-1);
+    padding: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+    overflow: hidden; /* Contain elements */
+}
+.card-interactive:hover {
+     box-shadow: var(--md-shadow-3);
+     transition: box-shadow 0.2s ease-in-out;
+}
+.card-inset { /* For forms inside cards */
+    background-color: var(--md-background-color);
+    padding: var(--spacing-md);
+    border: 1px solid var(--md-border-color);
+    border-radius: var(--md-border-radius);
+    margin-top: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+}
+.card-title {
+    margin-top: 0;
+}
+
+/* --- Buttons --- */
+.btn {
+    display: inline-flex; /* Align icon and text */
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-sm) var(--spacing-md);
+    font-family: var(--md-font-family);
+    font-size: 0.9rem;
+    font-weight: 500; /* Medium */
+    text-transform: uppercase; /* Material standard */
+    letter-spacing: 0.05em;
+    border: none;
+    border-radius: var(--md-border-radius);
+    cursor: pointer;
+    text-decoration: none;
+    line-height: 1.5;
+    transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    position: relative; /* For potential ripple */
+    overflow: hidden;
+    vertical-align: middle;
+    text-align: center;
+}
+.btn:hover, .btn:focus {
+    text-decoration: none;
+    outline: none;
+}
+.btn:focus {
+    box-shadow: 0 0 0 3px rgba(var(--md-primary-color), 0.3); /* Focus ring */
+}
+
+/* Primary Button (Filled) */
+.btn-primary {
+    background-color: var(--md-primary-color);
+    color: var(--md-on-primary-color);
+    box-shadow: var(--md-shadow-1);
+}
+.btn-primary:hover, .btn-primary:focus {
+    background-color: var(--md-primary-dark-color);
+    box-shadow: var(--md-shadow-2);
+}
+
+/* Secondary Button (Outlined or Text) - Example: Outlined */
+.btn-secondary {
+    background-color: transparent;
+    color: var(--md-primary-color);
+    border: 1px solid var(--md-primary-color);
+    box-shadow: none;
+}
+.btn-secondary:hover, .btn-secondary:focus {
+    background-color: rgba(var(--md-primary-color-rgb, 255, 111, 0), 0.08); /* Primary color with low opacity - Needs RGB version */
+    border-color: var(--md-primary-dark-color);
+    color: var(--md-primary-dark-color);
+}
+
+/* Text Button (Alternative Secondary) */
+.btn-text {
+     background-color: transparent;
+     color: var(--md-primary-color);
+     box-shadow: none;
+     border: none;
+}
+.btn-text:hover, .btn-text:focus {
+     background-color: rgba(var(--md-primary-color-rgb, 255, 111, 0), 0.08);
+}
+
+
+/* Danger Button */
+.btn-danger {
+    background-color: var(--md-error-color);
+    color: var(--md-on-error-color);
+    box-shadow: var(--md-shadow-1);
+}
+.btn-danger:hover, .btn-danger:focus {
+    background-color: darken(var(--md-error-color), 10%);
+    box-shadow: var(--md-shadow-2);
+}
+
+/* Button Sizes */
+.btn-small {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    font-size: 0.8rem;
+}
+.btn-large {
+    padding: var(--spacing-md) var(--spacing-lg);
+    font-size: 1rem;
+}
+
+/* Icon Button */
+.btn-icon {
+    padding: var(--spacing-sm); /* Square padding */
+    min-width: auto;
+}
+.btn .icon {
+    width: 1.2em;
+    height: 1.2em;
+    margin-right: var(--spacing-sm); /* Space between icon and text */
+}
+.btn-icon .icon {
+    margin-right: 0; /* No margin if only icon */
+}
+.btn .icon-inline { /* For icons within text, not buttons */
+     width: 1em;
+     height: 1em;
+     margin-right: var(--spacing-xs);
+     vertical-align: text-bottom;
+}
+
+.btn-block {
+    display: block;
+    width: 100%;
+}
+
+/* --- Forms --- */
+.form-group {
+    margin-bottom: var(--spacing-lg);
+}
+.form-group label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: var(--spacing-sm);
+    font-size: 0.9em;
+}
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="search"],
+input[type="number"],
+input[type="url"],
+input[type="tel"],
+textarea,
+select {
+    display: block;
+    width: 100%;
+    padding: var(--spacing-sm) var(--spacing-md);
+    font-family: var(--md-font-family);
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--md-on-surface-color);
+    background-color: var(--md-surface-color);
+    border: 1px solid var(--md-border-color);
+    border-radius: var(--md-border-radius);
+    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="search"]:focus,
+input[type="number"]:focus,
+input[type="url"]:focus,
+input[type="tel"]:focus,
+textarea:focus,
+select:focus {
+    border-color: var(--md-primary-color);
+    box-shadow: 0 0 0 2px rgba(var(--md-primary-color-rgb, 255, 111, 0), 0.2); /* Needs RGB version */
+    outline: none;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+select {
+    appearance: none; /* Basic reset */
+     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23757575'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E"); /* Simple dropdown arrow */
+    background-repeat: no-repeat;
+    background-position: right var(--spacing-md) center;
+    background-size: 1.2em;
+    padding-right: calc(var(--spacing-md) * 2.5); /* Space for arrow */
+}
+
+/* Checkbox & Radio Groups */
+.checkbox-group label,
+.radio-buttons label {
+    display: inline-flex; /* Align checkbox and text */
+    align-items: center;
+    margin-right: var(--spacing-md);
+    margin-bottom: var(--spacing-sm);
+    font-weight: 400; /* Normal weight for options */
+    cursor: pointer;
+}
+.checkbox-group input[type="checkbox"],
+.radio-buttons input[type="radio"] {
+    width: auto; /* Override block display */
+    margin-right: var(--spacing-sm);
+    /* Custom styling for checkboxes/radios is complex and often requires pseudo-elements */
+}
+
+.form-message {
+    padding: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+    border-radius: var(--md-border-radius);
+    border: 1px solid transparent;
+}
+.form-message.error {
+    color: var(--md-error-color);
+    background-color: rgba(var(--md-error-color-rgb, 176, 0, 32), 0.1); /* Needs RGB */
+    border-color: rgba(var(--md-error-color-rgb, 176, 0, 32), 0.3);
+}
+.form-message.success {
+    color: var(--md-secondary-dark-color);
+    background-color: rgba(var(--md-secondary-color-rgb, 76, 175, 80), 0.1); /* Needs RGB */
+    border-color: rgba(var(--md-secondary-color-rgb, 76, 175, 80), 0.3);
+}
+
+.form-actions {
+    margin-top: var(--spacing-lg);
+    display: flex;
+    gap: var(--spacing-md);
+    justify-content: flex-start; /* Or flex-end */
+}
+
+/* --- Tabs --- */
+.tabs {
+    display: flex;
+    border-bottom: 1px solid var(--md-border-color);
+    margin-bottom: var(--spacing-lg);
+    overflow-x: auto; /* Allow horizontal scroll on small screens */
+}
+.tab-link {
+    padding: var(--spacing-md) var(--spacing-lg);
+    cursor: pointer;
+    border: none;
+    background: none;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--md-text-secondary-color);
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px; /* Overlap container border */
+    white-space: nowrap;
+    text-decoration: none;
+}
+.tab-link:hover {
+    color: var(--md-primary-dark-color);
+    text-decoration: none;
+}
+.tab-link.active,
+.tab-link[aria-current="page"] { /* Use aria-current for accessibility */
+    color: var(--md-primary-color);
+    border-bottom-color: var(--md-primary-color);
+    font-weight: 700;
+}
+.tab-content {
+    display: none; /* Controlled by JS */
+}
+.tab-content.active {
+    display: block;
+}
+
+/* --- Navigation (Basic Header/Footer) --- */
+.site-header {
+    background-color: var(--md-surface-color);
+    box-shadow: var(--md-shadow-1);
+    padding: var(--spacing-sm) 0;
+    position: sticky; /* Example sticky header */
+    top: 0;
+    z-index: 100;
+}
+.header-container {
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+     gap: var(--spacing-md);
+}
+.site-header .logo img {
+     height: 40px; /* Adjust logo size */
+     width: auto;
+     vertical-align: middle;
+     margin-right: var(--spacing-sm);
+}
+.site-header .logo span {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--md-on-surface-color);
+    vertical-align: middle;
+}
+.main-navigation ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: var(--spacing-md);
+}
+.main-navigation a {
+     font-weight: 500;
+     color: var(--md-on-surface-color);
+     text-decoration: none;
+     padding: var(--spacing-sm) 0;
+}
+.main-navigation a:hover, .main-navigation a:focus {
+    color: var(--md-primary-color);
+}
+
+.site-footer {
+    background-color: darken(var(--md-background-color), 5%);
+    color: var(--md-text-secondary-color);
+    padding: var(--spacing-lg) 0;
+    margin-top: var(--spacing-xl);
+    font-size: 0.9em;
+    text-align: center;
+}
+.footer-nav a {
+    color: var(--md-text-secondary-color);
+    margin: 0 var(--spacing-sm);
+}
+.footer-nav a:hover {
+     color: var(--md-primary-color);
+}
+.copyright {
+    margin-top: var(--spacing-md);
+    margin-bottom: 0;
+}
+
+/* --- Avatars --- */
+.avatar, .avatar-small, .avatar-medium, .avatar-large {
+    border-radius: 50%;
+    object-fit: cover; /* Prevent distortion */
+    background-color: var(--md-border-color); /* Placeholder background */
+    vertical-align: middle;
+}
+.avatar-small { width: 32px; height: 32px; }
+.avatar { width: 40px; height: 40px; } /* Default size */
+.avatar-medium { width: 60px; height: 60px; }
+.avatar-large { width: 120px; height: 120px; } /* Profile page */
+
+/* --- Tags --- */
+.tag, .dietary-tag, .characteristic-tags span {
+    display: inline-block;
+    background-color: var(--md-border-color);
+    color: var(--md-text-secondary-color);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: 1em; /* Pill shape */
+    font-size: 0.8em;
+    margin-right: var(--spacing-sm);
+    margin-bottom: var(--spacing-sm);
+    white-space: nowrap;
+}
+.dietary-tag.warning { /* Example for allergy warnings */
+    background-color: rgba(var(--md-error-color-rgb, 176, 0, 32), 0.1);
+    color: var(--md-error-color);
+    border: 1px solid rgba(var(--md-error-color-rgb, 176, 0, 32), 0.3);
+}
+
+/* ========================================================================= */
+/* Utility Classes                                                         */
+/* ========================================================================= */
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+.error-text { color: var(--md-error-color); }
+.success-text { color: var(--md-secondary-dark-color); }
+
+/* Hide element visually but keep accessible for screen readers */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ========================================================================= */
+/* Print Styles (Basic Examples - Expand in print.css)                     */
+/* ========================================================================= */
+@media print {
+    body {
+        background-color: #fff;
+        color: #000;
+        font-size: 12pt; /* Adjust for print */
+    }
+
+    .site-header,
+    .site-footer,
+    .list-controls, /* Hide shopping list controls */
+    .tabs,          /* Hide tabs */
+    .form-actions,  /* Hide form buttons */
+    .profile-actions,
+    .recipe-actions,
+    .btn { /* Hide most buttons */
+        display: none !important; /* Important to override */
+    }
+
+    .container {
+        width: 100%;
+        max-width: none;
+        padding: 0;
+    }
+
+    a {
+        color: #000;
+        text-decoration: none;
+    }
+
+    /* Show URLs for links in print */
+    a[href^="http"]::after {
+        content: " (" attr(href) ")";
+        font-size: 0.8em;
+        color: #555;
+    }
+
+    .card {
+        box-shadow: none;
+        border: 1px solid #ccc;
+        margin-bottom: 1rem;
+        padding: 1rem;
+        page-break-inside: avoid;
+    }
+
+    /* Specific print formatting for recipes/lists might go in print.css */
+    .ingredient-list, .instruction-steps {
+         padding-left: 0;
+         list-style-position: outside;
+    }
+}

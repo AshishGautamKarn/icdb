@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Title and Description should be updated dynamically based on search query -->
+    <meta name="description" content="Search results for [Search Query] on ICDB. Find recipes, chefs, ingredients, and more.">
+    <title>Search Results for "[Search Query]" - ICDB</title> <!-- Update dynamically -->
+
+    <!-- Favicon -->
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon"> <!-- Update path if needed -->
+
+    <!-- CSS Stylesheets -->
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <!-- Noindex for search results pages is often recommended for SEO to avoid thin content indexing -->
+    <meta name="robots" content="noindex, follow">
+
+</head>
+<body>
+
+    <!-- ========================================================================= -->
+    <!-- HEADER (Consistent across site)                                         -->
+    <!-- Include via server-side templating or copy/paste for static version.    -->
+    <!-- ========================================================================= -->
+    <header class="site-header">
+        <!-- Placeholder for header content (Logo, Nav, Search, User Menu) -->
+        <!-- Crucially, the search bar here should be pre-filled with the current query -->
+        <div class="container header-container">
+             <a href="index.html" class="logo" aria-label="ICDB Homepage"><img src="images/logo.png" alt="ICDB Logo"><span>ICDB</span></a>
+             <nav class="main-navigation">...</nav>
+             <!-- Search bar pre-filled (value would be set dynamically) -->
+             <form action="search-results.html" method="get" class="header-search">
+                <input type="search" name="q" placeholder="Search recipes, chefs..." aria-label="Site Search" value="chicken"> <!-- Update value dynamically -->
+                <button type="submit" class="btn btn-icon" aria-label="Search">
+                    <img src="images/icons/search.svg" alt="Search Icon">
+                </button>
+            </form>
+             <div class="user-actions">...</div>
+        </div>
+    </header>
+
+    <!-- ========================================================================= -->
+    <!-- MAIN CONTENT AREA - SEARCH RESULTS PAGE                                 -->
+    <!-- ========================================================================= -->
+    <main class="search-results-page container">
+
+        <!-- == Search Header & Type Tabs == -->
+        <section class="search-header-section">
+            <!-- Display the search query -->
+            <h1 class="search-query-title">Search Results for "chicken"</h1> <!-- Update dynamically -->
+
+            <!-- Result Type Tabs -->
+            <!-- Active tab would be set dynamically based on URL parameter (e.g., ?type=recipe) or default -->
+            <nav class="tabs result-type-tabs" aria-label="Result Categories">
+                <!-- Counts would be updated dynamically -->
+                <a href="search-results.html?q=chicken&type=recipe" class="tab-link active" aria-current="page">Recipes <span class="count">(58)</span></a>
+                <a href="search-results.html?q=chicken&type=chef" class="tab-link">Chefs <span class="count">(3)</span></a>
+                <a href="search-results.html?q=chicken&type=ingredient" class="tab-link">Ingredients <span class="count">(5)</span></a>
+                <a href="search-results.html?q=chicken&type=technique" class="tab-link">Techniques <span class="count">(1)</span></a>
+                <a href="search-results.html?q=chicken&type=cookbook" class="tab-link">Cookbooks <span class="count">(2)</span></a>
+                <a href="search-results.html?q=chicken&type=show" class="tab-link">Shows <span class="count">(0)</span></a>
+                <a href="search-results.html?q=chicken&type=equipment" class="tab-link">Equipment <span class="count">(0)</span></a>
+                 <!-- Add more types if needed -->
+            </nav>
+        </section>
+
+        <!-- == Main Results Area (with Filters) == -->
+        <div class="results-layout">
+
+            <!-- == Filters Sidebar == -->
+            <!-- Filters shown would change dynamically based on the active result type tab -->
+            <aside class="filters card">
+                <h2>Filter Results</h2>
+                <form id="filter-form">
+                    <!-- Sort Options -->
+                    <div class="filter-group">
+                        <label for="sort-by">Sort By:</label>
+                        <select id="sort-by" name="sort">
+                            <option value="relevance" selected>Relevance</option>
+                            <option value="rating_desc">Rating (High to Low)</option>
+                            <option value="rating_asc">Rating (Low to High)</option>
+                            <option value="newest">Newest</option>
+                            <option value="popular">Popularity</option>
+                             <!-- Add other relevant sort options -->
+                        </select>
+                    </div>
+
+                    <!-- Filters Specific to 'Recipes' (Example - Hide/Show based on active tab) -->
+                    <div class="filter-group" id="recipe-filters">
+                        <details open> <!-- Use details/summary for collapsibility -->
+                            <summary>Cuisine</summary>
+                            <ul class="filter-list checkboxes">
+                                <!-- Populate dynamically -->
+                                <li><label><input type="checkbox" name="cuisine" value="italian"> Italian</label></li>
+                                <li><label><input type="checkbox" name="cuisine" value="mexican"> Mexican</label></li>
+                                <li><label><input type="checkbox" name="cuisine" value="indian"> Indian</label></li>
+                                <li><label><input type="checkbox" name="cuisine" value="american"> American</label></li>
+                                <!-- ... more cuisines -->
+                            </ul>
+                        </details>
+
+                        <details>
+                            <summary>Difficulty</summary>
+                             <ul class="filter-list radio-buttons">
+                                <!-- Use radio if only one can be selected -->
+                                <li><label><input type="radio" name="difficulty" value=""> Any</label></li>
+                                <li><label><input type="radio" name="difficulty" value="easy"> Easy</label></li>
+                                <li><label><input type="radio" name="difficulty" value="medium"> Medium</label></li>
+                                <li><label><input type="radio" name="difficulty" value="hard"> Hard</label></li>
+                            </ul>
+                        </details>
+
+                         <details>
+                            <summary>Dietary Restrictions</summary>
+                             <ul class="filter-list checkboxes">
+                                <li><label><input type="checkbox" name="diet" value="gluten-free"> Gluten-Free</label></li>
+                                <li><label><input type="checkbox" name="diet" value="vegetarian"> Vegetarian</label></li>
+                                <li><label><input type="checkbox" name="diet" value="vegan"> Vegan</label></li>
+                                <li><label><input type="checkbox" name="diet" value="dairy-free"> Dairy-Free</label></li>
+                                <!-- ... more diets -->
+                            </ul>
+                        </details>
+
+                        <details>
+                             <summary>Max Prep Time</summary>
+                             <!-- Example using a range slider or select -->
+                             <label for="max-prep-time">Under:</label>
+                             <select id="max-prep-time" name="max_prep_time">
+                                 <option value="">Any</option>
+                                 <option value="15">15 mins</option>
+                                 <option value="30">30 mins</option>
+                                 <option value="60">1 hour</option>
+                                  <option value="90">1.5 hours</option>
+                             </select>
+                        </details>
+
+                        <details>
+                             <summary>Minimum Rating</summary>
+                             <!-- Example using stars or select -->
+                             <label for="min-rating">At least:</label>
+                             <select id="min-rating" name="min_rating">
+                                 <option value="">Any</option>
+                                 <option value="4">★★★★☆ & Up</option>
+                                 <option value="3">★★★☆☆ & Up</option>
+                                 <option value="2">★★☆☆☆ & Up</option>
+                             </select>
+                        </details>
+                    </div> <!-- End #recipe-filters -->
+
+                     <!-- Placeholder for Filters Specific to 'Chefs' (Hidden by default) -->
+                     <div class="filter-group" id="chef-filters" style="display: none;">
+                         <details>
+                            <summary>Specialty / Cuisine</summary>
+                             <ul class="filter-list checkboxes">
+                                 <!-- Populate dynamically -->
+                                <li><label><input type="checkbox" name="chef_cuisine" value="italian"> Italian</label></li>
+                                <li><label><input type="checkbox" name="chef_cuisine" value="french"> French</label></li>
+                                <!-- ... -->
+                             </ul>
+                        </details>
+                         <details>
+                             <summary>Minimum Rating</summary>
+                             <!-- Similar rating filter as above -->
+                        </details>
+                    </div> <!-- End #chef-filters -->
+
+                     <!-- Add more filter group placeholders for other types (Ingredients, Cookbooks, etc.) -->
+
+                    <!-- Apply/Clear Buttons -->
+                    <div class="filter-actions">
+                        <button type="submit" class="btn btn-primary">Apply Filters</button>
+                        <button type="reset" class="btn btn-secondary">Clear Filters</button>
+                    </div>
+                </form>
+            </aside>
+
+            <!-- == Results List Section == -->
+            <section class="results-list">
+                <!-- Results Summary (Update dynamically) -->
+                <div class="results-summary">
+                    Showing <span class="results-range">1-12</span> of <span class="results-total">58</span> recipe results for "chicken".
+                </div>
+
+                <!-- Results Grid/List -->
+                <!-- The content here MUST change based on the active result type tab -->
+                <!-- Example showing Recipe Results Grid -->
+                <div class="results-items recipe-card-grid" id="results-items-container">
+                    <!-- Recipe Card 1 (Placeholder - Load dynamically) -->
+                    <div class="recipe-card card card-interactive">
+                        <a href="recipe-detail.html?id=101" class="card-image-link">
+                            <img src="images/placeholder/recipe-thumb-4.jpg" alt="One-Pan Lemon Herb Roasted Chicken Thumbnail"> <!-- Update path -->
+                        </a>
+                        <div class="card-content">
+                            <h3 class="card-title"><a href="recipe-detail.html?id=101">One-Pan Lemon Herb Roasted Chicken</a></h3>
+                            <div class="card-rating">★★★★☆ <span class="rating-text">(8.2/10)</span></div>
+                            <p class="card-description">Easy weeknight meal with minimal cleanup required. Features juicy <strong>chicken</strong> thighs.</p>
+                            <div class="card-meta">
+                                <span>By <a href="chef-detail.html?id=10">WeeknightChef</a></span> | <span>American</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Recipe Card 2 (Placeholder) -->
+                    <div class="recipe-card card card-interactive">
+                         <a href="recipe-detail.html?id=702" class="card-image-link">
+                            <img src="images/placeholder/recipe-chicken-curry.jpg" alt="Simple Chicken Curry Thumbnail"> <!-- Update path -->
+                        </a>
+                        <div class="card-content">
+                            <h3 class="card-title"><a href="recipe-detail.html?id=702">Simple <strong>Chicken</strong> Curry</a></h3>
+                             <div class="card-rating">★★★★☆ <span class="rating-text">(8.6/10)</span></div>
+                            <p class="card-description">A quick and flavorful Indian-inspired curry with tender <strong>chicken</strong>.</p>
+                             <div class="card-meta">
+                                <span>By <a href="profile.html?user=currylover">CurryLover</a></span> | <span>Indian</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Add more result cards dynamically (up to page limit) -->
+                    <!-- ... -->
+
+                    <!-- Example of how a Chef Result Item might look (inside #results-items-container if 'Chefs' tab is active) -->
+                    <!--
+                    <article class="chef-card list-item-card card-interactive">
+                        <a href="chef-detail.html?id=10" class="item-link">
+                            <img src="images/placeholder/chef-weeknight-thumb.jpg" alt="WeeknightChef Avatar" class="item-thumb avatar">
+                            <div class="item-content">
+                                <h3 class="item-title">WeeknightChef</h3>
+                                <div class="item-rating">★★★★☆ <span class="rating-text">(8.0/10)</span></div>
+                                <p class="item-description">Focuses on quick and easy recipes, often featuring <strong>chicken</strong>.</p>
+                            </div>
+                        </a>
+                    </article>
+                    -->
+
+                     <!-- Example of how an Ingredient Result Item might look -->
+                    <!--
+                    <article class="ingredient-card list-item-card card-interactive">
+                        <a href="ingredient-detail.html?name=chicken-breast" class="item-link">
+                            <img src="images/placeholder/ingredient-chickenbreast-thumb.jpg" alt="Chicken Breast" class="item-thumb">
+                            <div class="item-content">
+                                <h3 class="item-title">Chicken Breast</h3>
+                                <div class="item-rating">★★★★☆ <span class="rating-text">(8.5/10)</span></div>
+                                <p class="item-description">Lean white meat, versatile for grilling, sautéing, baking. Key protein source.</p>
+                            </div>
+                        </a>
+                    </article>
+                    -->
+
+                </div> <!-- End #results-items-container -->
+
+                 <!-- "No Results" Message (Show this if #results-items-container is empty) -->
+                 <div class="no-results" style="display: none;"> <!-- Toggle display dynamically -->
+                     <p>No results found matching your criteria.</p>
+                     <p>Try broadening your search or adjusting the filters.</p>
+                 </div>
+
+                <!-- Pagination -->
+                <nav class="pagination" aria-label="Search Results Pagination">
+                     <!-- Update links and current page dynamically -->
+                     <a href="?q=chicken&type=recipe&page=0" class="prev disabled">« Previous</a> <!-- Disable if on first page -->
+                     <span class="page-links">
+                         <span class="current-page">1</span>
+                         <a href="?q=chicken&type=recipe&page=2">2</a>
+                         <a href="?q=chicken&type=recipe&page=3">3</a>
+                         <span class="ellipsis">...</span>
+                         <a href="?q=chicken&type=recipe&page=5">5</a>
+                     </span>
+                     <a href="?q=chicken&type=recipe&page=2" class="next">Next »</a> <!-- Disable if on last page -->
+                </nav>
+            </section>
+
+        </div> <!-- End .results-layout -->
+
+    </main>
+
+    <!-- ========================================================================= -->
+    <!-- FOOTER (Consistent across site)                                         -->
+    <!-- Include via server-side templating or copy/paste for static version.    -->
+    <!-- ========================================================================= -->
+    <footer class="site-footer">
+        <!-- Placeholder for footer content -->
+        <!-- Refer to index.html for full footer structure -->
+        <div class="container">
+             <nav class="footer-nav">...</nav>
+             <div class="social-links">...</div>
+             <p class="copyright">© 2023 ICDB. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- ========================================================================= -->
+    <!-- SCRIPTS                                                                   -->
+    <!-- ========================================================================= -->
+    <!-- Main Site Logic -->
+    <script src="js/main.js"></script> <!-- Handles header dropdowns, etc. -->
+    <!-- Page-Specific Logic -->
+    <script src="js/search.js"></script> <!-- Handles dynamic loading, filtering, sorting, pagination -->
+
+    <!-- Inline script for initializing components on this page -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize search page functionality (defined in search.js)
+            // This function would read URL params, make the initial API call,
+            // set up event listeners for tabs, filters, sorting, pagination.
+            // Example: initializeSearchResultsPage();
+            console.log("Search results page JS loaded (concept). Needs dynamic implementation.");
+
+            // Example: Maybe initialize filter collapsibility
+            // document.querySelectorAll('.filters details').forEach(detail => { /* setup */ });
+        });
+    </script>
+
+</body>
+</html>

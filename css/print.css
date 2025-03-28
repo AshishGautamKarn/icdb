@@ -1,0 +1,395 @@
+
+/* ========================================================================= */
+/* print.css - Print-Specific Stylesheet for ICDB                      */
+/* Optimizes content, especially recipes, for printing.                    */
+/* Hides navigation, actions, and extraneous elements.                     */
+/* Uses printer-friendly fonts and layout.                                 */
+/* ========================================================================= */
+
+@media print {
+
+    /* == Base Print Resets & Defaults == */
+    *,
+    *::before,
+    *::after {
+        /* Ensure consistent box sizing */
+        box-sizing: border-box;
+        /* Remove shadows and transitions for print */
+        box-shadow: none !important;
+        text-shadow: none !important;
+        transition: none !important;
+    }
+
+    html {
+        font-size: 11pt; /* Suitable base font size for print */
+    }
+
+    body {
+        font-family: Georgia, Times, 'Times New Roman', serif; /* Common serif font for readability */
+        line-height: 1.4;
+        color: #000 !important; /* Ensure black text */
+        background-color: #fff !important; /* Force white background */
+        margin: 1.5cm; /* Standard print margins */
+        width: auto !important; /* Override fixed widths */
+        -webkit-print-color-adjust: exact; /* Try to force background/color rendering if needed, but avoid if possible */
+        print-color-adjust: exact;
+    }
+
+    /* == Hide Common Non-Print Elements == */
+    .site-header,
+    .site-footer,
+    nav, /* All navigation elements */
+    aside, /* All sidebars */
+    .btn, /* All button elements */
+    .form-actions,
+    form:not(#print-options-form), /* Hide forms except maybe print options */
+    .user-actions,
+    .search-bar,
+    .header-search,
+    .forum-search-bar,
+    .pagination,
+    .tabs, /* Hide tab navigation */
+    .vote-helpful-yes,
+    .vote-helpful-no,
+    .report-review,
+    .report-tip,
+    .report-goof,
+    .vote-up,
+    .vote-down,
+    .share-btn, /* Explicitly hide share buttons if .btn missed any */
+    .affiliate-link, /* Hide affiliate links */
+    .advertisement, /* Hide ads */
+    .video-embed, /* Hide video players */
+    .community-spotlight,
+    .related-recipes,
+    .related-ingredients,
+    .related-cookbooks,
+    .related-shows,
+    .related-techniques,
+    .related-equipment,
+    .cta-join, /* Hide call-to-action sections */
+    .explore-categories, /* Hide visual exploration sections */
+    .hero-section, /* Hide hero banners */
+    .dropdown-menu, /* Hide dropdowns */
+    .mobile-nav-toggle, /* Hide mobile toggles */
+    #add-to-cooklist-btn,
+    #add-to-shopping-list-btn,
+    #add-ingredient-to-list-btn,
+    #add-to-my-kitchen-btn,
+    #add-to-watchlist-btn,
+    #add-to-booklist-btn,
+    #add-to-favorites-btn,
+    #follow-chef-btn,
+    #follow-user-btn,
+    #report-user-btn,
+    #edit-profile-btn,
+    .profile-actions, /* Hide profile action buttons block */
+    .profile-cover-photo, /* Hide profile cover */
+    .ratings-summary .detailed-sub-ratings /* Hide detailed stars within summary */
+    {
+        display: none !important;
+    }
+
+    /* == General Content Adjustments == */
+    .container,
+    main {
+        width: 100% !important;
+        max-width: none !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    /* Remove card styling, let sections flow */
+    .card {
+        border: none !important;
+        padding: 0 !important;
+        margin-bottom: 1.5rem; /* Space between logical content blocks */
+        background-color: transparent !important;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        color: #000 !important;
+        page-break-after: avoid; /* Avoid breaking page right after a heading */
+        margin-top: 1.5rem;
+    }
+    h1 { font-size: 18pt; }
+    h2 { font-size: 15pt; border-bottom: 1px solid #ccc; padding-bottom: 0.25rem; margin-bottom: 1rem; }
+    h3 { font-size: 13pt; }
+
+    p, ul, ol, blockquote, figure {
+        page-break-inside: avoid; /* Avoid breaking inside these elements */
+    }
+
+    /* == Link Styling for Print == */
+    a {
+        color: #000 !important;
+        text-decoration: none !important; /* Remove underlines */
+    }
+
+    /* Show URLs for external links */
+    a[href^="http"]::after,
+    a[href^="//"]::after {
+        content: " [" attr(href) "]"; /* Display URL in brackets */
+        font-size: 0.8em;
+        color: #555;
+        word-wrap: break-word; /* Help prevent overflow */
+        /* Avoid showing for image links maybe? */
+    }
+    /* Don't show URL for internal page links or fragments */
+    a[href^="/"]::after,
+    a[href^="#"]::after {
+        content: "";
+    }
+    /* Exception: Don't show URL for logo link */
+    .logo a::after {
+        content: "";
+    }
+
+
+    /* ========================================================================= */
+    /* Recipe Detail Page Specific Print Styles                                */
+    /* Apply only when printing from a recipe detail context                   */
+    /* Add a class 'printable-recipe' to the body or main container maybe?     */
+    /* Or target based on URL structure if possible server-side                */
+    /* For now, we assume these selectors target elements within recipe page   */
+    /* ========================================================================= */
+
+    /* Elements to HIDE specifically on recipe print */
+    .recipe-detail-page .recipe-hero-image, /* Hide main visual */
+    .recipe-detail-page .recipe-content-tabs, /* Hide the whole tab container if using blocks below */
+    .recipe-detail-page .reviews-section,
+    .recipe-detail-page .recipe-qa-section,
+    .recipe-detail-page .i-made-this-gallery,
+    .recipe-detail-page .community-variations,
+    .recipe-detail-page .goofs-section,
+    .recipe-detail-page .trivia-section,
+    .recipe-detail-page .step-timer,
+    .recipe-detail-page .step-checkbox,
+    .recipe-detail-page .step-technique-tags,
+    .recipe-detail-page .recipe-meta-controls, /* Hide scaling/unit buttons */
+    .recipe-detail-page .rating-stars, /* Hide visual stars */
+    .recipe-detail-page .overall-rating .rating-count, /* Hide vote count */
+    .recipe-detail-page #tab-media /* Hide media tab content if structure changes */
+     {
+        display: none !important;
+    }
+
+     /* Ensure CORE recipe sections are displayed directly */
+    .recipe-detail-page #tab-ingredients,
+    .recipe-detail-page #tab-instructions,
+    .recipe-detail-page #tab-details,
+    .recipe-detail-page #tab-notes /* Allow notes/tips section */
+    {
+        display: block !important; /* Force display block for linear flow */
+        padding: 0 !important;
+        border: none !important;
+        margin-bottom: 1.5rem; /* Space between these core sections */
+    }
+    /* Make sure the H2s within these forced-visible tabs are styled */
+    .recipe-detail-page #tab-ingredients h2,
+    .recipe-detail-page #tab-instructions h2,
+    .recipe-detail-page #tab-details h2,
+    .recipe-detail-page #tab-notes h2 {
+        display: block !important; /* Ensure headings are visible */
+    }
+
+
+    /* --- Recipe Header Info Styling --- */
+    .recipe-detail-page .recipe-title {
+        text-align: center;
+        margin-bottom: 0.5rem;
+    }
+    .recipe-detail-page .recipe-author {
+        text-align: center;
+        font-size: 10pt;
+        color: #333;
+        margin-bottom: 1rem;
+    }
+    /* Don't show URL for author link */
+    .recipe-detail-page .recipe-author a::after {
+        content: "";
+    }
+    .recipe-detail-page .recipe-description {
+        font-style: italic;
+        margin-bottom: 1.5rem;
+        text-align: justify; /* Justify description text? */
+    }
+    /* Display basic details list from the Details tab */
+    .recipe-detail-page #tab-details .details-list {
+         list-style: none;
+         padding-left: 0;
+         margin-top: 1rem;
+         border-top: 1px dashed #ccc;
+         padding-top: 1rem;
+    }
+    .recipe-detail-page #tab-details .details-list li {
+         margin-bottom: 0.3rem;
+         font-size: 10pt;
+    }
+    .recipe-detail-page #tab-details .details-list strong {
+         font-weight: bold;
+         display: inline-block;
+         min-width: 100px; /* Align values */
+    }
+     /* Hide dietary tags within details list for cleaner print */
+    .recipe-detail-page #tab-details .details-list .dietary-tag {
+         display: none !important;
+    }
+     /* Hide equipment links within details list */
+    .recipe-detail-page #tab-details .details-list a::after {
+         content: "";
+    }
+
+
+    /* --- Ingredient List Styling --- */
+    .recipe-detail-page .ingredient-list {
+        list-style: none;
+        padding-left: 0;
+        margin-top: 0.5rem;
+        /* Use columns for potentially shorter lists */
+        column-count: 2;
+        column-gap: 2rem;
+    }
+    .recipe-detail-page .ingredient-list li {
+        margin-bottom: 0.4rem;
+        line-height: 1.3;
+        page-break-inside: avoid;
+    }
+    /* Simplify ingredient display */
+    .recipe-detail-page .ingredient-list .amount,
+    .recipe-detail-page .ingredient-list .unit {
+        font-weight: normal;
+        margin-right: 0.5em;
+    }
+     .recipe-detail-page .ingredient-list .ingredient-link {
+        font-weight: normal;
+    }
+    /* Hide URL for ingredient links */
+    .recipe-detail-page .ingredient-list .ingredient-link::after {
+        content: "";
+    }
+
+
+    /* --- Instruction Steps Styling --- */
+    .recipe-detail-page .instruction-steps {
+        list-style: decimal;
+        padding-left: 2em; /* Indent numbered steps */
+        margin-top: 0.5rem;
+    }
+    .recipe-detail-page .instruction-steps .step {
+        margin-bottom: 1rem;
+        line-height: 1.4;
+        page-break-inside: avoid;
+    }
+    /* Remove label styling if it was complex */
+    .recipe-detail-page .instruction-steps .step-label {
+        display: inline;
+    }
+
+
+    /* --- Optional Notes/Tips Styling --- */
+    .recipe-detail-page #tab-notes .author-tips {
+         margin-top: 1rem;
+         border-top: 1px dashed #ccc;
+         padding-top: 1rem;
+    }
+    .recipe-detail-page #tab-notes .author-tips h3 {
+         font-size: 12pt;
+         font-weight: bold;
+         margin-bottom: 0.5rem;
+         border-bottom: none; /* Remove heading border if applied */
+    }
+    .recipe-detail-page #tab-notes .author-tips ul {
+         list-style: disc;
+         padding-left: 1.5rem;
+    }
+    .recipe-detail-page #tab-notes .author-tips li {
+        margin-bottom: 0.4rem;
+    }
+
+
+    /* ========================================================================= */
+    /* Shopping List Specific Print Styles (If printing that page)             */
+    /* ========================================================================= */
+    .shopping-list-page .list-controls,
+    .shopping-list-page .item-actions, /* Hide remove buttons */
+    .shopping-list-page .empty-list-message {
+        display: none !important;
+    }
+
+    .shopping-list-page .list-group {
+        margin-bottom: 1.5rem;
+        page-break-inside: avoid;
+    }
+    .shopping-list-page .group-title {
+        font-size: 14pt;
+        border-bottom: 1px solid #999;
+        padding-bottom: 0.25rem;
+        margin-bottom: 0.75rem;
+        page-break-after: avoid;
+    }
+    .shopping-list-page .list-items {
+        list-style: none;
+        padding-left: 0;
+    }
+    .shopping-list-page .shopping-list-item {
+        padding: 0.25rem 0;
+        border-bottom: 1px dotted #ccc;
+        display: flex; /* Use flex for alignment */
+        align-items: baseline; /* Align text baseline */
+        page-break-inside: avoid;
+    }
+    .shopping-list-page .shopping-list-item:last-child {
+        border-bottom: none;
+    }
+
+    /* Print checkbox as an empty square */
+    .shopping-list-page .item-checkbox {
+        appearance: none;
+        width: 1em;
+        height: 1em;
+        border: 1px solid #333;
+        margin-right: 0.75em;
+        display: inline-block;
+        vertical-align: baseline;
+        flex-shrink: 0;
+    }
+    /* Style checked items for print */
+     .shopping-list-page input[type="checkbox"]:checked + .item-details {
+        text-decoration: line-through;
+        color: #666;
+     }
+      /* Optional: Add checkmark inside checked box for print (may not render consistently) */
+     /*
+     .shopping-list-page input[type="checkbox"]:checked::before {
+        content: '\2713'; // Checkmark character
+        display: block;
+        text-align: center;
+        color: #000;
+        line-height: 1em;
+     }
+     */
+
+     .shopping-list-page .item-details {
+        /* Let flexbox handle layout */
+     }
+     .shopping-list-page .item-qty-unit {
+        font-weight: normal;
+        min-width: 5em; /* Give qty/unit some space */
+        display: inline-block; /* Ensure width applies */
+        margin-right: 0.5em;
+     }
+     /* Hide quantity input, just show value */
+     .shopping-list-page .item-qty-input {
+         display: inline;
+         border: none;
+         background: none;
+         padding: 0;
+         width: auto; /* Let content size it */
+         font: inherit; /* Inherit print font */
+         text-align: left;
+     }
+    .shopping-list-page .item-name a::after { content: ""; } /* Hide URL for ingredients */
+    .shopping-list-page .item-source { display: none; } /* Hide source */
+
+} /* End @media print */

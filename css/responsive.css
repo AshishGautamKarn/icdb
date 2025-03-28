@@ -1,0 +1,290 @@
+them based on testing your specific content and design.
+/* ========================================================================= */
+/* responsive.css - Media Queries for ICDB                             */
+/* Adapts layout and styles for different screen sizes (tablets, mobile).  */
+/* ========================================================================= */
+
+
+/* ========================================================================= */
+/* Large Devices (Desktops, reducing columns slightly before tablet)       */
+/* Target: Screens <= 1199.98px                                            */
+/* ========================================================================= */
+@media (max-width: 1199.98px) {
+    /* Example: Reduce 4-column grids to 3 columns if needed */
+    /* .grid-cols-4 { grid-template-columns: repeat(3, 1fr); } */
+
+    /* Example: Slightly smaller max-width for container */
+    .container {
+        max-width: 960px;
+    }
+
+    /* Reduce heading sizes slightly */
+    h1, .hero-title { font-size: 2.2rem; }
+    h2, .section-title { font-size: 1.8rem; }
+}
+
+
+/* ========================================================================= */
+/* Medium Devices (Tablets, smaller desktops)                              */
+/* Target: Screens <= 991.98px                                             */
+/* Key changes: Stack sidebars, adjust grid columns                        */
+/* ========================================================================= */
+@media (max-width: 991.98px) {
+    /* --- Layout Stacking --- */
+
+    /* Stack two-column sidebar layouts */
+    .results-layout,
+    .settings-layout,
+    .forums-layout {
+        grid-template-columns: 1fr; /* Single column layout */
+    }
+
+    /* Ensure sidebar comes first visually in stacked view if needed */
+    /* Example: For settings/search filters */
+    .filters,
+    .settings-nav {
+        order: -1; /* Move sidebar above main content when stacked */
+        /* Adjust margin if needed */
+        margin-bottom: var(--spacing-lg);
+    }
+    /* No order change needed for forum layout if main content first is okay */
+
+
+    /* --- Grid Adjustments --- */
+    /* Reduce columns for grids using auto-fit if the minmax isn't sufficient */
+    /* Example: Ensure max 2 columns for recipe cards on tablets */
+     .recipe-card-grid, .i-made-this-grid, .photo-grid {
+         grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); /* Slightly smaller min size */
+     }
+     /* Force max 2 columns if needed */
+     /* .recipe-card-grid { grid-template-columns: repeat(2, 1fr); } */
+
+     .category-grid {
+         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+     }
+
+
+    /* --- Header Adjustments --- */
+    .header-container .main-navigation {
+        /* Start hiding main nav, prepare for hamburger */
+        /* Display logic handled by JS */
+    }
+    .header-container .header-search {
+        /* Search might need adjustment */
+        flex-grow: 1; /* Allow search to take more space */
+    }
+
+
+    /* --- Specific Component Adjustments --- */
+    .profile-header-content {
+        align-items: flex-start; /* Align avatar top with info top */
+        flex-direction: column; /* Stack avatar and info vertically */
+        margin-top: var(--spacing-md);
+        padding-left: 0;
+    }
+    .profile-avatar {
+         margin: 0 auto var(--spacing-md) auto; /* Center avatar */
+    }
+     .profile-info {
+        width: 100%;
+        justify-content: center; /* Center items like buttons */
+        align-items: center;
+        text-align: center;
+     }
+     .profile-info .info-main {
+         width: 100%; /* Ensure main info takes full width */
+     }
+
+     .forum-item {
+        grid-template-columns: auto 1fr auto; /* Icon | Info | Last Post/Stats */
+        grid-template-areas:
+            "icon info stats"
+            "icon info lastpost";
+        align-items: start; /* Align items to top */
+     }
+     .forum-item .forum-stats { grid-area: stats; text-align: left; margin-top: var(--spacing-xs); }
+     .forum-item .forum-last-post { grid-area: lastpost; text-align: left; min-width: 0; }
+     /* Hide stats on smaller tablets if too cluttered */
+     /* .forum-item .forum-stats { display: none; } */
+
+     /* Adjust form grid spacing */
+    .form-grid-dynamic {
+        gap: var(--spacing-sm);
+    }
+
+}
+
+
+/* ========================================================================= */
+/* Small Devices (Phones, Portrait Tablets)                                */
+/* Target: Screens <= 767.98px                                             */
+/* Key changes: Hamburger menu, single column everything, smaller fonts    */
+/* ========================================================================= */
+@media (max-width: 767.98px) {
+    /* --- Base & Typography --- */
+    html {
+        font-size: 90%; /* Slightly reduce base font size */
+    }
+    h1, .hero-title { font-size: 2rem; }
+    h2, .section-title { font-size: 1.6rem; }
+    h3 { font-size: 1.3rem; }
+
+    main {
+        padding-top: var(--spacing-md); /* Reduce space below header */
+        padding-bottom: var(--spacing-lg);
+    }
+
+    .container {
+        width: 95%; /* Use more screen width */
+        padding-left: var(--spacing-sm);
+        padding-right: var(--spacing-sm);
+    }
+
+    /* --- Header / Navigation --- */
+    .header-container {
+        flex-wrap: nowrap; /* Prevent logo/actions wrapping usually */
+        position: relative; /* For potential mobile menu positioning */
+    }
+    .header-container .main-navigation {
+        display: none; /* Fully hide desktop nav */
+        /* Mobile menu panel would be implemented with JS */
+    }
+    /* Hamburger Button (Placeholder - Needs HTML + JS) */
+    .mobile-nav-toggle {
+        display: block; /* Show hamburger */
+        /* Add styles for hamburger button */
+        order: 3; /* Place after user actions */
+    }
+
+    .header-container .header-search {
+        /* Optionally hide search or make it icon-only */
+        flex-grow: 0;
+        width: auto;
+    }
+    .header-container .header-search input[type="search"] {
+        /* Maybe reduce size or change display */
+        /* padding: var(--spacing-xs) var(--spacing-sm); */
+    }
+    .header-container .user-actions {
+        /* Adjust if needed */
+    }
+
+
+    /* --- Grid Layouts --- */
+    /* Ensure grids become single column */
+     .recipe-card-grid,
+     .category-grid,
+     .badge-grid,
+     .i-made-this-grid,
+     .photo-grid,
+     .results-items {
+         grid-template-columns: 1fr; /* Force single column */
+         gap: var(--spacing-md); /* Reduce gap slightly */
+     }
+
+
+    /* --- Forms --- */
+     /* Ensure dynamic form rows wrap nicely */
+    .form-grid-dynamic input,
+    .form-grid-dynamic textarea,
+    .form-grid-dynamic select {
+        /* Ensure inputs can shrink or take full width */
+         flex-basis: 100px; /* Allow smaller base */
+         min-width: 80px;
+    }
+     .ingredient-item .input-name,
+     .ingredient-item .input-notes {
+          flex-basis: calc(50% - var(--spacing-sm)); /* Roughly two per line if space */
+     }
+     .instruction-item .input-step {
+         flex-basis: 100%; /* Ensure textarea takes full width before button */
+     }
+     .form-actions {
+         flex-direction: column; /* Stack buttons */
+     }
+      .form-actions .btn {
+         width: 100%; /* Make buttons full width */
+     }
+
+    /* --- Specific Component Adjustments --- */
+    .hero-section { /* Less padding on hero */
+        padding: var(--spacing-xl) 0;
+    }
+    .hero-title { font-size: 1.8rem; }
+    .hero-subtitle { font-size: 1rem; }
+
+    .forum-item {
+        grid-template-columns: auto 1fr; /* Icon | Info/Last Post stacked */
+        grid-template-areas:
+            "icon info"
+            "icon lastpost";
+        gap: var(--spacing-sm) var(--spacing-md);
+    }
+    .forum-item .forum-stats { display: none; } /* Hide stats column */
+    .forum-item .forum-last-post { grid-area: lastpost; }
+
+    .shopping-list-item .item-details {
+         flex-direction: column; /* Stack details vertically */
+         align-items: flex-start;
+         gap: var(--spacing-xs);
+    }
+    .shopping-list-item .item-source {
+        margin-left: 0; /* Align source below name */
+    }
+    .shopping-list-item .remove-item-btn {
+         align-self: center; /* Center remove button */
+    }
+
+    .pagination a, .pagination span {
+        padding: var(--spacing-sm) var(--spacing-sm); /* Smaller padding */
+    }
+    .pagination .page-links span:not(.ellipsis):not(.current-page),
+    .pagination .page-links a { /* Hide some page numbers */
+        /* display: none; */ /* More complex logic needed for smart hiding */
+    }
+    .pagination .prev, .pagination .next { /* Ensure prev/next always visible */
+         /* display: inline-block; */
+    }
+
+    /* Settings page */
+    .settings-layout { /* Already stacked */ }
+    .settings-nav ul { display: flex; overflow-x: auto; padding-bottom: var(--spacing-sm); border-bottom: 1px solid var(--md-border-color); margin-bottom: var(--spacing-lg);}
+    .settings-nav li { flex-shrink: 0;}
+    .settings-nav a { padding: var(--spacing-sm) var(--spacing-md); border-bottom: 3px solid transparent; margin-bottom: -1px;}
+     .settings-nav a.active, .settings-nav a[aria-current="page"] { border-color: var(--md-primary-color); }
+
+}
+
+
+/* ========================================================================= */
+/* Extra Small Devices (Smaller Phones)                                    */
+/* Target: Screens <= 575.98px                                             */
+/* Fine-tuning for the smallest screens.                                   */
+/* ========================================================================= */
+@media (max-width: 575.98px) {
+    html {
+        /* font-size: 85%; */ /* Further reduce font size if needed */
+    }
+
+    .container {
+        width: 100%; /* Full width */
+        padding-left: var(--spacing-sm);
+        padding-right: var(--spacing-sm);
+    }
+
+    .card {
+        padding: var(--spacing-md); /* Reduce card padding */
+    }
+
+    h1, .hero-title { font-size: 1.6rem; }
+    h2, .section-title { font-size: 1.4rem; }
+
+    /* Further reduce header search width or hide completely */
+     .header-container .header-search { display: none; }
+     /* Or show only an icon button that reveals search */
+
+     /* Ensure buttons are easily tappable */
+    .btn {
+        padding: var(--spacing-md) var(--spacing-lg); /* Ensure decent tap area */
+    }
+}

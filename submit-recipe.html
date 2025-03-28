@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Submit your original recipe to the ICDB community. Share your culinary creations!">
+    <!-- Noindex is often appropriate for submission forms -->
+    <meta name="robots" content="noindex, follow">
+    <title>Submit Your Recipe - ICDB</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon"> <!-- Update path if needed -->
+
+    <!-- CSS Stylesheets -->
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+</head>
+<body>
+
+    <!-- ========================================================================= -->
+    <!-- HEADER (Consistent across site)                                         -->
+    <!-- Assume user is logged in to access this page.                         -->
+    <!-- ========================================================================= -->
+    <header class="site-header">
+        <!-- Placeholder for header content (Logo, Nav, Search, User Menu showing logged-in state) -->
+        <div class="container header-container">
+             <a href="index.html" class="logo" aria-label="ICDB Homepage"><img src="images/logo.png" alt="ICDB Logo"><span>ICDB</span></a>
+             <nav class="main-navigation">...</nav>
+             <form class="header-search">...</form>
+              <div class="user-actions">
+                 <!-- Assume Logged In State -->
+                <div class="user-menu">
+                    <button class="btn btn-icon profile-btn" aria-label="User Menu">
+                        <img src="images/placeholder/user-avatar.png" alt="User Avatar" class="avatar-small"> <!-- Dynamic Avatar -->
+                    </button>
+                     <div class="dropdown-menu">
+                        <a href="profile.html?user=myCurrentUser">My Profile</a> <!-- Dynamic Link -->
+                        <a href="settings.html">Settings</a>
+                        <a href="#">My Cooklists</a>
+                        <a href="#">Logout</a> <!-- Placeholder action -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ========================================================================= -->
+    <!-- MAIN CONTENT AREA - SUBMIT RECIPE PAGE                                  -->
+    <!-- ========================================================================= -->
+    <main class="submit-recipe-page container">
+
+        <h1 class="page-title">Submit Your Recipe</h1>
+        <p class="page-subtitle">Share your culinary creation with the ICDB community!</p>
+
+        <!-- Recipe Submission Form -->
+        <!-- The action URL and method would point to the backend endpoint -->
+        <form id="submit-recipe-form" action="/api/recipes/submit" method="post" enctype="multipart/form-data">
+
+             <!-- User Feedback Area -->
+            <div class="form-message" id="submit-message" role="alert"></div>
+
+            <!-- Section: Basic Information -->
+            <section class="form-section card">
+                <h2>Basic Information</h2>
+
+                <div class="form-group">
+                    <label for="recipe-title">Recipe Title <span class="required">*</span></label>
+                    <input type="text" id="recipe-title" name="title" required placeholder="E.g., Grandma's Famous Apple Pie">
+                </div>
+
+                <div class="form-group">
+                    <label for="recipe-description">Description <span class="required">*</span></label>
+                    <textarea id="recipe-description" name="description" rows="4" required placeholder="Briefly describe your recipe. What makes it special?"></textarea>
+                </div>
+
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="prep-time">Prep Time</label>
+                        <input type="text" id="prep-time" name="prep_time" placeholder="E.g., 20 mins">
+                        <small>Time spent preparing ingredients before cooking.</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="cook-time">Cook Time</label>
+                        <input type="text" id="cook-time" name="cook_time" placeholder="E.g., 45 mins or 1 hr 15 mins">
+                    </div>
+                     <div class="form-group">
+                        <label for="total-time">Total Time</label>
+                        <input type="text" id="total-time" name="total_time" placeholder="Automatically calculated or manual">
+                        <small>(Prep + Cook + Resting, etc.)</small>
+                    </div>
+                </div>
+
+                 <div class="form-grid">
+                    <div class="form-group">
+                        <label for="servings">Servings <span class="required">*</span></label>
+                        <input type="number" id="servings" name="servings" required min="1" step="1" placeholder="E.g., 4">
+                    </div>
+                    <div class="form-group">
+                        <label for="difficulty">Difficulty Level <span class="required">*</span></label>
+                        <select id="difficulty" name="difficulty" required>
+                            <option value="" disabled selected>Select Difficulty</option>
+                            <option value="easy">Easy</option>
+                            <option value="medium">Medium</option>
+                            <option value="hard">Hard</option>
+                        </select>
+                    </div>
+                </div>
+            </section>
+
+             <!-- Section: Ingredients -->
+            <section class="form-section card">
+                <h2>Ingredients <span class="required">*</span></h2>
+                <p>Add each ingredient separately. Be specific with units!</p>
+                <div id="ingredient-list-editor">
+                    <!-- Ingredient items will be added here by JavaScript -->
+                     <!-- Example of a single added ingredient row (JS will clone the template) -->
+                     <!--
+                     <div class="ingredient-item form-grid-dynamic">
+                         <input type="text" name="ingredient_qty[]" placeholder="Qty" required class="input-qty">
+                         <input type="text" name="ingredient_unit[]" placeholder="Unit (e.g., cup, tbsp, g)" required class="input-unit">
+                         <input type="text" name="ingredient_name[]" placeholder="Ingredient Name" required class="input-name">
+                         <input type="text" name="ingredient_notes[]" placeholder="Notes (e.g., chopped, melted)" class="input-notes">
+                         <button type="button" class="btn btn-danger btn-small remove-ingredient-btn">Remove</button>
+                     </div>
+                     -->
+                </div>
+                 <button type="button" id="add-ingredient-btn" class="btn btn-secondary">Add Ingredient</button>
+
+                 <!-- Hidden Template for Ingredients (JS will use this) -->
+                 <template id="ingredient-template">
+                    <div class="ingredient-item form-grid-dynamic">
+                         <input type="text" name="ingredient_qty[]" placeholder="Qty" required class="input-qty">
+                         <input type="text" name="ingredient_unit[]" list="common-units" placeholder="Unit" required class="input-unit">
+                         <input type="text" name="ingredient_name[]" placeholder="Ingredient Name" required class="input-name">
+                         <input type="text" name="ingredient_notes[]" placeholder="Notes (e.g., chopped)" class="input-notes">
+                         <button type="button" class="btn btn-danger btn-small remove-btn remove-ingredient-btn">Remove</button>
+                     </div>
+                 </template>
+                 <!-- Datalist for common units -->
+                  <datalist id="common-units">
+                    <option value="tsp"></option>
+                    <option value="tbsp"></option>
+                    <option value="cup"></option>
+                    <option value="oz"></option>
+                    <option value="lb"></option>
+                    <option value="g"></option>
+                    <option value="kg"></option>
+                    <option value="ml"></option>
+                    <option value="l"></option>
+                    <option value="pinch"></option>
+                    <option value="clove"></option>
+                    <option value="whole"></option>
+                    <option value="slice"></option>
+                 </datalist>
+            </section>
+
+             <!-- Section: Instructions -->
+            <section class="form-section card">
+                <h2>Instructions <span class="required">*</span></h2>
+                 <p>Add each step of the preparation process.</p>
+                <div id="instruction-list-editor">
+                    <!-- Instruction steps will be added here by JavaScript -->
+                     <!-- Example of a single added instruction step -->
+                     <!--
+                     <div class="instruction-item">
+                         <label class="step-label">Step 1</label>
+                         <div class="form-grid-dynamic">
+                             <textarea name="instruction_step[]" rows="3" placeholder="Describe this step..." required class="input-step"></textarea>
+                             <button type="button" class="btn btn-danger btn-small remove-instruction-btn">Remove</button>
+                         </div>
+                     </div>
+                     -->
+                </div>
+                 <button type="button" id="add-instruction-btn" class="btn btn-secondary">Add Step</button>
+
+                 <!-- Hidden Template for Instructions -->
+                 <template id="instruction-template">
+                     <div class="instruction-item">
+                         <label class="step-label">Step <span class="step-number">X</span></label>
+                         <div class="form-grid-dynamic">
+                             <textarea name="instruction_step[]" rows="3" placeholder="Describe this step..." required class="input-step"></textarea>
+                             <button type="button" class="btn btn-danger btn-small remove-btn remove-instruction-btn">Remove</button>
+                         </div>
+                     </div>
+                 </template>
+            </section>
+
+            <!-- Section: Photo Upload -->
+            <section class="form-section card">
+                <h2>Recipe Photo</h2>
+                <div class="form-group image-upload">
+                    <label for="recipe-image-upload">Upload a Photo <span class="required">*</span></label>
+                    <input type="file" id="recipe-image-upload" name="recipe_image" required accept="image/png, image/jpeg">
+                    <small>High-quality photos attract more viewers! Max file size: 5MB. JPG or PNG.</small>
+                    <div id="image-preview" class="upload-preview">
+                        <!-- Image preview will be shown here by JavaScript -->
+                        <img src="" alt="Recipe image preview" style="display: none;">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section: Categories & Tags -->
+            <section class="form-section card">
+                <h2>Categories & Tags</h2>
+
+                <div class="form-group">
+                    <label for="cuisine">Primary Cuisine</label>
+                    <select id="cuisine" name="cuisine">
+                        <option value="">Select Cuisine (Optional)</option>
+                        <!-- Populate dynamically -->
+                        <option value="italian">Italian</option>
+                        <option value="mexican">Mexican</option>
+                        <option value="indian">Indian</option>
+                        <option value="chinese">Chinese</option>
+                         <option value="french">French</option>
+                         <option value="american">American</option>
+                        <!-- ... more options -->
+                    </select>
+                </div>
+
+                 <fieldset class="form-group">
+                    <legend>Dietary Tags (Select all that apply)</legend>
+                    <ul class="filter-list checkboxes">
+                        <!-- Populate dynamically or list common ones -->
+                        <li><label><input type="checkbox" name="diet_tags[]" value="vegetarian"> Vegetarian</label></li>
+                        <li><label><input type="checkbox" name="diet_tags[]" value="vegan"> Vegan</label></li>
+                        <li><label><input type="checkbox" name="diet_tags[]" value="gluten-free"> Gluten-Free</label></li>
+                        <li><label><input type="checkbox" name="diet_tags[]" value="dairy-free"> Dairy-Free</label></li>
+                        <li><label><input type="checkbox" name="diet_tags[]" value="nut-free"> Nut-Free</label></li>
+                        <li><label><input type="checkbox" name="diet_tags[]" value="low-carb"> Low-Carb</label></li>
+                    </ul>
+                </fieldset>
+
+                 <fieldset class="form-group">
+                    <legend>Relevant Cooking Techniques (Select all that apply)</legend>
+                     <ul class="filter-list checkboxes">
+                         <!-- Populate dynamically -->
+                         <li><label><input type="checkbox" name="technique_tags[]" value="sauteing"> Sautéing</label></li>
+                         <li><label><input type="checkbox" name="technique_tags[]" value="baking"> Baking</label></li>
+                         <li><label><input type="checkbox" name="technique_tags[]" value="roasting"> Roasting</label></li>
+                         <li><label><input type="checkbox" name="technique_tags[]" value="grilling"> Grilling</label></li>
+                          <li><label><input type="checkbox" name="technique_tags[]" value="frying"> Frying</label></li>
+                          <li><label><input type="checkbox" name="technique_tags[]" value="braising"> Braising</label></li>
+                          <li><label><input type="checkbox" name="technique_tags[]" value="proofing"> Proofing (Dough)</label></li>
+                    </ul>
+                </fieldset>
+
+                <!-- Optional: Free text tags -->
+                <!--
+                <div class="form-group">
+                    <label for="custom-tags">Custom Tags (Optional)</label>
+                    <input type="text" id="custom-tags" name="custom_tags" placeholder="E.g., comfort food, quick meal, party food (comma-separated)">
+                </div>
+                -->
+            </section>
+
+            <!-- Section: Optional Details -->
+            <section class="form-section card">
+                <h2>Optional Details</h2>
+                 <div class="form-group">
+                    <label for="equipment-needed">Equipment Needed (Optional)</label>
+                    <input type="text" id="equipment-needed" name="equipment_needed" placeholder="E.g., Stand Mixer, 9x13 inch pan, Wok (comma-separated)">
+                     <small>List any special equipment required.</small>
+                 </div>
+                <div class="form-group">
+                    <label for="source">Source / Inspiration (Optional)</label>
+                    <input type="text" id="source" name="source" placeholder="E.g., Adapted from [Cookbook/Website], Family recipe">
+                    <small>Give credit if adapted from somewhere else.</small>
+                </div>
+                 <div class="form-group">
+                    <label for="notes">Additional Notes (Optional)</label>
+                    <textarea id="notes" name="notes" rows="3" placeholder="Any extra tips, storage instructions, or variations?"></textarea>
+                </div>
+            </section>
+
+            <!-- Submission Agreement -->
+            <section class="form-section card">
+                <h2>Submission Agreement</h2>
+                <div class="form-group checkbox-group">
+                    <label for="terms-agree">
+                         <input type="checkbox" id="terms-agree" name="terms_agree" required>
+                         I confirm that this is my own original recipe or that I have the right to share it, and I agree to the ICDB <a href="/terms.html#submissions" target="_blank">Recipe Submission Terms</a>. <span class="required">*</span>
+                    </label>
+                </div>
+            </section>
+
+            <!-- Form Actions -->
+            <div class="form-actions form-section">
+                <!-- Submit button (could trigger AJAX submission) -->
+                <button type="submit" id="submit-recipe-btn" class="btn btn-primary btn-large">Submit Recipe for Review</button>
+                <!-- Optional: Save Draft button (would require backend support) -->
+                <!-- <button type="button" id="save-draft-btn" class="btn btn-secondary">Save Draft</button> -->
+            </div>
+
+        </form>
+
+    </main>
+
+    <!-- ========================================================================= -->
+    <!-- FOOTER (Consistent across site)                                         -->
+    <!-- ========================================================================= -->
+    <footer class="site-footer">
+        <!-- Placeholder for footer content -->
+        <div class="container">
+             <nav class="footer-nav">...</nav>
+             <div class="social-links">...</div>
+             <p class="copyright">© 2023 ICDB. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- ========================================================================= -->
+    <!-- SCRIPTS                                                                   -->
+    <!-- ========================================================================= -->
+    <!-- Main Site Logic -->
+    <script src="js/main.js"></script> <!-- Handles header dropdowns, etc. -->
+    <!-- Page-Specific Logic -->
+    <script src="js/submit-recipe.js"></script> <!-- Handles dynamic ingredients/steps, image preview, form validation, submission -->
+
+    <!-- Inline script for initializing components on this page -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize dynamic form elements (defined in submit-recipe.js)
+            // This would set up the 'Add Ingredient', 'Add Step' buttons,
+            // handle removal, image preview, and potentially client-side validation.
+            // Example: initializeRecipeForm();
+            console.log("Submit Recipe page JS loaded (concept). Needs dynamic implementation for ingredients/steps.");
+
+            // Example: Add event listener for image upload preview
+            const imageInput = document.getElementById('recipe-image-upload');
+            const imagePreview = document.getElementById('image-preview');
+            const previewImg = imagePreview.querySelector('img');
+
+            if (imageInput && imagePreview && previewImg) {
+                imageInput.addEventListener('change', function(event) {
+                    const file = event.target.files[0];
+                    if (file && file.type.startsWith('image/')) {
+                        const reader = new FileReader();
+                        reader.onload = function(e) {
+                            previewImg.src = e.target.result;
+                            previewImg.style.display = 'block';
+                            imagePreview.style.display = 'block'; // Show the preview area
+                        }
+                        reader.readAsDataURL(file);
+                    } else {
+                        previewImg.src = '';
+                        previewImg.style.display = 'none';
+                         imagePreview.style.display = 'none'; // Hide preview area if invalid file
+                    }
+                });
+            }
+        });
+    </script>
+
+</body>
+</html>

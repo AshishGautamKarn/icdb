@@ -1,0 +1,398 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Update Title and Description Dynamically -->
+    <meta name="description" content="Learn how to master the Sautéing technique: definition, steps, equipment, common mistakes, tips, and recipes on ICDB.">
+    <title>How to Sauté - Cooking Technique Guide - ICDB</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon"> <!-- Update path if needed -->
+
+    <!-- CSS Stylesheets -->
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <!-- Structured Data (SEO for HowTo/Technique) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "name": "How to Sauté", // Update dynamically
+      "description": "Learn the cooking technique of sautéing, which involves cooking food quickly in a small amount of fat over relatively high heat.", // Update dynamically
+      "image": "images/placeholder/technique-saute.jpg", // Update dynamically - Representative image
+      "estimatedCost": { // Optional: Cost is usually negligible for a technique itself
+        "@type": "MonetaryAmount",
+        "currency": "USD",
+        "value": "0"
+      },
+      "supply": [ // Can list general food types often used
+        { "@type": "HowToSupply", "name": "Vegetables (e.g., onions, peppers, mushrooms)" },
+        { "@type": "HowToSupply", "name": "Tender cuts of meat (e.g., chicken breast strips, shrimp)" }
+      ],
+      "tool": [ // Link equipment needed
+        { "@type": "HowToTool", "name": "Sauté Pan or Skillet" }, // Link to equipment page? Needs refinement in schema.
+        { "@type": "HowToTool", "name": "Cooking Utensil (e.g., spatula, tongs)" },
+        { "@type": "HowToTool", "name": "Stove or Cooktop" }
+      ],
+      "step": [ // High-level steps for schema; detailed steps in main content
+        {
+          "@type": "HowToStep",
+          "name": "Prepare Ingredients",
+          "text": "Cut ingredients into uniform, bite-sized pieces.",
+          "url": "technique-detail.html?name=sauteing#tab-howto", // Link to detailed step section
+          "image": "images/placeholder/technique-saute-prep.jpg" // Placeholder image for prep step
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Heat Pan and Fat",
+          "text": "Heat the sauté pan over medium-high heat. Add a small amount of cooking fat (oil or butter).",
+          "url": "technique-detail.html?name=sauteing#tab-howto"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Add Ingredients",
+          "text": "Add ingredients to the hot pan in a single layer, avoiding overcrowding.",
+           "url": "technique-detail.html?name=sauteing#tab-howto"
+        },
+         {
+          "@type": "HowToStep",
+          "name": "Cook and Move",
+          "text": "Cook quickly, stirring or tossing frequently, until ingredients are tender-crisp and lightly browned.",
+           "url": "technique-detail.html?name=sauteing#tab-howto",
+           "image": "images/placeholder/technique-saute-action.jpg" // Placeholder image for cooking step
+        }
+      ],
+       "totalTime": "PT5M" // Example: Total typical cooking time (dynamic)
+       // Potential: associatedRecipe property linking to recipes
+    }
+    </script>
+
+</head>
+<body>
+
+    <!-- ========================================================================= -->
+    <!-- HEADER (Consistent across site)                                         -->
+    <!-- Include via server-side templating or copy/paste for static version.    -->
+    <!-- ========================================================================= -->
+    <header class="site-header">
+        <!-- Placeholder for header content (Logo, Nav, Search, User Menu) -->
+        <!-- Refer to index.html for full header structure -->
+        <div class="container header-container">
+             <a href="index.html" class="logo" aria-label="ICDB Homepage"><img src="images/logo.png" alt="ICDB Logo"><span>ICDB</span></a>
+             <nav class="main-navigation">...</nav>
+             <form class="header-search">...</form>
+             <div class="user-actions">...</div>
+        </div>
+    </header>
+
+    <!-- ========================================================================= -->
+    <!-- MAIN CONTENT AREA - TECHNIQUE DETAIL PAGE                             -->
+    <!-- ========================================================================= -->
+    <main class="technique-detail-page container">
+
+        <!-- == Technique Header Section == -->
+        <section class="technique-header card">
+             <!-- Technique Name -->
+             <h1 class="technique-name">Sautéing</h1> <!-- Update dynamically -->
+             <!-- Short definition -->
+             <p class="technique-short-desc">Cooking food quickly in a small amount of fat over relatively high heat, stirring or tossing frequently.</p>
+             <!-- Key Visual -->
+             <div class="technique-visual">
+                 <!-- Update src and alt dynamically -->
+                 <img src="images/placeholder/technique-saute.jpg" alt="Illustration or photo demonstrating sautéing">
+             </div>
+            <!-- Action Buttons -->
+            <div class="technique-actions">
+                <button class="btn btn-secondary btn-icon" id="share-technique-btn">
+                    <img src="images/icons/share.svg" alt="" class="icon"> Share
+                </button>
+                 <!-- Future feature: Add to user's learned techniques list -->
+                 <!--
+                 <button class="btn btn-primary btn-icon" id="mark-as-learned-btn" data-technique-id="sauteing">
+                    <img src="images/icons/check.svg" alt="" class="icon"> Mark as Learned
+                 </button>
+                 -->
+            </div>
+        </section>
+
+        <!-- == Technique Content Tabs/Sections == -->
+        <div class="technique-content-tabs card">
+            <!-- Tab Navigation -->
+            <nav class="tabs">
+                <button class="tab-link active" data-tab="tab-explanation">Explanation</button>
+                <button class="tab-link" data-tab="tab-equipment">Equipment</button>
+                <button class="tab-link" data-tab="tab-howto">How-To Guide</button>
+                <button class="tab-link" data-tab="tab-goofs-tips">Goofs & Tips</button>
+                <button class="tab-link" data-tab="tab-recipes">Recipes</button>
+            </nav>
+
+            <!-- Tab Content: Explanation -->
+            <section id="tab-explanation" class="tab-content active">
+                <h2>What is Sautéing?</h2>
+                 <!-- Update dynamically -->
+                <p>The word "sauté" comes from the French verb "sauter," meaning "to jump," which refers to the action of tossing food in the pan.</p>
+                <p>Sautéing is a dry-heat cooking method that uses a small amount of oil or fat in a shallow pan over relatively high heat. It's ideal for cooking smaller pieces of food quickly, like chopped vegetables, tender cuts of meat (chicken strips, shrimp), or aromatics (garlic, onions).</p>
+                <h3>Key Principles:</h3>
+                <ul>
+                    <li><strong>High Heat:</strong> Promotes rapid cooking and browning (Maillard reaction).</li>
+                    <li><strong>Small Amount of Fat:</strong> Just enough to coat the pan and prevent sticking, facilitating heat transfer.</li>
+                    <li><strong>Quick Cooking:</strong> Ingredients are cooked through quickly, often remaining slightly crisp (tender-crisp for vegetables).</li>
+                    <li><strong>Movement:</strong> Frequent stirring or tossing ensures even cooking and prevents burning.</li>
+                    <li><strong>Don't Overcrowd:</strong> Cooking ingredients in a single layer allows heat to circulate and prevents steaming.</li>
+                </ul>
+                <h3>Why Use Sautéing?</h3>
+                <p>Sautéing develops flavor through browning, cooks food quickly preserving texture and nutrients, and is often the first step in building flavor for more complex dishes (like soups, stews, or sauces).</p>
+            </section>
+
+            <!-- Tab Content: Equipment -->
+            <section id="tab-equipment" class="tab-content">
+                <h2>Equipment Needed</h2>
+                <p>You don't need much specialized equipment for basic sautéing:</p>
+                <ul class="equipment-list">
+                     <!-- Update dynamically, link to equipment detail pages -->
+                    <li>
+                        <img src="images/placeholder/equip-saute-pan-thumb.jpg" alt="Sauté Pan" class="equipment-thumb">
+                        <div>
+                            <strong><a href="equipment-detail.html?name=saute-pan">Sauté Pan or Skillet:</a></strong> A wide, shallow pan with sloped or straight sides. Choose a size appropriate for the amount of food – avoid overcrowding. Heavy-bottomed pans provide more even heat.
+                        </div>
+                    </li>
+                     <li>
+                        <img src="images/placeholder/equip-spatula-thumb.jpg" alt="Spatula/Tongs" class="equipment-thumb">
+                        <div>
+                            <strong><a href="equipment-detail.html?name=spatula">Spatula, Wooden Spoon, or Tongs:</a></strong> For stirring and tossing the ingredients. Choose heat-resistant materials.
+                        </div>
+                    </li>
+                     <li>
+                        <img src="images/placeholder/equip-stove-thumb.jpg" alt="Stove" class="equipment-thumb">
+                         <div>
+                            <strong><a href="equipment-detail.html?name=cooktop">Stove/Cooktop:</a></strong> A reliable heat source capable of maintaining medium-high to high heat.
+                        </div>
+                    </li>
+                     <li>
+                        <div>
+                            <strong>Cooking Fat:</strong> An oil or fat with a suitable smoke point for high heat (e.g., vegetable oil, canola oil, grapeseed oil, clarified butter). Olive oil can be used but watch the heat to prevent burning.
+                        </div>
+                    </li>
+                </ul>
+            </section>
+
+            <!-- Tab Content: How-To Guide -->
+            <section id="tab-howto" class="tab-content">
+                <h2>How to Sauté: Step-by-Step</h2>
+
+                <!-- Optional: Video Tutorial Embed -->
+                <div class="video-embed content-section">
+                    <h3>Video Tutorial</h3>
+                    <!-- Placeholder for YouTube/Vimeo embed -->
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/..." frameborder="0" allowfullscreen title="Sautéing Technique Video"></iframe>
+                    <p><em>Video source: Example Cooking Channel (replace with actual source)</em></p>
+                </div>
+
+                <!-- Step-by-Step Instructions -->
+                <ol class="instruction-steps content-section">
+                    <!-- Update steps dynamically -->
+                    <li class="step">
+                        <strong>Prepare Ingredients:</strong> Ensure all ingredients are cut into roughly uniform, bite-sized pieces. This promotes even cooking. Pat ingredients (especially proteins) dry with paper towels; excess moisture hinders browning. Have everything ready ("mise en place") before you start, as sautéing is fast.
+                        <!-- Placeholder image for step -->
+                         <img src="images/placeholder/technique-saute-prep.jpg" alt="Ingredients prepped for sautéing" class="step-image">
+                    </li>
+                     <li class="step">
+                        <strong>Heat the Pan:</strong> Place the sauté pan over medium-high heat. Allow the pan to get hot *before* adding fat. A good test: flick a drop of water into the pan – it should evaporate almost instantly.
+                    </li>
+                     <li class="step">
+                        <strong>Add Fat:</strong> Add just enough cooking oil or fat to lightly coat the bottom of the pan (usually 1-2 tablespoons). It should shimmer slightly when hot but not smoke excessively. If using butter, consider mixing with oil or using clarified butter to prevent burning.
+                    </li>
+                     <li class="step">
+                        <strong>Add Ingredients (Don't Overcrowd!):</strong> Carefully add your main ingredients to the hot pan. They should sizzle immediately. Arrange them in a single layer. If necessary, cook in batches rather than crowding the pan, which lowers the temperature and causes food to steam instead of brown.
+                         <!-- Placeholder image for step -->
+                         <img src="images/placeholder/technique-saute-action.jpg" alt="Ingredients sizzling in a hot sauté pan" class="step-image">
+                    </li>
+                     <li class="step">
+                        <strong>Cook & Move:</strong> Let the ingredients cook undisturbed for a short period to develop color, then begin stirring or tossing frequently. Keep the food moving to ensure even cooking and prevent sticking or burning. Sauté until ingredients are cooked to the desired doneness (e.g., vegetables are tender-crisp, proteins are cooked through). This usually takes only a few minutes.
+                    </li>
+                     <li class="step">
+                        <strong>Finish & Serve:</strong> Remove pan from heat. Season as desired (salt is often best added near the end for vegetables to prevent drawing out too much moisture early). Serve immediately. The pan can often be deglazed with liquid (wine, broth) to create a simple pan sauce, scraping up any browned bits (fond).
+                    </li>
+                </ol>
+            </section>
+
+            <!-- Tab Content: Goofs & Tips -->
+            <section id="tab-goofs-tips" class="tab-content">
+                <h2>Common Goofs & Community Tips</h2>
+
+                <!-- Common Mistakes Section -->
+                <div class="goofs-section content-section">
+                    <h3>Common Mistakes ("Goofs")</h3>
+                    <ul class="goofs-list">
+                         <!-- Update dynamically with community input/curation -->
+                        <li class="goof-item">
+                            <p><strong>Overcrowding the Pan:</strong> The most common mistake! Lowers pan temperature, leading to steaming instead of searing/browning. Food becomes soggy.</p>
+                            <div class="goof-actions"><button class="vote-helpful-yes">Helpful (75)</button> <button class="report-goof">Report</button></div>
+                        </li>
+                        <li class="goof-item">
+                             <p><strong>Pan Not Hot Enough:</strong> Adding food to a cool pan results in ingredients absorbing oil and cooking unevenly without browning.</p>
+                              <div class="goof-actions"><button class="vote-helpful-yes">Helpful (62)</button> <button class="report-goof">Report</button></div>
+                        </li>
+                        <li class="goof-item">
+                             <p><strong>Using Fat with Low Smoke Point:</strong> Using extra virgin olive oil or whole butter at very high heat can cause burning and off-flavors.</p>
+                              <div class="goof-actions"><button class="vote-helpful-yes">Helpful (48)</button> <button class="report-goof">Report</button></div>
+                        </li>
+                         <li class="goof-item">
+                             <p><strong>Uneven Ingredient Sizes:</strong> Smaller pieces cook faster than larger ones, leading to inconsistent results.</p>
+                             <div class="goof-actions"><button class="vote-helpful-yes">Helpful (35)</button> <button class="report-goof">Report</button></div>
+                        </li>
+                        <li class="goof-item">
+                            <p><strong>Stirring Too Much / Too Little:</strong> Constant stirring prevents browning; too little stirring risks burning.</p>
+                             <div class="goof-actions"><button class="vote-helpful-yes">Helpful (30)</button> <button class="report-goof">Report</button></div>
+                        </li>
+                    </ul>
+                    <button class="btn btn-secondary btn-small">Suggest a Common Goof</button>
+                </div>
+
+                 <!-- Community Tips Section -->
+                <div class="community-tips content-section">
+                    <h3>Community Tips & Tricks</h3>
+                    <ul class="tips-list">
+                        <!-- Update dynamically with community input -->
+                        <li class="tip-item">
+                            <p>"Always have your 'mise en place' ready *before* heating the pan. Sautéing goes fast!" - <a href="profile.html?user=pro_prepper">Pro_Prepper</a></p>
+                             <div class="tip-actions"><button class="vote-helpful-yes">Helpful (55)</button> <button class="report-tip">Report</button></div>
+                        </li>
+                         <li class="tip-item">
+                            <p>"If cooking in batches, remove the first batch, add a touch more oil if needed, let the pan reheat, then cook the next batch. Combine at the end." - <a href="profile.html?user=batch_cooker">Batch_Cooker</a></p>
+                              <div class="tip-actions"><button class="vote-helpful-yes">Helpful (41)</button> <button class="report-tip">Report</button></div>
+                        </li>
+                         <li class="tip-item">
+                            <p>"Learn the 'sauté flip' to toss ingredients without a utensil – great for delicate items like mushrooms. Practice with dry beans first!" - <a href="profile.html?user=flipper_chef">Flipper_Chef</a></p>
+                              <div class="tip-actions"><button class="vote-helpful-yes">Helpful (32)</button> <button class="report-tip">Report</button></div>
+                        </li>
+                    </ul>
+                     <button class="btn btn-secondary btn-small">Add Your Tip</button>
+                </div>
+            </section>
+
+            <!-- Tab Content: Recipes -->
+            <section id="tab-recipes" class="tab-content">
+                <h2>Recipes Utilizing Sautéing</h2>
+                <p>Discover dishes where sautéing is a key step.</p>
+                <div class="recipe-card-grid">
+                     <!-- Recipe Card 1 (Placeholder - Load dynamically) -->
+                     <div class="recipe-card card card-interactive">
+                        <a href="recipe-detail.html?id=3001" class="card-image-link">
+                            <img src="images/placeholder/recipe-sauteed-veg.jpg" alt="Simple Sautéed Vegetables Thumbnail"> <!-- Update path -->
+                        </a>
+                        <div class="card-content">
+                            <h3 class="card-title"><a href="recipe-detail.html?id=3001">Simple Sautéed Vegetables</a></h3>
+                            <div class="card-rating">★★★★☆ <span class="rating-text">(8.5/10)</span></div>
+                            <p class="card-description">A quick, healthy side dish showcasing the technique.</p>
+                        </div>
+                    </div>
+                    <!-- Recipe Card 2 (Placeholder) -->
+                    <div class="recipe-card card card-interactive">
+                        <a href="recipe-detail.html?id=1002" class="card-image-link"> <!-- Link to existing Scallops recipe -->
+                            <img src="images/placeholder/recipe-scallops.jpg" alt="Pan-Seared Scallops Thumbnail"> <!-- Update path -->
+                        </a>
+                        <div class="card-content">
+                            <h3 class="card-title"><a href="recipe-detail.html?id=1002">Pan-Seared Scallops with Pea Purée</a></h3>
+                            <div class="card-rating">★★★★☆ <span class="rating-text">(8.9/10)</span></div>
+                            <p class="card-description">Sautéing is key for achieving the perfect scallop sear.</p>
+                        </div>
+                    </div>
+                     <!-- Recipe Card 3 (Placeholder) -->
+                     <div class="recipe-card card card-interactive">
+                        <a href="recipe-detail.html?id=3003" class="card-image-link">
+                            <img src="images/placeholder/recipe-chicken-stirfry.jpg" alt="Quick Chicken Stir-Fry Thumbnail"> <!-- Update path -->
+                        </a>
+                        <div class="card-content">
+                            <h3 class="card-title"><a href="recipe-detail.html?id=3003">Quick Chicken Stir-Fry</a></h3>
+                             <div class="card-rating">★★★★☆ <span class="rating-text">(8.7/10)</span></div>
+                             <!-- Stir-frying is closely related, often involves sautéing elements -->
+                            <p class="card-description">Many stir-fries utilize high-heat sautéing principles.</p>
+                        </div>
+                    </div>
+                    <!-- Add more associated recipe cards dynamically -->
+                </div>
+                <!-- Link to view all recipes using this technique -->
+                <div class="section-link">
+                    <a href="search-results.html?type=recipe&technique=sauteing" class="btn btn-secondary">View All Recipes Using Sautéing</a> <!-- Update dynamically -->
+                </div>
+            </section>
+
+        </div> <!-- End Tabs/Sections -->
+
+         <!-- == Related Techniques Section == -->
+        <section class="related-techniques card">
+            <h2>Related Techniques</h2>
+            <div class="related-items-list">
+                 <!-- Update dynamically -->
+                <a href="technique-detail.html?name=pan-frying" class="related-item">
+                     <img src="images/placeholder/technique-panfry-thumb.jpg" alt="Pan-Frying"> <!-- Update path -->
+                     <span>Pan-Frying</span>
+                 </a>
+                 <a href="technique-detail.html?name=stir-frying" class="related-item">
+                     <img src="images/placeholder/technique-stirfry-thumb.jpg" alt="Stir-Frying"> <!-- Update path -->
+                     <span>Stir-Frying</span>
+                 </a>
+                  <a href="technique-detail.html?name=sweating" class="related-item">
+                     <img src="images/placeholder/technique-sweat-thumb.jpg" alt="Sweating"> <!-- Update path -->
+                     <span>Sweating (Vegetables)</span>
+                 </a>
+                 <a href="technique-detail.html?name=searing" class="related-item">
+                     <img src="images/placeholder/technique-sear-thumb.jpg" alt="Searing"> <!-- Update path -->
+                     <span>Searing</span>
+                 </a>
+                 <!-- Add more related items -->
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ========================================================================= -->
+    <!-- FOOTER (Consistent across site)                                         -->
+    <!-- Include via server-side templating or copy/paste for static version.    -->
+    <!-- ========================================================================= -->
+    <footer class="site-footer">
+        <!-- Placeholder for footer content -->
+        <!-- Refer to index.html for full footer structure -->
+        <div class="container">
+             <nav class="footer-nav">...</nav>
+             <div class="social-links">...</div>
+             <p class="copyright">© 2023 ICDB. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- ========================================================================= -->
+    <!-- SCRIPTS                                                                   -->
+    <!-- ========================================================================= -->
+    <!-- Main Site Logic -->
+    <script src="js/main.js"></script> <!-- Handles header dropdowns, etc. -->
+    <!-- Component Initializers -->
+    <script src="js/components/tabs.js"></script> <!-- To handle tab switching -->
+    <!-- Page-Specific Logic -->
+    <script src="js/technique.js"></script> <!-- Handles technique-specific actions like voting on goofs/tips -->
+
+    <!-- Inline script for initializing components on this page -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize tabs
+            const tabContainer = document.querySelector('.technique-content-tabs');
+            if (tabContainer) {
+                // Assuming initializeTabs is defined in tabs.js
+                // initializeTabs(tabContainer);
+                 console.log("Technique detail page JS loaded, tabs initialized (concept).");
+            }
+
+            // Add event listeners for technique-specific buttons (voting on goofs/tips, suggesting new ones)
+            // e.g., document.querySelectorAll('.goof-actions .vote-helpful-yes').forEach(btn => btn.addEventListener('click', handleGoofVote));
+            // e.g., document.querySelectorAll('.tip-actions .vote-helpful-yes').forEach(btn => btn.addEventListener('click', handleTipVote));
+
+        });
+    </script>
+
+</body>
+</html>

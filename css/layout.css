@@ -1,0 +1,227 @@
+appearance) and responsive.css (which will handle adjustments for different screen sizes).
+/* ========================================================================= */
+/* layout.css - Core Structural Layout for ICDB                        */
+/* Defines container behavior, grid systems, and major section arrangements. */
+/* Primarily uses Flexbox and CSS Grid.                                      */
+/* ========================================================================= */
+
+/* == Root / Body Layout (Sticky Footer Setup) == */
+/* Ensures the footer stays at the bottom even on short content pages */
+html {
+    height: 100%; /* Needed for min-height on body */
+}
+
+body {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Make the main content area grow to fill available space */
+main {
+    flex-grow: 1;
+    /* Add padding to ensure main content doesn't sit directly under sticky header */
+    /* Adjust value based on actual header height */
+    padding-top: var(--spacing-lg); /* Example padding */
+    padding-bottom: var(--spacing-xl); /* Space before footer */
+}
+
+
+/* ========================================================================= */
+/* Container Class                                                         */
+/* ========================================================================= */
+/* Standard centered container with max-width */
+.container {
+    width: 90%; /* Use percentage for fluidity */
+    max-width: 1200px; /* Maximum width for content */
+    margin-left: auto;
+    margin-right: auto;
+    /* Horizontal padding can be added here or within specific sections */
+    padding-left: var(--spacing-md);
+    padding-right: var(--spacing-md);
+}
+
+
+/* ========================================================================= */
+/* Header Layout (Internal)                                                */
+/* ========================================================================= */
+.header-container {
+    display: flex;
+    align-items: center; /* Vertically align items */
+    justify-content: space-between; /* Space out logo, nav, search, actions */
+    gap: var(--spacing-md); /* Space between elements */
+    flex-wrap: wrap; /* Allow items to wrap onto next line on smaller screens */
+}
+
+/* Example: Give navigation/search more space if needed */
+.header-container .main-navigation {
+    flex-grow: 1; /* Allow nav to take up available space */
+    /* Other alignment if needed */
+}
+
+
+/* ========================================================================= */
+/* Common Grid Layouts (For Cards, Galleries, etc.)                        */
+/* ========================================================================= */
+/* These classes define grid containers and rely on auto-fit for responsiveness */
+.recipe-card-grid,
+.category-grid,
+.badge-grid,
+.i-made-this-grid,
+.photo-grid,
+.results-items { /* Assuming default search results are grid-like */
+    display: grid;
+    gap: var(--spacing-lg); /* Consistent gap between grid items */
+    /* Default responsive grid using auto-fit */
+    /* Adjust minmax values based on desired item size */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+/* Potential specific overrides if needed - e.g., category grid less flexible */
+/* .category-grid { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); } */
+
+
+/* ========================================================================= */
+/* Two-Column Sidebar Layouts                                              */
+/* ========================================================================= */
+/* Common layout for pages like Search Results, Settings */
+.results-layout,
+.settings-layout {
+    display: grid;
+    gap: var(--spacing-lg);
+    /* Sidebar (Filters/Nav) first, Main Content second */
+    /* Adjust sidebar width as needed */
+    grid-template-columns: 280px 1fr; /* Example: 280px fixed sidebar */
+
+    /* Responsive handling (stacking columns) will be in responsive.css */
+    /* Example:
+       @media (max-width: 992px) {
+           grid-template-columns: 1fr;
+       }
+    */
+}
+
+/* Layout for Forums Page (Sidebar on the right) */
+.forums-layout {
+    display: grid;
+    gap: var(--spacing-lg);
+    /* Main Content first, Sidebar second */
+    /* Adjust sidebar width as needed */
+    grid-template-columns: 1fr 280px; /* Example: 280px fixed sidebar */
+
+    /* Responsive handling (stacking columns) will be in responsive.css */
+}
+
+/* Ensure sidebar/content areas are targetable */
+.filters,         /* Search filters */
+.settings-nav,    /* Settings navigation */
+.forum-sidebar {  /* Forum sidebar */
+    /* Styles specific to appearance (bg color, padding) are in style.css/components.css */
+    /* Layout styles like 'order' for responsive might be added here or in responsive.css */
+}
+
+.results-list,    /* Search results list */
+.settings-content,/* Settings main content */
+.forum-main-list{ /* Forum main list area */
+    /* Takes up the '1fr' column */
+}
+
+
+/* ========================================================================= */
+/* Dynamic Form Row Layout (e.g., Ingredients, Steps)                      */
+/* ========================================================================= */
+/* Uses Flexbox for aligning inputs within dynamically added rows */
+.form-grid-dynamic {
+    display: flex;
+    flex-wrap: wrap; /* Allow inputs to wrap on small screens */
+    gap: var(--spacing-sm) var(--spacing-md); /* Row and column gaps */
+    align-items: flex-start; /* Align items to the top */
+    margin-bottom: var(--spacing-md); /* Space between dynamic rows */
+}
+
+/* --- Ingredient Row Specific Layout --- */
+/* Define base sizes and growth/shrink behavior */
+.ingredient-item .input-qty {
+    flex: 0 0 70px; /* Fixed width for quantity */
+}
+.ingredient-item .input-unit {
+    flex: 0 0 100px; /* Fixed width for unit */
+}
+.ingredient-item .input-name {
+    flex: 1 1 200px; /* Grow & shrink, base 200px */
+    min-width: 120px; /* Prevent excessive shrinking */
+}
+.ingredient-item .input-notes {
+    flex: 1 1 150px; /* Grow & shrink, base 150px */
+    min-width: 100px;
+}
+/* Push the remove button to the end */
+.ingredient-item .remove-btn {
+    flex-shrink: 0; /* Prevent button shrinking */
+    margin-left: auto; /* Push to the right */
+    align-self: center; /* Vertically center button */
+}
+
+/* --- Instruction Step Specific Layout --- */
+.instruction-item {
+    /* Optional: Add styles for visual separation if needed */
+}
+.instruction-item .step-label {
+    /* Label specific styles (font-weight, etc.) go in style.css */
+    margin-bottom: var(--spacing-xs);
+    display: block;
+}
+.instruction-item .input-step {
+    flex: 1 1 100%; /* Textarea takes full width available before button */
+    min-width: 200px;
+}
+.instruction-item .remove-btn {
+    flex-shrink: 0;
+    margin-left: var(--spacing-md); /* Space between textarea and button */
+    align-self: center; /* Vertically center button */
+}
+
+
+/* ========================================================================= */
+/* Specific Page Layout Structures (If Needed)                             */
+/* ========================================================================= */
+
+/* Example: Profile Header Layout */
+.profile-header-content {
+    display: flex;
+    gap: var(--spacing-lg);
+    align-items: flex-end; /* Align avatar bottom with info bottom */
+    margin-top: calc(-1 * var(--spacing-xl) * 1.5); /* Pull avatar section up over cover photo */
+    position: relative; /* Ensure it's above cover */
+    padding-left: var(--spacing-lg); /* Match card padding */
+}
+.profile-avatar {
+    flex-shrink: 0;
+    /* Size defined in style.css/components.css */
+    border: 4px solid var(--md-surface-color); /* Border to lift off cover */
+    border-radius: 50%;
+    background-color: var(--md-surface-color); /* Ensure solid background */
+    box-shadow: var(--md-shadow-2);
+}
+.profile-info {
+    flex-grow: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end; /* Align action buttons to bottom */
+    flex-wrap: wrap; /* Allow actions to wrap below info */
+    gap: var(--spacing-md);
+    padding-bottom: var(--spacing-sm); /* Small space before stats bar */
+}
+.profile-stats {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+    padding-top: var(--spacing-lg);
+    border-top: 1px solid var(--md-border-color);
+    margin-top: var(--spacing-lg);
+}
+
+/* Add other specific major layout arrangements here if needed */
+/* Example: Login/Register page centering handled inline or in style.css */
+

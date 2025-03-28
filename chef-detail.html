@@ -1,0 +1,386 @@
+Okay, here is the chef-detail.html code, following the same structure and commenting conventions used for index.html and recipe-detail.html.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Update Title and Description Dynamically -->
+    <meta name="description" content="Profile of Chef Gordon Ramsay, including biography, signature recipes, cookbooks, TV shows, user ratings, and reviews on ICDB.">
+    <title>Chef Gordon Ramsay - Profile & Recipes - ICDB</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon"> <!-- Update path if needed -->
+
+    <!-- CSS Stylesheets -->
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <!-- Structured Data (SEO for Person/Chef) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org/",
+      "@type": "Person",
+      "name": "Gordon Ramsay", // Update dynamically
+      "image": "images/placeholder/chef-ramsay.jpg", // Update dynamically
+      "description": "World-renowned British chef, restaurateur, television personality, and writer.", // Update dynamically
+      "url": "chef-detail.html?id=50", // Update dynamically with actual URL
+      "sameAs": [ // Update dynamically
+        "https://www.gordonramsay.com/",
+        "https://en.wikipedia.org/wiki/Gordon_Ramsay",
+        "https://www.instagram.com/gordongram/"
+      ],
+      "jobTitle": "Chef, Restaurateur, Television Personality", // Update dynamically
+      "knowsAbout": ["British Cuisine", "French Cuisine", "Restaurant Management"], // Update dynamically
+      // Aggregate Rating would be added dynamically here based on user votes
+      // "aggregateRating": {
+      //   "@type": "AggregateRating",
+      //   "ratingValue": "8.5",
+      //   "reviewCount": "789"
+      // }
+    }
+    </script>
+
+</head>
+<body>
+
+    <!-- ========================================================================= -->
+    <!-- HEADER (Consistent across site)                                         -->
+    <!-- Include via server-side templating or copy/paste for static version.    -->
+    <!-- ========================================================================= -->
+    <header class="site-header">
+        <!-- Placeholder for header content (Logo, Nav, Search, User Menu) -->
+        <!-- Refer to index.html for full header structure -->
+        <div class="container header-container">
+             <a href="index.html" class="logo" aria-label="ICDB Homepage"><img src="images/logo.png" alt="ICDB Logo"><span>ICDB</span></a>
+             <nav class="main-navigation">...</nav>
+             <form class="header-search">...</form>
+             <div class="user-actions">...</div>
+        </div>
+    </header>
+
+    <!-- ========================================================================= -->
+    <!-- MAIN CONTENT AREA - CHEF DETAIL PAGE                                      -->
+    <!-- ========================================================================= -->
+    <main class="chef-detail-page container">
+
+        <!-- == Chef Header Section == -->
+        <section class="chef-header card">
+            <div class="chef-header-content">
+                <!-- Chef's Main Photo -->
+                <div class="chef-photo">
+                    <!-- Update src and alt dynamically -->
+                    <img src="images/placeholder/chef-ramsay.jpg" alt="Photo of Chef Gordon Ramsay">
+                </div>
+
+                <!-- Chef's Core Information -->
+                <div class="chef-info">
+                    <!-- Chef Name -->
+                    <h1 class="chef-name">Gordon Ramsay</h1> <!-- Update dynamically -->
+                    <!-- Optional Title/Descriptor -->
+                    <p class="chef-title">Michelin Star Chef, Restaurateur, TV Personality</p> <!-- Update dynamically -->
+
+                    <!-- Ratings Summary -->
+                    <div class="ratings-summary">
+                        <!-- Overall Score (Calculated from sub-ratings or direct votes) -->
+                        <div class="overall-rating">
+                            <span class="rating-value">8.5</span>/10 <!-- Update dynamically -->
+                            <span class="rating-count">(789 votes)</span> <!-- Update dynamically -->
+                        </div>
+                        <!-- Detailed Ratings (Influence, Clarity, Recipe Reliability) -->
+                        <div class="detailed-sub-ratings">
+                             <!-- Update dynamically -->
+                            <span>Influence: 9.0</span> | <span>Clarity: 7.5</span> | <span>Reliability: 9.0</span>
+                        </div>
+                        <!-- Placeholder for interactive rating stars component -->
+                         <div class="rating-stars" aria-label="Average rating: 8.5 out of 10">★★★★☆</div> <!-- Update dynamically -->
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="chef-actions">
+                        <!-- Follow button state depends on user login status and whether they already follow -->
+                        <button class="btn btn-primary btn-icon" id="follow-chef-btn" data-chef-id="50">
+                            <img src="images/icons/follow.svg" alt="" class="icon"> Follow <!-- Text might change to "Following" -->
+                        </button>
+                        <button class="btn btn-secondary btn-icon" id="share-chef-btn">
+                            <img src="images/icons/share.svg" alt="" class="icon"> Share
+                        </button>
+                         <!-- Link to official website, if available -->
+                         <a href="https://www.gordonramsay.com/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-icon">
+                             <img src="images/icons/link-external.svg" alt="" class="icon"> Official Site
+                         </a>
+                    </div>
+                     <!-- Social Media Links -->
+                     <div class="chef-social-links">
+                         <!-- Update dynamically based on available data -->
+                         <a href="https://www.instagram.com/gordongram/" target="_blank" rel="noopener noreferrer" aria-label="Gordon Ramsay on Instagram"><img src="images/icons/instagram.svg" alt="Instagram"></a>
+                         <a href="https://twitter.com/GordonRamsay" target="_blank" rel="noopener noreferrer" aria-label="Gordon Ramsay on Twitter"><img src="images/icons/twitter.svg" alt="Twitter"></a>
+                         <a href="https://www.facebook.com/gordonramsay/" target="_blank" rel="noopener noreferrer" aria-label="Gordon Ramsay on Facebook"><img src="images/icons/facebook.svg" alt="Facebook"></a>
+                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- == Chef Content Tabs/Sections == -->
+        <!-- Organizes detailed information about the chef -->
+        <div class="chef-content-tabs card">
+            <!-- Tab Navigation -->
+            <nav class="tabs">
+                <button class="tab-link active" data-tab="tab-bio">Biography</button>
+                <button class="tab-link" data-tab="tab-recipes">Signature Recipes</button>
+                <button class="tab-link" data-tab="tab-works">Cookbooks & Shows</button>
+                <button class="tab-link" data-tab="tab-reviews">User Reviews</button> <!-- Might show review count -->
+            </nav>
+
+            <!-- Tab Content: Biography -->
+            <section id="tab-bio" class="tab-content active">
+                <h2>About Gordon Ramsay</h2> <!-- Update dynamically -->
+                <div class="chef-bio">
+                     <!-- Update dynamically -->
+                    <p>Gordon Ramsay OBE is a world-renowned British chef, restaurateur, television personality, and writer. His restaurants have been awarded 17 Michelin stars in total and currently hold a total of seven.</p>
+                    <p>Known for his bluntness, fiery temper, strict demeanor, and use of expletives, Ramsay rose to fame on the British television series Boiling Point in 1999. He has since become one of the best-known and most influential chefs globally through shows like Hell's Kitchen, Kitchen Nightmares, and MasterChef.</p>
+                    <p>Beyond television, Ramsay owns and operates a global network of successful restaurants across the UK, US, France, Singapore, Dubai, and more.</p>
+                </div>
+
+                <!-- Optional: Trivia Section -->
+                 <div class="trivia-section">
+                     <h3>Trivia</h3>
+                     <ul>
+                         <!-- Update dynamically -->
+                         <li>Originally aspired to be a professional footballer before an injury ended his career prospects.</li>
+                         <li>Trained under culinary legends like Marco Pierre White and Joël Robuchon.</li>
+                         <li>Is a black belt in Karate.</li>
+                     </ul>
+                 </div>
+
+                 <!-- Optional: Quotes Section -->
+                  <div class="quotes-section">
+                     <h3>Notable Quotes</h3>
+                     <blockquote>
+                         <p>"Cooking is about passion, so it may look slightly temperamental in a way that it's too assertive to the naked eye."</p>
+                         <footer>- Gordon Ramsay</footer>
+                     </blockquote>
+                      <blockquote>
+                         <p>"This pizza is so raw, it's still singing 'Hakuna Matata'!"</p>
+                         <footer>- Gordon Ramsay (Hell's Kitchen)</footer>
+                     </blockquote>
+                 </div>
+            </section>
+
+            <!-- Tab Content: Signature Recipes -->
+            <section id="tab-recipes" class="tab-content">
+                <h2>Signature Recipes</h2>
+                <p>Recipes associated with or frequently prepared by this chef.</p>
+                <div class="recipe-card-grid">
+                    <!-- Recipe Card 1 (Placeholder - Load dynamically) -->
+                    <div class="recipe-card card card-interactive">
+                        <a href="recipe-detail.html?id=1001" class="card-image-link">
+                            <img src="images/placeholder/recipe-beef-wellington.jpg" alt="Beef Wellington Thumbnail"> <!-- Update path -->
+                        </a>
+                        <div class="card-content">
+                            <h3 class="card-title"><a href="recipe-detail.html?id=1001">Beef Wellington</a></h3>
+                            <div class="card-rating">★★★★★ <span class="rating-text">(9.5/10)</span></div>
+                            <p class="card-description">A classic Ramsay masterpiece, perfect for special occasions.</p>
+                        </div>
+                    </div>
+                    <!-- Recipe Card 2 (Placeholder) -->
+                    <div class="recipe-card card card-interactive">
+                         <a href="recipe-detail.html?id=1002" class="card-image-link">
+                            <img src="images/placeholder/recipe-scallops.jpg" alt="Pan-Seared Scallops Thumbnail"> <!-- Update path -->
+                        </a>
+                        <div class="card-content">
+                            <h3 class="card-title"><a href="recipe-detail.html?id=1002">Pan-Seared Scallops with Pea Purée</a></h3>
+                            <div class="card-rating">★★★★☆ <span class="rating-text">(8.9/10)</span></div>
+                            <p class="card-description">An elegant appetizer often featured in his restaurants.</p>
+                        </div>
+                    </div>
+                     <!-- Recipe Card 3 (Placeholder) -->
+                     <div class="recipe-card card card-interactive">
+                         <a href="recipe-detail.html?id=1003" class="card-image-link">
+                            <img src="images/placeholder/recipe-risotto.jpg" alt="Mushroom Risotto Thumbnail"> <!-- Update path -->
+                        </a>
+                        <div class="card-content">
+                            <h3 class="card-title"><a href="recipe-detail.html?id=1003">Perfect Mushroom Risotto</a></h3>
+                            <div class="card-rating">★★★★☆ <span class="rating-text">(8.7/10)</span></div>
+                            <p class="card-description">Mastering the creamy, flavorful risotto Ramsay demands.</p>
+                        </div>
+                    </div>
+                    <!-- Add more associated recipe cards dynamically -->
+                </div>
+                <!-- Link to view all recipes associated with this chef -->
+                <div class="section-link">
+                    <a href="search-results.html?type=recipe&chef=50" class="btn btn-secondary">View All Recipes by Gordon Ramsay</a> <!-- Update dynamically -->
+                </div>
+            </section>
+
+            <!-- Tab Content: Cookbooks & Shows -->
+            <section id="tab-works" class="tab-content">
+                <h2>Cookbooks & Shows</h2>
+
+                <!-- Cookbooks Section -->
+                <div class="associated-works">
+                    <h3>Cookbooks</h3>
+                    <ul class="works-list">
+                        <!-- Load dynamically -->
+                        <li><a href="cookbook-detail.html?id=201">Gordon Ramsay's Ultimate Cookery Course</a> (2012)</li>
+                        <li><a href="cookbook-detail.html?id=202">Gordon Ramsay's Home Cooking</a> (2013)</li>
+                        <li><a href="cookbook-detail.html?id=203">Gordon Ramsay Quick & Delicious</a> (2019)</li>
+                        <!-- Add more cookbooks -->
+                    </ul>
+                     <!-- Potential: Link to view all cookbooks by this author -->
+                     <!-- <a href="search-results.html?type=cookbook&author=50">View All Cookbooks</a> -->
+                </div>
+
+                 <!-- Cooking Shows Section -->
+                <div class="associated-works">
+                    <h3>Television Shows</h3>
+                    <ul class="works-list">
+                         <!-- Load dynamically -->
+                        <li><a href="show-detail.html?id=301">Hell's Kitchen (US)</a> (Host/Judge)</li>
+                        <li><a href="show-detail.html?id=302">MasterChef (US)</a> (Judge)</li>
+                        <li><a href="show-detail.html?id=303">Kitchen Nightmares</a> (Host)</li>
+                        <li><a href="show-detail.html?id=304">Gordon Ramsay: Uncharted</a> (Host)</li>
+                        <!-- Add more shows -->
+                    </ul>
+                     <!-- Potential: Link to view all shows featuring this chef -->
+                     <!-- <a href="search-results.html?type=show&chef=50">View All Shows</a> -->
+                </div>
+            </section>
+
+            <!-- Tab Content: User Reviews -->
+            <section id="tab-reviews" class="tab-content">
+                <h2>User Reviews & Ratings for Gordon Ramsay</h2> <!-- Update dynamically -->
+
+                <!-- Submit Review Form (Logged-in users only) -->
+                <div class="submit-review-form card-inset">
+                    <h3>Rate & Review Gordon Ramsay</h3>
+                    <form id="chef-review-form">
+                         <!-- Rating fields specific to chefs -->
+                        <div class="form-group rating-group">
+                            <label>Your Rating:</label>
+                            <div class="sub-rating">
+                                <label for="rating-influence">Influence:</label>
+                                <!-- Star rating input component placeholder -->
+                                <div class="stars" id="rating-influence"> ☆☆☆☆☆ </div>
+                            </div>
+                             <div class="sub-rating">
+                                <label for="rating-clarity">Clarity (Instruction):</label>
+                                <div class="stars" id="rating-clarity"> ☆☆☆☆☆ </div>
+                            </div>
+                             <div class="sub-rating">
+                                <label for="rating-reliability">Recipe Reliability:</label>
+                                <div class="stars" id="rating-reliability"> ☆☆☆☆☆ </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="review-text">Your Review:</label>
+                            <textarea id="review-text" name="review_text" rows="4" required placeholder="Share your thoughts on their impact, recipes, or teaching style..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit Review</button>
+                    </form>
+                </div>
+
+                <!-- Existing Reviews List -->
+                <div class="reviews-list">
+                    <!-- Review Sort/Filter Options -->
+                    <div class="review-controls">
+                        <label for="sort-reviews">Sort by:</label>
+                        <select id="sort-reviews">
+                            <option value="helpful">Most Helpful</option>
+                            <option value="newest">Newest</option>
+                            <option value="highest">Highest Rated</option>
+                            <option value="lowest">Lowest Rated</option>
+                        </select>
+                    </div>
+
+                    <!-- Single Review Card (Placeholder - Load dynamically) -->
+                    <article class="review-card">
+                        <div class="review-author">
+                            <img src="images/placeholder/user-avatar-2.png" alt="User Avatar" class="avatar"> <!-- Update path -->
+                            <a href="profile.html?user=foodcritic88">FoodCritic88</a> <!-- Update dynamically -->
+                            <span class="review-date">Dec 10, 2023</span> <!-- Update dynamically -->
+                        </div>
+                        <div class="review-rating">
+                            <!-- Display overall or specific sub-ratings given by this user -->
+                            ★★★★☆ (Influence: 10/10, Clarity: 6/10, Reliability: 9/10) <!-- Update dynamically -->
+                        </div>
+                        <div class="review-body">
+                             <!-- Update dynamically -->
+                            <p>Love him or hate him, there's no denying Ramsay's impact on the culinary world. His standards are high, and while his TV persona is intense, his actual recipes (especially from his books) are generally solid and reliable. Sometimes the instructions could be clearer for home cooks, but the results are usually worth it.</p>
+                            <!-- No "Made This" photo for chef reviews -->
+                        </div>
+                        <div class="review-actions">
+                            <span>Was this review helpful?</span>
+                             <!-- Update counts dynamically -->
+                            <button class="vote-helpful-yes">Yes (55)</button>
+                            <button class="vote-helpful-no">No (4)</button>
+                            <button class="report-review">Report</button>
+                        </div>
+                    </article>
+
+                     <!-- Add more review cards dynamically -->
+                     <article class="review-card"> ... </article>
+
+                    <!-- Pagination for reviews -->
+                    <nav class="pagination" aria-label="Review Pagination">
+                        <!-- Pagination links go here -->
+                        <span class="current-page">1</span>
+                        <a href="?chef=50&page=2">2</a>
+                        <a href="?chef=50&page=3">3</a>
+                        <a href="?chef=50&page=2" class="next">Next »</a>
+                    </nav>
+                </div>
+            </section>
+
+        </div> <!-- End Tabs/Sections -->
+
+    </main>
+
+    <!-- ========================================================================= -->
+    <!-- FOOTER (Consistent across site)                                         -->
+    <!-- Include via server-side templating or copy/paste for static version.    -->
+    <!-- ========================================================================= -->
+    <footer class="site-footer">
+        <!-- Placeholder for footer content -->
+        <!-- Refer to index.html for full footer structure -->
+        <div class="container">
+             <nav class="footer-nav">...</nav>
+             <div class="social-links">...</div>
+             <p class="copyright">© 2023 ICDB. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- ========================================================================= -->
+    <!-- SCRIPTS                                                                   -->
+    <!-- ========================================================================= -->
+    <!-- Main Site Logic -->
+    <script src="js/main.js"></script> <!-- Handles header dropdowns, etc. -->
+    <!-- Component Initializers -->
+    <script src="js/components/tabs.js"></script> <!-- To handle tab switching -->
+    <!-- Page-Specific Logic -->
+    <script src="js/reviews.js"></script> <!-- Handles review form submission, voting (might need adaptation for chef ratings) -->
+    <script src="js/chef.js"></script> <!-- Handles chef-specific actions like follow button -->
+
+    <!-- Inline script for initializing components on this page -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize tabs
+            const tabContainer = document.querySelector('.chef-content-tabs');
+            if (tabContainer) {
+                // Assuming initializeTabs is defined in tabs.js and handles the setup
+                // initializeTabs(tabContainer);
+                 console.log("Chef detail page JS loaded, tabs initialized (concept).");
+            }
+
+            // Add event listeners for chef-specific buttons (follow, review submission, voting)
+            // e.g., document.getElementById('follow-chef-btn').addEventListener('click', handleFollowChef);
+            // e.g., document.getElementById('chef-review-form').addEventListener('submit', handleChefReviewSubmit);
+
+            // Initialize interactive star ratings if using a JS component
+            // e.g., initializeStarRatings(document.querySelectorAll('.stars'));
+        });
+    </script>
+
+</body>
+</html>

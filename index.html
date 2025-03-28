@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ICDB: Your ultimate community hub for recipes, chefs, ingredients, cooking techniques, reviews, ratings, and personalized culinary discovery.">
+    <title>ICDB - Discover, Cook, Share</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon"> <!-- Update path if needed -->
+
+    <!-- CSS Stylesheets -->
+    <link rel="stylesheet" href="css/layout.css">         <!-- Core layout (grid, flexbox, container) -->
+    <link rel="stylesheet" href="css/components.css">     <!-- Reusable component styles (cards, buttons, nav) -->
+    <link rel="stylesheet" href="css/style.css">          <!-- Main theme, typography, overrides -->
+    <link rel="stylesheet" href="css/responsive.css">     <!-- Media queries for different screen sizes -->
+
+    <!-- Optional: Link to Material Design Components Web CSS if using it directly -->
+    <!-- <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet"> -->
+
+    <!-- Structured Data (SEO for Website) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "ICDB",
+      "url": "https://www.ICDB.example.com/", // Replace with actual URL
+      "description": "Your ultimate community hub for recipes, chefs, ingredients, cooking techniques, reviews, ratings, and personalized culinary discovery.",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://www.ICDB.example.com/search?q={search_term_string}", // Replace with actual search URL
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+
+</head>
+<body>
+
+    <!-- ========================================================================= -->
+    <!-- HEADER                                                                    -->
+    <!-- Consistent navigation, search, and user actions across the site.        -->
+    <!-- In a real application, this would likely be a reusable partial/component. -->
+    <!-- ========================================================================= -->
+    <header class="site-header">
+        <div class="container header-container">
+            <!-- Site Logo -->
+            <a href="index.html" class="logo" aria-label="ICDB Homepage">
+                <img src="images/logo.png" alt="ICDB Logo"> <!-- Update path -->
+                <span>ICDB</span>
+            </a>
+
+            <!-- Main Navigation -->
+            <nav class="main-navigation" aria-label="Main Site Navigation">
+                <ul>
+                    <li><a href="search-results.html?type=recipe">Recipes</a></li>
+                    <li><a href="search-results.html?type=chef">Chefs</a></li>
+                    <li><a href="search-results.html?type=ingredient">Ingredients</a></li>
+                    <li><a href="search-results.html?type=cuisine">Cuisines</a></li>
+                    <li><a href="forums.html">Community</a></li>
+                    <li><a href="submit-recipe.html">Submit Recipe</a></li>
+                </ul>
+            </nav>
+
+            <!-- Header Search Bar -->
+            <form action="search-results.html" method="get" class="header-search">
+                <input type="search" name="q" placeholder="Search recipes, chefs, ingredients..." aria-label="Site Search">
+                <button type="submit" class="btn btn-icon" aria-label="Search">
+                    <img src="images/icons/search.svg" alt="Search Icon" class="icon"> <!-- Update path -->
+                </button>
+            </form>
+
+            <!-- User Actions (Login/Register or Profile) -->
+            <div class="user-actions">
+                <!-- Logged Out State (Example) -->
+                 <a href="login.html" class="btn btn-secondary">Login</a>
+                 <a href="register.html" class="btn btn-primary">Sign Up</a>
+
+                <!-- Logged In State (Example - hidden if logged out) -->
+                <!--
+                <div class="user-menu">
+                    <button class="btn btn-icon profile-btn" aria-label="User Menu">
+                        <img src="images/placeholder/user-avatar.png" alt="User Avatar" class="avatar-small">
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="profile.html">My Profile</a>
+                        <a href="settings.html">Settings</a>
+                        <a href="my-cooklists.html">My Cooklists</a>
+                        <a href="logout.php">Logout</a> // Placeholder action
+                    </div>
+                </div>
+                -->
+            </div>
+        </div>
+    </header>
+
+    <!-- ========================================================================= -->
+    <!-- MAIN CONTENT AREA - HOMEPAGE                                              -->
+    <!-- ========================================================================= -->
+    <main class="homepage">
+
+        <!-- == Hero Section == -->
+        <section class="hero-section" style="background-image: url('images/placeholder/hero-background.jpg');"> <!-- Update path -->
+            <div class="container hero-content">
+                <h1 class="hero-title">Discover, Cook, Share</h1>
+                <p class="hero-subtitle">Your ultimate community hub for recipes, ratings, reviews, and culinary inspiration.</p>
+                <!-- Optional: Larger Search Bar for Hero -->
+                <form action="search-results.html" method="get" class="hero-search">
+                    <input type="search" name="q" placeholder="Find the perfect recipe..." aria-label="Find Recipe Search">
+                    <button type="submit" class="btn btn-primary btn-large">Search</button>
+                </form>
+                <div class="hero-cta-buttons">
+                    <a href="search-results.html?type=recipe" class="btn btn-secondary">Explore Recipes</a>
+                    <a href="#community-spotlight" class="btn btn-outline">See What's Cooking</a> <!-- Link to community section -->
+                </div>
+            </div>
+        </section>
+
+        <!-- == Featured Recipes Section == -->
+        <section class="featured-recipes container section-padding">
+            <h2 class="section-title">Featured Recipes</h2>
+            <div class="recipe-card-grid">
+                <!-- Recipe Card 1 (Placeholder - Use partial concept) -->
+                <div class="recipe-card card card-interactive">
+                    <a href="recipe-detail.html?id=123" class="card-image-link">
+                        <img src="images/placeholder/recipe-thumb-1.jpg" alt="Classic Lasagna Bolognese Thumbnail"> <!-- Update path -->
+                    </a>
+                    <div class="card-content">
+                        <h3 class="card-title"><a href="recipe-detail.html?id=123">Classic Lasagna Bolognese</a></h3>
+                        <div class="card-rating">
+                            <!-- Include rating-stars partial concept -->
+                            ★★★★☆ <span class="rating-text">(8.8/10)</span>
+                        </div>
+                        <p class="card-description">Rich, meaty, and comforting – a true crowd-pleaser.</p>
+                        <div class="card-meta">
+                            <span>By <a href="chef-detail.html?id=123">Chef Anna Rossi</a></span> | <span>Italian</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recipe Card 2 (Placeholder) -->
+                <div class="recipe-card card card-interactive">
+                     <a href="recipe-detail.html?id=456" class="card-image-link">
+                        <img src="images/placeholder/recipe-thumb-2.jpg" alt="Spicy Thai Green Curry Thumbnail"> <!-- Update path -->
+                    </a>
+                    <div class="card-content">
+                        <h3 class="card-title"><a href="recipe-detail.html?id=456">Spicy Thai Green Curry</a></h3>
+                         <div class="card-rating">★★★★★ <span class="rating-text">(9.2/10)</span></div>
+                        <p class="card-description">Authentic flavors, ready in under 45 minutes.</p>
+                         <div class="card-meta">
+                            <span>By <a href="chef-detail.html?id=45">User Submitted</a></span> | <span>Thai</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recipe Card 3 (Placeholder) -->
+                <div class="recipe-card card card-interactive">
+                    <a href="recipe-detail.html?id=789" class="card-image-link">
+                        <img src="images/placeholder/recipe-thumb-3.jpg" alt="Perfect Chocolate Chip Cookies Thumbnail"> <!-- Update path -->
+                    </a>
+                    <div class="card-content">
+                        <h3 class="card-title"><a href="recipe-detail.html?id=789">Perfect Chocolate Chip Cookies</a></h3>
+                        <div class="card-rating">★★★★☆ <span class="rating-text">(8.5/10)</span></div>
+                        <p class="card-description">Chewy centers, crispy edges – the ultimate cookie.</p>
+                        <div class="card-meta">
+                            <span>By <a href="chef-detail.html?id=78">BakingMaster</a></span> | <span>Dessert</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recipe Card 4 (Placeholder) -->
+                <div class="recipe-card card card-interactive">
+                     <a href="recipe-detail.html?id=101" class="card-image-link">
+                        <img src="images/placeholder/recipe-thumb-4.jpg" alt="One-Pan Lemon Herb Roasted Chicken Thumbnail"> <!-- Update path -->
+                    </a>
+                    <div class="card-content">
+                        <h3 class="card-title"><a href="recipe-detail.html?id=101">One-Pan Lemon Herb Roasted Chicken</a></h3>
+                        <div class="card-rating">★★★★☆ <span class="rating-text">(8.2/10)</span></div>
+                        <p class="card-description">Easy weeknight meal with minimal cleanup required.</p>
+                         <div class="card-meta">
+                            <span>By <a href="chef-detail.html?id=10">WeeknightChef</a></span> | <span>American</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Add more recipe cards as needed -->
+            </div>
+             <div class="section-link">
+                 <a href="search-results.html?type=recipe&sort=trending" class="btn btn-secondary">View More Trending Recipes</a>
+             </div>
+        </section>
+
+        <!-- == Explore Categories Section == -->
+        <section class="explore-categories container section-padding">
+            <h2 class="section-title">Explore ICDB</h2>
+            <div class="category-grid">
+                <!-- Category Card: Cuisines -->
+                <a href="search-results.html?type=cuisine" class="category-card card card-interactive">
+                    <img src="images/icons/cuisine.svg" alt="Cuisine Icon" class="category-icon"> <!-- Update path -->
+                    <h3>Cuisines</h3>
+                    <p>Travel the world through food</p>
+                </a>
+                <!-- Category Card: Techniques -->
+                <a href="search-results.html?type=technique" class="category-card card card-interactive">
+                    <img src="images/icons/technique.svg" alt="Technique Icon" class="category-icon"> <!-- Update path -->
+                    <h3>Techniques</h3>
+                    <p>Master essential cooking skills</p>
+                </a>
+                 <!-- Category Card: Ingredients -->
+                <a href="search-results.html?type=ingredient" class="category-card card card-interactive">
+                     <img src="images/icons/ingredient.svg" alt="Ingredient Icon" class="category-icon"> <!-- Update path -->
+                    <h3>Ingredients</h3>
+                    <p>Learn about flavor profiles & uses</p>
+                </a>
+                 <!-- Category Card: Chefs -->
+                <a href="search-results.html?type=chef" class="category-card card card-interactive">
+                     <img src="images/icons/chef.svg" alt="Chef Icon" class="category-icon"> <!-- Update path -->
+                    <h3>Chefs & Cooks</h3>
+                    <p>Discover culinary experts</p>
+                </a>
+                 <!-- Category Card: Equipment -->
+                <a href="search-results.html?type=equipment" class="category-card card card-interactive">
+                     <img src="images/icons/equipment.svg" alt="Equipment Icon" class="category-icon"> <!-- Update path -->
+                    <h3>Kitchen Equipment</h3>
+                    <p>Reviews and tips for tools</p>
+                </a>
+                <!-- Category Card: Cookbooks -->
+                <a href="search-results.html?type=cookbook" class="category-card card card-interactive">
+                     <img src="images/icons/cookbook.svg" alt="Cookbook Icon" class="category-icon"> <!-- Update path -->
+                    <h3>Cookbooks</h3>
+                    <p>Find your next favorite read</p>
+                </a>
+            </div>
+        </section>
+
+        <!-- == Community Spotlight ("I Made This!") Section == -->
+        <section id="community-spotlight" class="community-spotlight section-padding alternate-bg">
+            <div class="container">
+                <h2 class="section-title">What's Cooking in the Community?</h2>
+                <p class="section-subtitle">See what fellow food lovers are making right now!</p>
+                <div class="i-made-this-grid">
+                    <!-- "I Made This" Card 1 (Placeholder) -->
+                    <div class="i-made-this-card card-interactive">
+                        <a href="recipe-detail.html?id=123#reviews"> <!-- Link to review/photo on recipe page -->
+                            <img src="images/placeholder/user-lasagna-1.jpg" alt="User photo of lasagna"> <!-- Update path -->
+                            <div class="card-overlay">
+                                <p>Lasagna Bolognese</p>
+                                <span>by <a href="profile.html?user=cookmaster99">CookMaster99</a></span>
+                            </div>
+                        </a>
+                    </div>
+                     <!-- "I Made This" Card 2 (Placeholder) -->
+                    <div class="i-made-this-card card-interactive">
+                        <a href="recipe-detail.html?id=456#reviews">
+                            <img src="images/placeholder/user-curry-1.jpg" alt="User photo of thai curry"> <!-- Update path -->
+                             <div class="card-overlay">
+                                <p>Thai Green Curry</p>
+                                <span>by <a href="profile.html?user=spicefiend">SpiceFiend</a></span>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- "I Made This" Card 3 (Placeholder) -->
+                    <div class="i-made-this-card card-interactive">
+                         <a href="recipe-detail.html?id=789#reviews">
+                            <img src="images/placeholder/user-cookies-1.jpg" alt="User photo of cookies"> <!-- Update path -->
+                            <div class="card-overlay">
+                                <p>Chocolate Chip Cookies</p>
+                                <span>by <a href="profile.html?user=bakergal">BakerGal</a></span>
+                            </div>
+                        </a>
+                    </div>
+                     <!-- "I Made This" Card 4 (Placeholder) -->
+                    <div class="i-made-this-card card-interactive">
+                         <a href="recipe-detail.html?id=101#reviews">
+                            <img src="images/placeholder/user-chicken-1.jpg" alt="User photo of roast chicken"> <!-- Update path -->
+                            <div class="card-overlay">
+                                <p>Roasted Chicken</p>
+                                <span>by <a href="profile.html?user=quickcook">QuickCook</a></span>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- Add more "I Made This" cards -->
+                </div>
+                <div class="section-link">
+                    <a href="forums.html" class="btn btn-primary">Join the Discussion</a>
+                </div>
+            </div>
+        </section>
+
+         <!-- == Call to Action (Join/Contribute) Section == -->
+         <section class="cta-join container section-padding">
+             <h2 class="section-title">Join the ICDB Community!</h2>
+             <p>Become a member to rate and review, save your favorite recipes to Cooklists, share your creations, track your pantry, and connect with other food lovers.</p>
+             <a href="register.html" class="btn btn-primary btn-large">Sign Up for Free</a>
+         </section>
+
+    </main>
+
+    <!-- ========================================================================= -->
+    <!-- FOOTER                                                                    -->
+    <!-- Consistent site footer information.                                       -->
+    <!-- In a real application, this would likely be a reusable partial/component. -->
+    <!-- ========================================================================= -->
+    <footer class="site-footer">
+        <div class="container">
+            <nav class="footer-nav" aria-label="Footer Navigation">
+                <a href="/about.html">About Us</a> |
+                <a href="/contact.html">Contact</a> |
+                <a href="/faq.html">FAQ</a> |
+                <a href="/terms.html">Terms of Service</a> |
+                <a href="/privacy.html">Privacy Policy</a> |
+                <a href="/community-guidelines.html">Community Guidelines</a>
+            </nav>
+            <!-- Optional: Social Media Links -->
+            <div class="social-links">
+                <!-- Add social media icons/links here -->
+                <a href="#" aria-label="ICDB on Facebook"><img src="images/icons/facebook.svg" alt="Facebook"></a>
+                <a href="#" aria-label="ICDB on Instagram"><img src="images/icons/instagram.svg" alt="Instagram"></a>
+                <a href="#" aria-label="ICDB on Pinterest"><img src="images/icons/pinterest.svg" alt="Pinterest"></a>
+            </div>
+            <p class="copyright">© 2023 ICDB. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- ========================================================================= -->
+    <!-- SCRIPTS                                                                   -->
+    <!-- ========================================================================= -->
+    <!-- Optional: Link to Material Design Components Web JS -->
+    <!-- <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script> -->
+
+    <!-- Main Site Logic -->
+    <script src="js/main.js"></script> <!-- Handles header dropdowns, mobile nav toggles, etc. -->
+
+    <!-- Page-Specific Initializations (if any for homepage) -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Example: Initialize any homepage-specific components like carousels or sliders
+            console.log("ICDB Homepage JS Initialized.");
+
+            // Example: Smooth scroll for internal links like the hero button
+            const communityLink = document.querySelector('a[href="#community-spotlight"]');
+            if(communityLink) {
+                communityLink.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetElement = document.getElementById('community-spotlight');
+                    if(targetElement) {
+                        targetElement.scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            }
+
+             // Example: Initialize Material Design Components if used
+             // Array.from(document.querySelectorAll('.mdc-button')).forEach(button => mdc.ripple.MDCRipple.attachTo(button));
+        });
+    </script>
+
+</body>
+</html>

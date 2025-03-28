@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Login to your ICDB account to access your profile, saved recipes, reviews, and community features.">
+    <!-- Generally prevent indexing of login pages -->
+    <meta name="robots" content="noindex, nofollow">
+    <title>Login - ICDB</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon"> <!-- Update path if needed -->
+
+    <!-- CSS Stylesheets -->
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <!-- Specific styles for auth pages if needed -->
+    <style>
+        /* Basic centering for the login form */
+        body.login-page {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f5f5f5; /* Light background */
+        }
+        .login-container {
+            width: 100%;
+            max-width: 400px; /* Limit width */
+            padding: 2rem;
+        }
+        .login-form .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .login-form .form-actions {
+            margin-top: 2rem;
+        }
+        .login-links {
+            margin-top: 1.5rem;
+            text-align: center;
+            font-size: 0.9em;
+        }
+        .login-links a {
+            margin: 0 0.5rem;
+        }
+        .login-title {
+             text-align: center;
+             margin-bottom: 1rem;
+        }
+         .login-logo {
+            display: block;
+            margin: 0 auto 1.5rem auto;
+            max-width: 150px; /* Adjust as needed */
+         }
+    </style>
+</head>
+<body class="login-page">
+
+    <!-- ========================================================================= -->
+    <!-- LOGIN FORM CONTAINER                                                      -->
+    <!-- Using main directly as the container since there's no other content     -->
+    <!-- ========================================================================= -->
+    <main class="login-container card">
+
+        <!-- Site Logo -->
+         <a href="index.html" aria-label="ICDB Homepage">
+            <img src="images/logo.png" alt="ICDB Logo" class="login-logo"> <!-- Update path -->
+         </a>
+
+        <h1 class="login-title">Login to ICDB</h1>
+
+        <!-- Login Form -->
+        <!-- Action points to backend authentication endpoint. METHOD MUST BE POST. -->
+        <form id="login-form" class="login-form" action="/api/auth/login" method="post">
+
+             <!-- User Feedback / Error Message Area -->
+            <div class="form-message error" id="login-message" role="alert" style="display: none;"> <!-- Hide initially -->
+                 <!-- Example Error: Invalid credentials. Please try again. -->
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address <span class="required">*</span></label>
+                <input type="email" id="email" name="email" required autocomplete="email" placeholder="you@example.com">
+            </div>
+
+            <div class="form-group">
+                 <label for="password">Password <span class="required">*</span></label>
+                <input type="password" id="password" name="password" required autocomplete="current-password" placeholder="Enter your password">
+            </div>
+
+            <div class="form-group checkbox-group remember-me">
+                <label for="remember-me">
+                    <input type="checkbox" id="remember-me" name="remember_me" value="true">
+                    Remember Me
+                </label>
+            </div>
+
+            <div class="form-actions">
+                 <!-- Submit button triggers form submission -->
+                <button type="submit" class="btn btn-primary btn-large btn-block">Login</button>
+            </div>
+
+             <!-- Links for Password Reset and Registration -->
+            <div class="login-links">
+                <a href="forgot-password.html">Forgot Password?</a>
+                <span>|</span>
+                <a href="register.html">Don't have an account? Sign Up</a>
+            </div>
+
+        </form>
+
+    </main>
+
+    <!-- No Footer usually on dedicated login pages for simplicity -->
+
+    <!-- ========================================================================= -->
+    <!-- SCRIPTS                                                                   -->
+    <!-- ========================================================================= -->
+    <!-- Minimal JS needed, potentially only for displaying errors from redirects -->
+    <!-- Or if using AJAX for login -->
+    <!-- <script src="js/auth.js"></script> -->
+
+    <script>
+        // Example: Basic JS to display an error message if the URL contains an error parameter
+        // (This would be set by the server on redirect after a failed login attempt)
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const errorParam = urlParams.get('error');
+            const messageDiv = document.getElementById('login-message');
+
+            if (errorParam && messageDiv) {
+                let errorMessage = "An unknown error occurred.";
+                // Decode common error codes (customize based on backend implementation)
+                if (errorParam === 'invalid_credentials') {
+                    errorMessage = "Invalid email or password. Please try again.";
+                } else if (errorParam === 'account_locked') {
+                    errorMessage = "Your account is locked. Please contact support.";
+                } // Add more cases as needed
+
+                messageDiv.textContent = errorMessage;
+                messageDiv.style.display = 'block'; // Show the error message div
+            }
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Join the ICDB community forums! Discuss recipes, techniques, ingredients, share tips, and connect with fellow food lovers.">
+    <title>Community Forums - ICDB</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon"> <!-- Update path if needed -->
+
+    <!-- CSS Stylesheets -->
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <!-- Potential: Structured Data for DiscussionForumPosting (though better suited for individual topic pages) -->
+
+</head>
+<body>
+
+    <!-- ========================================================================= -->
+    <!-- HEADER (Consistent across site)                                         -->
+    <!-- Assume user might be logged in or out.                                  -->
+    <!-- ========================================================================= -->
+    <header class="site-header">
+        <!-- Placeholder for header content (Logo, Nav, Search, User Menu) -->
+        <div class="container header-container">
+             <a href="index.html" class="logo" aria-label="ICDB Homepage"><img src="images/logo.png" alt="ICDB Logo"><span>ICDB</span></a>
+             <nav class="main-navigation">...</nav>
+             <form class="header-search">...</form>
+             <div class="user-actions">...</div> <!-- Login/Register or User Menu -->
+        </div>
+    </header>
+
+    <!-- ========================================================================= -->
+    <!-- MAIN CONTENT AREA - FORUMS INDEX PAGE                                   -->
+    <!-- ========================================================================= -->
+    <main class="forums-page container">
+
+        <h1 class="page-title">Community Forums</h1>
+        <p class="page-subtitle">Discuss all things cooking with fellow ICDB members!</p>
+
+        <!-- Optional: Forum-Specific Search Bar -->
+        <section class="forum-search-bar card card-inset">
+            <form action="/forums/search" method="get"> <!-- Action points to forum search endpoint -->
+                 <input type="search" name="q" placeholder="Search forums..." aria-label="Search Forums">
+                 <button type="submit" class="btn btn-primary">Search Forums</button>
+            </form>
+            <!-- Optional: Link to advanced search -->
+            <!-- <a href="/forums/search/advanced">Advanced Search</a> -->
+        </section>
+
+        <!-- Forum Categories Layout -->
+        <div class="forums-layout">
+
+            <!-- Main Forum List -->
+            <div class="forum-main-list">
+
+                <!-- Category 1: General Discussion -->
+                <section class="forum-category card">
+                    <header class="category-header">
+                        <h2><a href="/forums/category/general">General Discussion</a></h2> <!-- Link to category view -->
+                        <p>Chat about cooking, share what you're making, and connect with the community.</p>
+                    </header>
+                    <div class="forum-list">
+                        <!-- Sub-Forum 1.1 -->
+                        <article class="forum-item">
+                            <div class="forum-icon"><img src="images/icons/forum-chat.svg" alt="Chat Icon"></div>
+                            <div class="forum-info">
+                                <h3><a href="forum-category-view.html?id=general-chat">Introductions & General Chat</a></h3> <!-- Link to sub-forum topic list -->
+                                <p class="forum-description">New here? Say hello! Discuss anything cooking-related.</p>
+                            </div>
+                            <div class="forum-stats">
+                                <span class="topics">Topics: 1.2k</span> <!-- Dynamic -->
+                                <span class="posts">Posts: 15.6k</span> <!-- Dynamic -->
+                            </div>
+                            <div class="forum-last-post">
+                                <a href="forum-topic.html?id=12345">Latest: What's for dinner tonight?</a> <!-- Dynamic Link -->
+                                <p>by <a href="profile.html?user=foodie123">Foodie123</a> <!-- Dynamic User -->
+                                <span class="timestamp">2 mins ago</span></p> <!-- Dynamic Timestamp -->
+                            </div>
+                        </article>
+                        <!-- Sub-Forum 1.2 -->
+                         <article class="forum-item">
+                            <div class="forum-icon"><img src="images/icons/forum-kitchen.svg" alt="Kitchen Icon"></div>
+                            <div class="forum-info">
+                                <h3><a href="forum-category-view.html?id=kitchen-showcase">Kitchen & Equipment Showcase</a></h3>
+                                <p class="forum-description">Show off your kitchen setup, new tools, or ask for equipment advice.</p>
+                            </div>
+                             <div class="forum-stats"><span class="topics">Topics: 350</span> <span class="posts">Posts: 4.1k</span></div> <!-- Dynamic -->
+                            <div class="forum-last-post">
+                                <a href="forum-topic.html?id=12350">Latest: Best budget stand mixer?</a>
+                                <p>by <a href="profile.html?user=bakergal">BakerGal</a> <span class="timestamp">1 hour ago</span></p>
+                            </div>
+                        </article>
+                        <!-- Add more sub-forums for this category -->
+                    </div>
+                </section>
+
+                <!-- Category 2: Recipes -->
+                 <section class="forum-category card">
+                    <header class="category-header">
+                        <h2><a href="/forums/category/recipes">Recipes</a></h2>
+                        <p>Discuss specific recipes, ask for variations, troubleshoot, and share your results.</p>
+                    </header>
+                     <div class="forum-list">
+                         <!-- Sub-Forum 2.1 -->
+                        <article class="forum-item">
+                            <div class="forum-icon"><img src="images/icons/forum-recipe-qa.svg" alt="Recipe Q&A Icon"></div>
+                            <div class="forum-info">
+                                <h3><a href="forum-category-view.html?id=recipe-qa">Recipe Questions & Troubleshooting</a></h3>
+                                <p class="forum-description">Stuck on a step? Need help adapting a recipe? Ask here!</p>
+                            </div>
+                            <div class="forum-stats"><span class="topics">Topics: 2.5k</span> <span class="posts">Posts: 22.1k</span></div> <!-- Dynamic -->
+                             <div class="forum-last-post">
+                                <a href="forum-topic.html?id=12360">Latest: Help! My meringue won't peak!</a>
+                                <p>by <a href="profile.html?user=newbaker">NewBaker</a> <span class="timestamp">30 mins ago</span></p>
+                            </div>
+                        </article>
+                         <!-- Sub-Forum 2.2 -->
+                        <article class="forum-item">
+                             <div class="forum-icon"><img src="images/icons/forum-requests.svg" alt="Requests Icon"></div>
+                            <div class="forum-info">
+                                <h3><a href="forum-category-view.html?id=recipe-requests">Recipe Requests</a></h3>
+                                <p class="forum-description">Looking for a specific type of recipe? Ask the community.</p>
+                            </div>
+                            <div class="forum-stats"><span class="topics">Topics: 800</span> <span class="posts">Posts: 6.2k</span></div> <!-- Dynamic -->
+                             <div class="forum-last-post">
+                                <a href="forum-topic.html?id=12370">Latest: Need authentic Pad Thai recipe</a>
+                                <p>by <a href="profile.html?user=spicefiend">SpiceFiend</a> <span class="timestamp">4 hours ago</span></p>
+                            </div>
+                        </article>
+                          <!-- Sub-Forum 2.3 -->
+                        <article class="forum-item">
+                             <div class="forum-icon"><img src="images/icons/forum-cuisine.svg" alt="Cuisine Icon"></div>
+                            <div class="forum-info">
+                                <h3><a href="forum-category-view.html?id=cuisine-discussion">Cuisine Deep Dives</a></h3>
+                                <p class="forum-description">Discuss specific world cuisines, regional variations, and history.</p>
+                            </div>
+                            <div class="forum-stats"><span class="topics">Topics: 450</span> <span class="posts">Posts: 5.5k</span></div> <!-- Dynamic -->
+                             <div class="forum-last-post">
+                                <a href="forum-topic.html?id=12380">Latest: Best way to cook pasta al dente?</a>
+                                <p>by <a href="profile.html?user=pasta_pro">Pasta_Pro</a> <span class="timestamp">Yesterday</span></p>
+                            </div>
+                        </article>
+                     </div>
+                 </section>
+
+                <!-- Category 3: Techniques & Ingredients -->
+                 <section class="forum-category card">
+                    <header class="category-header">
+                         <h2><a href="/forums/category/techniques-ingredients">Techniques & Ingredients</a></h2>
+                        <p>Master cooking skills and learn about different ingredients.</p>
+                    </header>
+                    <div class="forum-list">
+                         <!-- Sub-Forum 3.1 -->
+                        <article class="forum-item">
+                            <div class="forum-icon"><img src="images/icons/forum-technique.svg" alt="Technique Icon"></div>
+                            <div class="forum-info">
+                                <h3><a href="forum-category-view.html?id=technique-help">Technique Discussion & Help</a></h3>
+                                <p class="forum-description">Discuss methods like sautéing, baking, sous vide. Ask for tips.</p>
+                            </div>
+                             <div class="forum-stats"><span class="topics">Topics: 950</span> <span class="posts">Posts: 9.8k</span></div> <!-- Dynamic -->
+                            <div class="forum-last-post">
+                                <a href="forum-topic.html?id=12390">Latest: Sourdough starter tips for beginners</a>
+                                <p>by <a href="profile.html?user=breadhead">BreadHead</a> <span class="timestamp">6 hours ago</span></p>
+                            </div>
+                        </article>
+                          <!-- Sub-Forum 3.2 -->
+                        <article class="forum-item">
+                             <div class="forum-icon"><img src="images/icons/forum-ingredient.svg" alt="Ingredient Icon"></div>
+                            <div class="forum-info">
+                                <h3><a href="forum-category-view.html?id=ingredient-spotlight">Ingredient Spotlight & Substitutions</a></h3>
+                                <p class="forum-description">Discuss specific ingredients, sourcing, flavor profiles, and substitutions.</p>
+                            </div>
+                             <div class="forum-stats"><span class="topics">Topics: 1.1k</span> <span class="posts">Posts: 10.5k</span></div> <!-- Dynamic -->
+                             <div class="forum-last-post">
+                                <a href="forum-topic.html?id=12400">Latest: Substitute for buttermilk in pancakes?</a>
+                                <p>by <a href="profile.html?user=weekend_cook">Weekend_Cook</a> <span class="timestamp">8 hours ago</span></p>
+                            </div>
+                        </article>
+                    </div>
+                 </section>
+
+                 <!-- Add more Categories (e.g., Cookbooks & Shows, Challenges, Site Feedback) -->
+
+            </div> <!-- End .forum-main-list -->
+
+            <!-- Optional: Sidebar -->
+            <aside class="forum-sidebar card">
+                <!-- Section: Community Stats -->
+                <section class="sidebar-section">
+                    <h3>Community Stats</h3>
+                    <ul class="stats-list">
+                         <!-- Update dynamically -->
+                        <li>Total Members: <span>15,842</span></li>
+                        <li>Total Topics: <span>6,950</span></li>
+                        <li>Total Posts: <span>73,810</span></li>
+                        <li>Members Online: <span>123</span></li>
+                    </ul>
+                </section>
+
+                <!-- Section: Recent Topics -->
+                <section class="sidebar-section">
+                    <h3>Recent Topics</h3>
+                     <ul class="recent-topics-list">
+                         <!-- Load dynamically -->
+                         <li><a href="forum-topic.html?id=12345">What's for dinner tonight?</a><br><span class="timestamp">2 mins ago</span></li>
+                         <li><a href="forum-topic.html?id=12360">Help! My meringue won't peak!</a><br><span class="timestamp">30 mins ago</span></li>
+                         <li><a href="forum-topic.html?id=12350">Best budget stand mixer?</a><br><span class="timestamp">1 hour ago</span></li>
+                         <li><a href="forum-topic.html?id=12370">Need authentic Pad Thai recipe</a><br><span class="timestamp">4 hours ago</span></li>
+                         <li><a href="forum-topic.html?id=12390">Sourdough starter tips for beginners</a><br><span class="timestamp">6 hours ago</span></li>
+                     </ul>
+                      <!-- <a href="/forums/recent">View More...</a> -->
+                </section>
+
+                 <!-- Section: Top Contributors (Optional) -->
+                 <!-- <section class="sidebar-section"><h3>Top Contributors</h3>...</section> -->
+            </aside>
+
+        </div> <!-- End .forums-layout -->
+
+    </main>
+
+    <!-- ========================================================================= -->
+    <!-- FOOTER (Consistent across site)                                         -->
+    <!-- ========================================================================= -->
+    <footer class="site-footer">
+        <!-- Placeholder for footer content -->
+        <div class="container">
+             <nav class="footer-nav">...</nav>
+             <div class="social-links">...</div>
+             <p class="copyright">© 2023 ICDB. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- ========================================================================= -->
+    <!-- SCRIPTS                                                                   -->
+    <!-- ========================================================================= -->
+    <!-- Main Site Logic -->
+    <script src="js/main.js"></script> <!-- Handles header dropdowns, etc. -->
+    <!-- Page-Specific Logic (Might be minimal for index page) -->
+    <!-- <script src="js/forums.js"></script> -->
+
+    <!-- Inline script for initializing components on this page -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Minor JS might be needed for dynamic updates of stats or recent topics via AJAX,
+            // but the core navigation relies on standard links here.
+            console.log("Forums index page loaded.");
+        });
+    </script>
+
+</body>
+</html>

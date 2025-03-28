@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Update Title and Description Dynamically -->
+    <meta name="description" content="Profile page for Foodie123 on ICDB. See their reviews, recipes cooked, cooklists, badges, and more.">
+    <title>Foodie123's Profile - ICDB</title> <!-- Update dynamically -->
+
+    <!-- Favicon -->
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon"> <!-- Update path if needed -->
+
+    <!-- CSS Stylesheets -->
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <!-- Structured Data (SEO for Profile Page) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfilePage", // Identifies this as a profile page
+      "mainEntity": {
+        "@type": "Person",
+        "name": "Foodie123", // Update dynamically (Username)
+        "alternateName": "Alice Smith", // Optional: Real name if provided and public (Update dynamically)
+        "image": "images/placeholder/user-avatar-lg.png", // Update dynamically
+        "description": "Passionate home cook exploring world cuisines. Loves baking and trying new techniques!", // Update dynamically (User Bio)
+        "url": "profile.html?user=foodie123" // Update dynamically with actual profile URL
+        // Could add interactionStatistic for followers/following if schema supports well
+      },
+       "breadcrumb": { // Optional breadcrumb trail
+         "@type": "BreadcrumbList",
+         "itemListElement": [{
+           "@type": "ListItem",
+           "position": 1,
+           "name": "ICDB",
+           "item": "index.html" // Link to homepage
+         },{
+           "@type": "ListItem",
+           "position": 2,
+           "name": "Profiles",
+           "item": "/profiles" // Hypothetical profiles index page
+         },{
+           "@type": "ListItem",
+           "position": 3,
+           "name": "Foodie123" // Current profile username
+         }]
+       }
+    }
+    </script>
+
+</head>
+<body>
+
+    <!-- ========================================================================= -->
+    <!-- HEADER (Consistent across site)                                         -->
+    <!-- Include via server-side templating or copy/paste for static version.    -->
+    <!-- ========================================================================= -->
+    <header class="site-header">
+        <!-- Placeholder for header content (Logo, Nav, Search, User Menu) -->
+        <!-- Refer to index.html for full header structure -->
+        <div class="container header-container">
+             <a href="index.html" class="logo" aria-label="ICDB Homepage"><img src="images/logo.png" alt="ICDB Logo"><span>ICDB</span></a>
+             <nav class="main-navigation">...</nav>
+             <form class="header-search">...</form>
+             <div class="user-actions">...</div>
+        </div>
+    </header>
+
+    <!-- ========================================================================= -->
+    <!-- MAIN CONTENT AREA - PROFILE PAGE                                        -->
+    <!-- ========================================================================= -->
+    <main class="profile-page container">
+
+        <!-- == Profile Header Section == -->
+        <section class="profile-header card">
+            <!-- Optional Cover Photo -->
+            <div class="profile-cover-photo" style="background-image: url('images/placeholder/profile-cover.jpg');"></div> <!-- Update dynamically -->
+
+            <div class="profile-header-content">
+                <!-- User Avatar -->
+                <div class="profile-avatar">
+                    <!-- Update src and alt dynamically -->
+                    <img src="images/placeholder/user-avatar-lg.png" alt="Avatar for Foodie123">
+                </div>
+
+                <!-- User Info & Actions -->
+                <div class="profile-info">
+                    <div class="info-main">
+                        <!-- Username -->
+                        <h1 class="profile-username">Foodie123</h1> <!-- Update dynamically -->
+                        <!-- Real Name (Optional) -->
+                        <p class="profile-real-name">Alice Smith</p> <!-- Update dynamically, show only if provided/public -->
+                        <!-- Location & Join Date -->
+                        <p class="profile-meta">
+                            <span class="location"><img src="images/icons/location.svg" alt="Location" class="icon-inline"> London, UK</span> <!-- Update dynamically, show if provided -->
+                            <span class="join-date">Joined: Jan 15, 2023</span> <!-- Update dynamically -->
+                        </p>
+                        <!-- User Bio Snippet (Full bio in About tab) -->
+                         <p class="profile-bio-snippet">Passionate home cook exploring world cuisines. Loves baking...</p> <!-- Update dynamically -->
+                    </div>
+
+                    <!-- Action Buttons (Conditional Display) -->
+                    <div class="profile-actions">
+                        <!-- == Viewing OWN Profile == -->
+                        <a href="settings.html" class="btn btn-primary btn-icon" id="edit-profile-btn"> <!-- Show ONLY if viewing own profile -->
+                            <img src="images/icons/edit.svg" alt="" class="icon"> Edit Profile
+                        </a>
+
+                        <!-- == Viewing SOMEONE ELSE'S Profile == -->
+                         <!-- Follow button state depends on whether logged-in user follows this profile -->
+                        <button class="btn btn-primary btn-icon" id="follow-user-btn" data-user-id="foodie123" style="display: none;"> <!-- Show ONLY if viewing OTHER profile; Text changes to "Following" -->
+                            <img src="images/icons/follow.svg" alt="" class="icon"> Follow
+                        </button>
+                        <button class="btn btn-secondary btn-icon" id="report-user-btn" data-user-id="foodie123" style="display: none;"> <!-- Show ONLY if viewing OTHER profile -->
+                            <img src="images/icons/flag.svg" alt="" class="icon"> Report
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+             <!-- Profile Stats Bar -->
+            <div class="profile-stats">
+                 <!-- Update counts dynamically -->
+                <div class="stat-item">
+                    <span class="stat-value">15</span>
+                    <span class="stat-label">Recipes Cooked</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value">42</span>
+                    <span class="stat-label">Reviews</span>
+                </div>
+                 <div class="stat-item">
+                    <a href="#tab-followers"> <!-- Link to followers tab/section -->
+                        <span class="stat-value">128</span>
+                        <span class="stat-label">Followers</span>
+                    </a>
+                </div>
+                 <div class="stat-item">
+                     <a href="#tab-following"> <!-- Link to following tab/section -->
+                        <span class="stat-value">75</span>
+                        <span class="stat-label">Following</span>
+                    </a>
+                </div>
+                <div class="stat-item">
+                     <span class="stat-value">5</span>
+                     <span class="stat-label">Badges</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- == Profile Content Tabs/Sections == -->
+        <div class="profile-content-tabs card">
+            <!-- Tab Navigation -->
+            <nav class="tabs">
+                <button class="tab-link active" data-tab="tab-activity">Activity</button>
+                <button class="tab-link" data-tab="tab-reviews">Reviews</button>
+                <button class="tab-link" data-tab="tab-made-this">"Made This"</button>
+                <button class="tab-link" data-tab="tab-cooklists">Cooklists</button>
+                <button class="tab-link" data-tab="tab-submissions">Submitted Recipes</button> <!-- Show only if user has submissions or feature enabled -->
+                <button class="tab-link" data-tab="tab-about">About</button>
+                <button class="tab-link" data-tab="tab-badges">Badges</button>
+                 <button class="tab-link" data-tab="tab-following">Following</button>
+                <button class="tab-link" data-tab="tab-followers">Followers</button>
+            </nav>
+
+            <!-- Tab Content: Activity Feed (Example) -->
+            <section id="tab-activity" class="tab-content active">
+                <h2>Recent Activity</h2>
+                <ul class="activity-feed">
+                    <!-- Example Activity Item: Reviewed a recipe -->
+                    <li class="activity-item">
+                        <img src="images/icons/review.svg" alt="Review Icon" class="activity-icon"> <!-- Contextual icon -->
+                        <div class="activity-content">
+                            <p><a href="profile.html?user=foodie123">Foodie123</a> reviewed <a href="recipe-detail.html?id=123">Classic Lasagna Bolognese</a> ★★★★☆</p>
+                            <p class="activity-snippet">"Turned out great! Substituted cottage cheese..."</p>
+                            <span class="activity-timestamp">2 days ago</span>
+                        </div>
+                    </li>
+                    <!-- Example Activity Item: Made a recipe -->
+                     <li class="activity-item">
+                        <img src="images/icons/i-made-this.svg" alt="Made This Icon" class="activity-icon">
+                        <div class="activity-content">
+                            <p><a href="profile.html?user=foodie123">Foodie123</a> made <a href="recipe-detail.html?id=789">Perfect Chocolate Chip Cookies</a></p>
+                             <a href="#?" class="activity-photo-link"><img src="images/placeholder/user-cookies-1.jpg" alt="User photo of cookies" class="activity-photo-thumb"></a>
+                            <span class="activity-timestamp">5 days ago</span>
+                        </div>
+                    </li>
+                     <!-- Example Activity Item: Followed a user -->
+                      <li class="activity-item">
+                        <img src="images/icons/follow.svg" alt="Follow Icon" class="activity-icon">
+                        <div class="activity-content">
+                            <p><a href="profile.html?user=foodie123">Foodie123</a> started following <a href="profile.html?user=chef_anon">Chef_Anon</a></p>
+                            <span class="activity-timestamp">1 week ago</span>
+                        </div>
+                    </li>
+                     <!-- Example Activity Item: Created a Cooklist -->
+                     <li class="activity-item">
+                        <img src="images/icons/add-to-list.svg" alt="List Icon" class="activity-icon">
+                        <div class="activity-content">
+                            <p><a href="profile.html?user=foodie123">Foodie123</a> created a new Cooklist: <a href="cooklist-detail.html?id=101">Weeknight Winners</a></p>
+                            <span class="activity-timestamp">1 week ago</span>
+                        </div>
+                    </li>
+                     <!-- Add more activity items dynamically -->
+                     <!-- Potentially add pagination for activity -->
+                </ul>
+            </section>
+
+            <!-- Tab Content: Reviews -->
+            <section id="tab-reviews" class="tab-content">
+                <h2>Reviews by Foodie123</h2> <!-- Update username dynamically -->
+                <div class="reviews-list profile-reviews-list">
+                    <!-- Review Card (Load dynamically) - Slightly simplified from recipe page -->
+                    <article class="review-card">
+                        <div class="review-context">Reviewed: <a href="recipe-detail.html?id=123">Classic Lasagna Bolognese</a></div>
+                        <div class="review-author"> <!-- Still show author for consistency, though it's their profile -->
+                            <img src="images/placeholder/user-avatar-lg.png" alt="User Avatar" class="avatar"> <!-- Dynamic -->
+                            <a href="profile.html?user=foodie123">Foodie123</a> <!-- Dynamic -->
+                            <span class="review-date">Nov 5, 2023</span> <!-- Dynamic -->
+                        </div>
+                        <div class="review-rating">★★★★☆</div> <!-- Dynamic -->
+                        <div class="review-body">
+                            <p>This was absolutely fantastic! Using cottage cheese worked surprisingly well...</p> <!-- Dynamic -->
+                        </div>
+                        <!-- No helpfulness voting on own profile view of reviews -->
+                        <div class="review-actions">
+                             <a href="recipe-detail.html?id=123#review-XYZ">View on Recipe Page</a> <!-- Link to the specific review -->
+                             <!-- If viewing own profile, add Edit/Delete options -->
+                             <!-- <button class="btn btn-small btn-secondary edit-review-btn">Edit</button> -->
+                             <!-- <button class="btn btn-small btn-danger delete-review-btn">Delete</button> -->
+                        </div>
+                    </article>
+                     <!-- Add more review cards -->
+                     <article class="review-card">
+                         <div class="review-context">Reviewed: <a href="cookbook-detail.html?id=601">Salt, Fat, Acid, Heat</a></div>
+                         <!-- ... other review details ... -->
+                     </article>
+                    <!-- Pagination for reviews -->
+                    <nav class="pagination">...</nav>
+                </div>
+            </section>
+
+            <!-- Tab Content: "Made This" Gallery -->
+            <section id="tab-made-this" class="tab-content">
+                <h2>"Made This" Gallery</h2>
+                <div class="photo-grid">
+                    <!-- User Photo Card (Load dynamically) -->
+                    <div class="user-photo-card card-interactive">
+                         <a href="recipe-detail.html?id=789#review-ABC"> <!-- Link to recipe review/post -->
+                            <img src="images/placeholder/user-cookies-1.jpg" alt="User photo of cookies"> <!-- Dynamic -->
+                            <div class="card-overlay">
+                                <p>Perfect Chocolate Chip Cookies</p> <!-- Dynamic -->
+                                <span>Made on Dec 10, 2023</span> <!-- Dynamic -->
+                            </div>
+                        </a>
+                    </div>
+                     <!-- Add more photo cards -->
+                      <div class="user-photo-card card-interactive">
+                         <a href="recipe-detail.html?id=123#review-XYZ">
+                            <img src="images/placeholder/user-lasagna-2.jpg" alt="User photo of lasagna">
+                             <div class="card-overlay">
+                                <p>Classic Lasagna Bolognese</p>
+                                <span>Made on Nov 5, 2023</span>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- ... -->
+                    <!-- Pagination for gallery -->
+                </div>
+            </section>
+
+            <!-- Tab Content: Cooklists -->
+            <section id="tab-cooklists" class="tab-content">
+                <h2>Cooklists</h2>
+                <ul class="cooklist-list">
+                     <!-- Load dynamically -->
+                    <li class="cooklist-item">
+                        <a href="cooklist-detail.html?id=101">Weeknight Winners</a> <span class="item-count">(15 Recipes)</span> <span class="privacy-status">(Public)</span>
+                         <!-- Add Edit/Delete for own profile -->
+                    </li>
+                    <li class="cooklist-item">
+                        <a href="cooklist-detail.html?id=102">Baking Bucket List</a> <span class="item-count">(25 Recipes)</span> <span class="privacy-status">(Public)</span>
+                    </li>
+                    <li class="cooklist-item">
+                         <!-- Private list only visible to owner -->
+                         My Secret Sauces <span class="item-count">(8 Recipes)</span> <span class="privacy-status">(Private)</span>
+                         <!-- If viewing own profile, link to edit -->
+                         <!-- <a href="cooklist-edit.html?id=103">My Secret Sauces</a> ... -->
+                    </li>
+                     <!-- Button to create new cooklist (only on own profile) -->
+                     <!-- <a href="create-cooklist.html" class="btn btn-primary">Create New Cooklist</a> -->
+                </ul>
+                 <!-- Pagination for cooklists if many -->
+            </section>
+
+            <!-- Tab Content: Submitted Recipes -->
+            <section id="tab-submissions" class="tab-content">
+                 <!-- Show this tab only if the user has submitted recipes, or always show if submissions are allowed -->
+                <h2>Submitted Recipes</h2>
+                <div class="recipe-card-grid">
+                     <!-- Load dynamically - Only show approved/published recipes? -->
+                     <div class="recipe-card card card-interactive">
+                        <a href="recipe-detail.html?id=9001" class="card-image-link">
+                            <img src="images/placeholder/recipe-submitted-1.jpg" alt="Grandma's Apple Pie Thumbnail">
+                        </a>
+                        <div class="card-content">
+                            <h3 class="card-title"><a href="recipe-detail.html?id=9001">Grandma's Famous Apple Pie</a></h3>
+                            <div class="card-rating">★★★★☆ <span class="rating-text">(8.7/10)</span></div>
+                            <p class="card-description">A family recipe passed down through generations.</p>
+                            <!-- Add Status if needed (e.g., Pending Approval - only for owner) -->
+                            <!-- <span class="status">Status: Published</span> -->
+                            <!-- Add Edit/Delete for owner -->
+                        </div>
+                    </div>
+                     <!-- Add more submitted recipe cards -->
+                </div>
+                <p style="display: none;"> <!-- Show if no submissions -->
+                    Foodie123 hasn't submitted any recipes yet.
+                </p>
+                <!-- Link to submission form (only for owner?) -->
+                <!-- <a href="submit-recipe.html" class="btn btn-primary">Submit a New Recipe</a> -->
+            </section>
+
+            <!-- Tab Content: About -->
+            <section id="tab-about" class="tab-content">
+                <h2>About Foodie123</h2> <!-- Update dynamically -->
+                 <div class="content-section">
+                     <h3>Bio</h3>
+                     <!-- Update dynamically -->
+                     <p>Passionate home cook exploring world cuisines. Loves baking and trying new techniques! Always looking for the next delicious challenge. Firm believer that anyone can cook well with a bit of practice (and a good recipe!). My favorite cuisines are Italian and Thai.</p>
+                 </div>
+                <div class="content-section">
+                     <h3>Details</h3>
+                     <!-- Update dynamically -->
+                    <ul class="details-list">
+                        <li><strong>Skill Level:</strong> Intermediate</li>
+                        <li><strong>Dietary Preferences:</strong> None specified (or list: Vegetarian, Gluten-Free etc.)</li>
+                        <li><strong>Allergies:</strong> None specified (or list: Nuts, Shellfish)</li>
+                         <li><strong>Location:</strong> London, UK</li>
+                         <li><strong>Joined:</strong> January 15, 2023</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Tab Content: Badges -->
+            <section id="tab-badges" class="tab-content">
+                <h2>Earned Badges</h2>
+                <div class="badge-grid">
+                     <!-- Load dynamically -->
+                     <div class="badge-item" title="First Review: Submitted first review">
+                        <img src="images/badges/badge-first-review.png" alt="First Review Badge">
+                        <span class="badge-name">First Review</span>
+                     </div>
+                      <div class="badge-item" title="Recipe Contributor: Submitted an approved recipe">
+                        <img src="images/badges/badge-recipe-guru.png" alt="Recipe Contributor Badge">
+                        <span class="badge-name">Recipe Contributor</span>
+                     </div>
+                     <div class="badge-item" title="Made This! x10: Cooked and logged 10 recipes">
+                         <img src="images/badges/badge-made-this-10.png" alt="Made This x10 Badge">
+                        <span class="badge-name">Cook x10</span>
+                     </div>
+                      <div class="badge-item" title="Top Reviewer (Bronze): Reviews consistently voted helpful">
+                         <img src="images/badges/badge-top-reviewer-bronze.png" alt="Top Reviewer Bronze Badge">
+                        <span class="badge-name">Helpful Reviewer</span>
+                     </div>
+                      <div class="badge-item" title="Cuisine Explorer: Rated recipes from 5+ different cuisines">
+                         <img src="images/badges/badge-cuisine-explorer.png" alt="Cuisine Explorer Badge">
+                        <span class="badge-name">Cuisine Explorer</span>
+                     </div>
+                    <!-- Add more earned badges -->
+                </div>
+            </section>
+
+            <!-- Tab Content: Following -->
+             <section id="tab-following" class="tab-content">
+                 <h2>Following (75)</h2> <!-- Update count -->
+                 <ul class="user-list">
+                     <!-- Load dynamically -->
+                     <li class="user-list-item">
+                         <a href="profile.html?user=chef_anon">
+                            <img src="images/placeholder/user-avatar-2.png" alt="Chef_Anon Avatar" class="avatar">
+                            <span class="username">Chef_Anon</span>
+                         </a>
+                          <!-- Add Unfollow button if viewing own profile -->
+                     </li>
+                      <li class="user-list-item">
+                         <a href="profile.html?user=serious_baker">
+                            <img src="images/placeholder/user-avatar-6.png" alt="Serious_Baker Avatar" class="avatar">
+                            <span class="username">Serious_Baker</span>
+                         </a>
+                     </li>
+                     <!-- Add more followed users -->
+                 </ul>
+                 <!-- Pagination for Following list -->
+             </section>
+
+             <!-- Tab Content: Followers -->
+              <section id="tab-followers" class="tab-content">
+                 <h2>Followers (128)</h2> <!-- Update count -->
+                  <ul class="user-list">
+                      <!-- Load dynamically -->
+                      <li class="user-list-item">
+                         <a href="profile.html?user=kitchen_hacker">
+                            <img src="images/placeholder/user-avatar-3.png" alt="Kitchen_Hacker Avatar" class="avatar">
+                            <span class="username">Kitchen_Hacker</span>
+                         </a>
+                          <!-- Follow Back button might appear here -->
+                     </li>
+                       <li class="user-list-item">
+                         <a href="profile.html?user=spice_lover">
+                            <img src="images/placeholder/user-avatar-4.png" alt="Spice_Lover Avatar" class="avatar">
+                            <span class="username">Spice_Lover</span>
+                         </a>
+                     </li>
+                     <!-- Add more follower users -->
+                 </ul>
+                 <!-- Pagination for Followers list -->
+             </section>
+
+        </div> <!-- End Tabs/Sections -->
+
+    </main>
+
+    <!-- ========================================================================= -->
+    <!-- FOOTER (Consistent across site)                                         -->
+    <!-- Include via server-side templating or copy/paste for static version.    -->
+    <!-- ========================================================================= -->
+    <footer class="site-footer">
+        <!-- Placeholder for footer content -->
+        <!-- Refer to index.html for full footer structure -->
+        <div class="container">
+             <nav class="footer-nav">...</nav>
+             <div class="social-links">...</div>
+             <p class="copyright">© 2023 ICDB. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- ========================================================================= -->
+    <!-- SCRIPTS                                                                   -->
+    <!-- ========================================================================= -->
+    <!-- Main Site Logic -->
+    <script src="js/main.js"></script> <!-- Handles header dropdowns, etc. -->
+    <!-- Component Initializers -->
+    <script src="js/components/tabs.js"></script> <!-- To handle tab switching -->
+    <!-- Page-Specific Logic -->
+    <script src="js/profile.js"></script> <!-- Handles profile actions (follow, edit states), loading tab data -->
+
+    <!-- Inline script for initializing components on this page -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize tabs
+            const tabContainer = document.querySelector('.profile-content-tabs');
+            if (tabContainer) {
+                // Assuming initializeTabs is defined in tabs.js
+                // initializeTabs(tabContainer);
+                 console.log("Profile page JS loaded, tabs initialized (concept).");
+            }
+
+            // --- Crucial JS Logic (Conceptual) ---
+            // Check if viewing own profile vs. someone else's
+            // const viewingUserId = 'foodie123'; // Get from URL param or server-side variable
+            // const loggedInUserId = 'myCurrentUser'; // Get from session/auth state
+            // const isOwnProfile = (viewingUserId === loggedInUserId);
+
+            const editBtn = document.getElementById('edit-profile-btn');
+            const followBtn = document.getElementById('follow-user-btn');
+            const reportBtn = document.getElementById('report-user-btn');
+
+            /*
+            if (isOwnProfile) {
+                if(editBtn) editBtn.style.display = 'inline-flex'; // Or 'block'
+                if(followBtn) followBtn.style.display = 'none';
+                if(reportBtn) reportBtn.style.display = 'none';
+                // Add edit/delete buttons to reviews, cooklists etc.
+            } else {
+                if(editBtn) editBtn.style.display = 'none';
+                if(followBtn) followBtn.style.display = 'inline-flex'; // Or 'block'
+                if(reportBtn) reportBtn.style.display = 'inline-flex'; // Or 'block'
+                 // Check follow status and update followBtn text/state
+                 // setupFollowButtonState(viewingUserId);
+            }
+            */
+            console.log("Profile page JS needs logic to toggle buttons based on viewing own vs other profile.");
+
+            // Add event listeners for profile-specific buttons (follow, etc.)
+            // if(followBtn) followBtn.addEventListener('click', handleFollowUser);
+
+             // Load initial tab data (e.g., Activity Feed) via AJAX if needed
+             // loadProfileTabData('tab-activity', viewingUserId);
+
+        });
+    </script>
+
+</body>
+</html>

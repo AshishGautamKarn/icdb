@@ -1,0 +1,504 @@
+Okay, here is the ingredient-detail.html code, designed to provide comprehensive information about a specific cooking ingredient, consistent with the style and structure of the previous pages.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Update Title and Description Dynamically -->
+    <meta name="description" content="Learn all about Fresh Basil: flavor profile, uses, seasonality, storage, substitutions, nutrition, user tips, and recipes on ICDB.">
+    <title>Fresh Basil - Ingredient Profile - ICDB</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon"> <!-- Update path if needed -->
+
+    <!-- CSS Stylesheets -->
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <!-- Structured Data (SEO for Product/Thing - Ingredient) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Product", // Using Product, can also use Thing if not commerce-focused
+      "name": "Fresh Basil", // Update dynamically
+      "image": "images/placeholder/ingredient-basil.jpg", // Update dynamically
+      "description": "A fragrant herb in the mint family, known for its distinct aroma and use in Italian, Thai, and Vietnamese cuisine.", // Update dynamically
+      "url": "ingredient-detail.html?name=basil", // Update dynamically with actual URL
+      // Aggregate Rating based on user reviews (e.g., Quality/Versatility)
+      // "aggregateRating": {
+      //   "@type": "AggregateRating",
+      //   "ratingValue": "9.1", // Update dynamically
+      //   "reviewCount": "452" // Update dynamically
+      // }
+      // Potential additional properties: brand (if specific), gtin, sku, offers (if purchasable)
+    }
+    </script>
+
+</head>
+<body>
+
+    <!-- ========================================================================= -->
+    <!-- HEADER (Consistent across site)                                         -->
+    <!-- Include via server-side templating or copy/paste for static version.    -->
+    <!-- ========================================================================= -->
+    <header class="site-header">
+        <!-- Placeholder for header content (Logo, Nav, Search, User Menu) -->
+        <!-- Refer to index.html for full header structure -->
+        <div class="container header-container">
+             <a href="index.html" class="logo" aria-label="ICDB Homepage"><img src="images/logo.png" alt="ICDB Logo"><span>ICDB</span></a>
+             <nav class="main-navigation">...</nav>
+             <form class="header-search">...</form>
+             <div class="user-actions">...</div>
+        </div>
+    </header>
+
+    <!-- ========================================================================= -->
+    <!-- MAIN CONTENT AREA - INGREDIENT DETAIL PAGE                              -->
+    <!-- ========================================================================= -->
+    <main class="ingredient-detail-page container">
+
+        <!-- == Ingredient Header Section == -->
+        <section class="ingredient-header card">
+            <div class="ingredient-header-content">
+                <!-- Ingredient Main Photo -->
+                <div class="ingredient-photo">
+                    <!-- Update src and alt dynamically -->
+                    <img src="images/placeholder/ingredient-basil.jpg" alt="Fresh Basil leaves">
+                </div>
+
+                <!-- Ingredient Core Information -->
+                <div class="ingredient-info">
+                    <!-- Ingredient Name -->
+                    <h1 class="ingredient-name">Fresh Basil</h1> <!-- Update dynamically -->
+                    <!-- Optional: Scientific Name or Variety -->
+                    <p class="ingredient-variety">Ocimum basilicum (Sweet Basil)</p> <!-- Update dynamically -->
+
+                    <!-- Ratings Summary (Focus: Quality/Versatility from user reviews) -->
+                    <div class="ratings-summary">
+                        <!-- Overall Score -->
+                        <div class="overall-rating">
+                            <span class="rating-value">9.1</span>/10 <!-- Update dynamically -->
+                            <span class="rating-count">(452 user ratings)</span> <!-- Update dynamically -->
+                        </div>
+                        <!-- Detailed Ratings (Could be simplified for ingredients) -->
+                        <div class="detailed-sub-ratings">
+                             <!-- Update dynamically -->
+                            <span>Avg. Quality Rating: 9.3</span> | <span>Versatility Score: 8.9</span>
+                        </div>
+                         <!-- Placeholder for interactive rating stars component -->
+                         <div class="rating-stars" aria-label="Average rating: 9.1 out of 10">★★★★★</div> <!-- Update dynamically -->
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="ingredient-actions">
+                         <!-- Adding to shopping list makes sense -->
+                         <button class="btn btn-primary btn-icon" id="add-ingredient-to-list-btn" data-ingredient-name="Fresh Basil">
+                            <img src="images/icons/shopping-cart.svg" alt="" class="icon"> Add to Shopping List
+                        </button>
+                        <button class="btn btn-secondary btn-icon" id="share-ingredient-btn">
+                            <img src="images/icons/share.svg" alt="" class="icon"> Share
+                        </button>
+                         <!-- Maybe a link to find recipes -->
+                         <a href="search-results.html?type=recipe&ingredient=basil" class="btn btn-secondary btn-icon">
+                            <img src="images/icons/recipe-book.svg" alt="" class="icon"> Find Recipes
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- == Ingredient Content Tabs/Sections == -->
+        <div class="ingredient-content-tabs card">
+            <!-- Tab Navigation -->
+            <nav class="tabs">
+                <button class="tab-link active" data-tab="tab-overview">Overview</button>
+                <button class="tab-link" data-tab="tab-details">Details</button>
+                <button class="tab-link" data-tab="tab-substitutions">Substitutions & Tips</button>
+                <button class="tab-link" data-tab="tab-recipes">Recipes</button>
+                <button class="tab-link" data-tab="tab-reviews">User Reviews</button> <!-- Might show review count -->
+            </nav>
+
+            <!-- Tab Content: Overview (Description, Flavor, Uses) -->
+            <section id="tab-overview" class="tab-content active">
+                <h2>Overview</h2>
+                <!-- Description -->
+                <div class="content-section">
+                    <h3>Description</h3>
+                    <!-- Update dynamically -->
+                    <p>Fresh Basil (Ocimum basilicum), often called Sweet Basil or Genovese Basil, is a tender culinary herb belonging to the mint family (Lamiaceae). Native to tropical regions from Central Africa to Southeast Asia, it is now cultivated worldwide.</p>
+                    <p>It's characterized by its bright green, smooth leaves (though varieties exist with different colors and textures) and a highly aromatic profile.</p>
+                </div>
+
+                <!-- Flavor Profile -->
+                <div class="content-section">
+                    <h3>Flavor Profile</h3>
+                     <!-- Update dynamically -->
+                    <p>Sweet Basil offers a complex flavor that is initially peppery, evolving into a sweet, slightly anise-like, and minty taste with hints of clove. The aroma is equally potent and distinctive. Other varieties like Thai Basil have a stronger anise/licorice note, while Lemon Basil introduces citrusy undertones.</p>
+                    <ul class="flavor-tags">
+                        <li>Aromatic</li>
+                        <li>Peppery</li>
+                        <li>Sweet</li>
+                        <li>Anise</li>
+                        <li>Minty</li>
+                        <li>Clove (hint)</li>
+                    </ul>
+                </div>
+
+                <!-- Common Uses -->
+                <div class="content-section">
+                    <h3>Common Uses</h3>
+                     <!-- Update dynamically -->
+                    <p>Basil is a cornerstone ingredient in many cuisines, particularly Italian. It's best added fresh towards the end of cooking or used raw to preserve its delicate flavor.</p>
+                    <ul>
+                        <li><strong>Italian Cuisine:</strong> Pesto sauce, Caprese salad, Margherita pizza, pasta sauces (added at the end).</li>
+                        <li><strong>Southeast Asian Cuisine (Thai Basil variety):</strong> Stir-fries, curries (like Thai Green Curry), pho (as a garnish).</li>
+                        <li><strong>Mediterranean Cuisine:</strong> Salads, dressings, infused oils.</li>
+                        <li><strong>Beverages:</strong> Cocktails (like Gin Basil Smash), infused water, teas.</li>
+                        <li><strong>Garnishes:</strong> Adds freshness and visual appeal to countless dishes.</li>
+                    </ul>
+                     <p>Pairs well with: Tomatoes, garlic, olive oil, mozzarella, parmesan, lemon, pine nuts, pasta, chicken, fish.</p>
+                </div>
+                 <!-- Optional: Fun Facts/Trivia -->
+                 <div class="content-section trivia-section">
+                     <h3>Fun Facts</h3>
+                     <ul>
+                         <!-- Update dynamically -->
+                         <li>The name "basil" comes from the Greek word "basileus," meaning "king."</li>
+                         <li>In some cultures, basil was historically associated with love or hatred, and even with warding off evil spirits.</li>
+                         <li>There are over 60 varieties of basil.</li>
+                     </ul>
+                 </div>
+            </section>
+
+            <!-- Tab Content: Details (Seasonality, Storage, Nutrition) -->
+            <section id="tab-details" class="tab-content">
+                <h2>Details</h2>
+                 <!-- Seasonality -->
+                <div class="content-section">
+                    <h3>Seasonality</h3>
+                    <!-- Update dynamically -->
+                    <p>Fresh Basil thrives in warm weather and is typically in season during the summer months in temperate climates. It can often be found year-round in grocery stores (grown in greenhouses) or grown indoors.</p>
+                    <p><strong>Peak Season (Outdoors):</strong> Summer (June - September in Northern Hemisphere)</p>
+                </div>
+
+                <!-- Storage Tips -->
+                <div class="content-section">
+                    <h3>Storage Tips</h3>
+                     <!-- Update dynamically -->
+                    <p>Fresh basil is delicate and wilts easily. Here are the best ways to store it:</p>
+                    <ul>
+                        <li><strong>Short-term (Countertop):</strong> Trim the stems and place the bunch in a glass with about an inch of water, like cut flowers. Cover loosely with a plastic bag. Keep at room temperature (refrigeration can cause leaves to blacken). Change water daily. Lasts up to a week.</li>
+                        <li><strong>Short-term (Refrigerator - Alternative):</strong> Gently wrap leaves in a slightly damp paper towel and place inside a plastic bag or airtight container. Use within 2-4 days.</li>
+                        <li><strong>Long-term (Freezing):</strong>
+                            <ul>
+                                <li>Blanch leaves briefly, shock in ice water, pat dry, and freeze flat before transferring to a container.</li>
+                                <li>Chop finely and freeze in ice cube trays with a little water or olive oil.</li>
+                                <li>Blend into pesto and freeze.</li>
+                            </ul>
+                        </li>
+                         <li><strong>Drying:</strong> Basil loses much of its flavor when dried, but it's an option. Hang bunches upside down in a warm, dry, dark place, or use a dehydrator.</li>
+                    </ul>
+                </div>
+
+                 <!-- Nutritional Information -->
+                 <div class="content-section">
+                    <h3>Nutritional Information (Estimate)</h3>
+                    <!-- Update dynamically -->
+                    <p>Per 2 tablespoons (approx. 5g) chopped fresh basil:</p>
+                    <ul class="nutrition-list">
+                        <li><strong>Calories:</strong> ~1 kcal</li>
+                        <li><strong>Vitamin K:</strong> High % Daily Value (important for blood clotting)</li>
+                        <li><strong>Vitamin A:</strong> Good source</li>
+                        <li><strong>Manganese:</strong> Good source</li>
+                        <li>Contains antioxidants and volatile oils responsible for flavor and potential health benefits.</li>
+                    </ul>
+                    <p><em>Note: Nutritional values are estimates and can vary. Primarily used for flavor rather than significant caloric or macronutrient contribution.</em></p>
+                 </div>
+                 <!-- Optional: Origin/Cultivation -->
+                 <!-- <div class="content-section"><h3>Origin & Cultivation</h3> ... </div> -->
+            </section>
+
+            <!-- Tab Content: Substitutions & Tips -->
+            <section id="tab-substitutions" class="tab-content">
+                <h2>Substitutions & Community Tips</h2>
+
+                <!-- Substitution Helper Section -->
+                <div class="substitution-helper content-section">
+                    <h3>Common Substitutions for Fresh Basil</h3>
+                    <p>If you don't have fresh basil, consider these options (flavor profile will differ):</p>
+                    <ul class="substitution-list">
+                        <!-- Item 1 -->
+                        <li class="substitution-item">
+                            <div>
+                                <strong>Dried Basil:</strong> Use 1 teaspoon dried for every 1 tablespoon fresh. Best added during cooking rather than raw. Flavor is less vibrant.
+                            </div>
+                            <div class="community-rating">Effectiveness: ★★★☆☆ (Community Rated)</div>
+                        </li>
+                        <!-- Item 2 -->
+                        <li class="substitution-item">
+                            <div>
+                                <strong>Fresh Spinach:</strong> For bulk/color in pesto (combine with other herbs for flavor). Doesn't replicate basil flavor.
+                            </div>
+                             <div class="community-rating">Effectiveness: ★★☆☆☆ (For Pesto Bulk)</div>
+                        </li>
+                         <!-- Item 3 -->
+                        <li class="substitution-item">
+                            <div>
+                                <strong>Fresh Mint:</strong> Can work in some dishes, especially salads or drinks, but adds a distinct minty flavor. Use judiciously.
+                            </div>
+                            <div class="community-rating">Effectiveness: ★★☆☆☆ (Depends on Dish)</div>
+                        </li>
+                         <!-- Item 4 -->
+                         <li class="substitution-item">
+                            <div>
+                                <strong>Fresh Italian Parsley or Cilantro:</strong> Offer fresh, green notes but lack the specific anise/peppery flavor of basil. Parsley is milder, cilantro is distinct.
+                            </div>
+                            <div class="community-rating">Effectiveness: ★★☆☆☆ (For Freshness/Color)</div>
+                        </li>
+                          <!-- Item 5 (Community Submitted Example) -->
+                        <li class="substitution-item community-sourced">
+                            <div>
+                                <strong>Arugula:</strong> Adds a peppery bite, can work as a component in pesto or salads if basil isn't available. <em>(Suggested by <a href="profile.html?user=foodie123">Foodie123</a>)</em>
+                            </div>
+                             <div class="community-rating">Effectiveness: ★★★☆☆ <button class="vote-up">👍 (12)</button><button class="vote-down">👎 (1)</button></div>
+                        </li>
+                    </ul>
+                    <!-- Button to suggest a new substitution -->
+                     <button class="btn btn-secondary btn-small">Suggest a Substitution</button>
+                </div>
+
+                 <!-- Community Tips Section -->
+                <div class="community-tips content-section">
+                    <h3>Community Tips & Tricks</h3>
+                    <ul class="tips-list">
+                        <!-- Tip 1 -->
+                        <li class="tip-item">
+                            <p>"Add fresh basil leaves at the very end of cooking hot dishes like pasta sauce to preserve their bright flavor. Boiling kills the delicate aromatics." - <a href="profile.html?user=chef_anon">Chef_Anon</a></p>
+                             <div class="tip-actions"><button class="vote-helpful-yes">Helpful (35)</button> <button class="report-tip">Report</button></div>
+                        </li>
+                         <!-- Tip 2 -->
+                         <li class="tip-item">
+                            <p>"To prevent cut basil from browning quickly (oxidizing), use a very sharp knife or tear the leaves instead of bruising them with a dull blade." - <a href="profile.html?user=kitchen_hacker">Kitchen_Hacker</a></p>
+                             <div class="tip-actions"><button class="vote-helpful-yes">Helpful (28)</button> <button class="report-tip">Report</button></div>
+                        </li>
+                         <!-- Tip 3 -->
+                         <li class="tip-item">
+                            <p>"Try Thai Basil (if you can find it) for Southeast Asian dishes - its stronger anise flavor holds up better to heat than sweet basil." - <a href="profile.html?user=spice_lover">Spice_Lover</a></p>
+                             <div class="tip-actions"><button class="vote-helpful-yes">Helpful (19)</button> <button class="report-tip">Report</button></div>
+                        </li>
+                    </ul>
+                     <!-- Button to add a new tip -->
+                     <button class="btn btn-secondary btn-small">Add Your Tip</button>
+                </div>
+            </section>
+
+            <!-- Tab Content: Recipes -->
+            <section id="tab-recipes" class="tab-content">
+                <h2>Recipes Featuring Fresh Basil</h2>
+                <p>Discover dishes where Fresh Basil plays a starring role.</p>
+                <div class="recipe-card-grid">
+                    <!-- Recipe Card 1 (Placeholder - Load dynamically) -->
+                    <div class="recipe-card card card-interactive">
+                        <a href="recipe-detail.html?id=2001" class="card-image-link">
+                            <img src="images/placeholder/recipe-pesto.jpg" alt="Classic Pesto Genovese Thumbnail"> <!-- Update path -->
+                        </a>
+                        <div class="card-content">
+                            <h3 class="card-title"><a href="recipe-detail.html?id=2001">Classic Pesto Genovese</a></h3>
+                            <div class="card-rating">★★★★★ <span class="rating-text">(9.4/10)</span></div>
+                            <p class="card-description">The quintessential basil sauce with pine nuts, garlic, Parmesan, and olive oil.</p>
+                        </div>
+                    </div>
+                    <!-- Recipe Card 2 (Placeholder) -->
+                     <div class="recipe-card card card-interactive">
+                        <a href="recipe-detail.html?id=2002" class="card-image-link">
+                            <img src="images/placeholder/recipe-caprese.jpg" alt="Caprese Salad Thumbnail"> <!-- Update path -->
+                        </a>
+                        <div class="card-content">
+                            <h3 class="card-title"><a href="recipe-detail.html?id=2002">Simple Caprese Salad</a></h3>
+                            <div class="card-rating">★★★★☆ <span class="rating-text">(8.8/10)</span></div>
+                            <p class="card-description">Fresh mozzarella, ripe tomatoes, and basil drizzled with olive oil.</p>
+                        </div>
+                    </div>
+                    <!-- Recipe Card 3 (Placeholder) -->
+                     <div class="recipe-card card card-interactive">
+                        <a href="recipe-detail.html?id=456" class="card-image-link"> <!-- Link to existing Thai Curry example -->
+                            <img src="images/placeholder/recipe-thumb-2.jpg" alt="Thai Green Curry Thumbnail"> <!-- Update path -->
+                        </a>
+                        <div class="card-content">
+                            <h3 class="card-title"><a href="recipe-detail.html?id=456">Spicy Thai Green Curry</a></h3>
+                             <div class="card-rating">★★★★★ <span class="rating-text">(9.2/10)</span></div>
+                            <p class="card-description">(Often uses Thai Basil) Authentic flavors, ready in under 45 minutes.</p>
+                        </div>
+                    </div>
+                    <!-- Add more associated recipe cards dynamically -->
+                </div>
+                 <!-- Link to view all recipes using this ingredient -->
+                <div class="section-link">
+                    <a href="search-results.html?type=recipe&ingredient=basil" class="btn btn-secondary">View All Recipes Using Fresh Basil</a> <!-- Update dynamically -->
+                </div>
+            </section>
+
+            <!-- Tab Content: User Reviews (Focus on Quality, Brands, Uses) -->
+            <section id="tab-reviews" class="tab-content">
+                <h2>User Reviews & Experiences with Fresh Basil</h2>
+
+                 <!-- Submit Review Form (Logged-in users only) -->
+                <div class="submit-review-form card-inset">
+                    <h3>Rate & Review Fresh Basil</h3>
+                    <form id="ingredient-review-form">
+                         <!-- Rating fields specific to ingredients -->
+                        <div class="form-group rating-group">
+                            <label>Your Rating:</label>
+                             <div class="sub-rating">
+                                <label for="rating-quality">Quality (General Experience):</label>
+                                <!-- Star rating input component placeholder -->
+                                <div class="stars" id="rating-quality"> ☆☆☆☆☆ </div>
+                            </div>
+                             <div class="sub-rating">
+                                <label for="rating-versatility">Versatility:</label>
+                                <div class="stars" id="rating-versatility"> ☆☆☆☆☆ </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="review-text-ingredient">Your Review / Tips:</label>
+                            <textarea id="review-text-ingredient" name="review_text" rows="4" required placeholder="Share your experiences with specific brands, growing tips, favorite uses, or quality observations..."></textarea>
+                        </div>
+                         <!-- Optional: Mention specific brand -->
+                         <div class="form-group">
+                             <label for="brand-mention">Mention a Specific Brand? (Optional)</label>
+                             <input type="text" id="brand-mention" name="brand_mention" placeholder="E.g., Trader Joe's, Local Farm">
+                         </div>
+                        <button type="submit" class="btn btn-primary">Submit Review</button>
+                    </form>
+                </div>
+
+                 <!-- Existing Reviews List -->
+                <div class="reviews-list">
+                    <!-- Review Sort/Filter Options -->
+                    <div class="review-controls">
+                        <label for="sort-reviews">Sort by:</label>
+                        <select id="sort-reviews">
+                            <option value="helpful">Most Helpful</option>
+                            <option value="newest">Newest</option>
+                            <option value="highest">Highest Rated</option>
+                            <option value="lowest">Lowest Rated</option>
+                        </select>
+                    </div>
+
+                     <!-- Single Review Card (Placeholder - Load dynamically) -->
+                    <article class="review-card">
+                        <div class="review-author">
+                            <img src="images/placeholder/user-avatar-3.png" alt="User Avatar" class="avatar"> <!-- Update path -->
+                            <a href="profile.html?user=gardener_gal">Gardener_Gal</a> <!-- Update dynamically -->
+                            <span class="review-date">Jan 5, 2024</span> <!-- Update dynamically -->
+                        </div>
+                        <div class="review-rating">
+                             <!-- Display user's rating for Quality/Versatility -->
+                            ★★★★★ (Quality: 10/10, Versatility: 9/10) <!-- Update dynamically -->
+                        </div>
+                        <div class="review-body">
+                             <!-- Update dynamically -->
+                            <p>Nothing beats basil fresh from the garden! So much more fragrant than store-bought. Super easy to grow in a sunny pot. Essential for summer cooking. I make huge batches of pesto and freeze it in cubes.</p>
+                            <!-- No "Made This" photo for ingredient reviews, but maybe user photos of the ingredient itself? -->
+                        </div>
+                        <div class="review-actions">
+                            <span>Was this review helpful?</span>
+                             <!-- Update counts dynamically -->
+                            <button class="vote-helpful-yes">Yes (22)</button>
+                            <button class="vote-helpful-no">No (1)</button>
+                            <button class="report-review">Report</button>
+                        </div>
+                    </article>
+
+                     <!-- Add more review cards dynamically -->
+                     <article class="review-card"> ... </article>
+
+                    <!-- Pagination for reviews -->
+                    <nav class="pagination" aria-label="Review Pagination">
+                        <!-- Pagination links go here -->
+                        <span class="current-page">1</span>
+                        <a href="?name=basil&page=2">2</a>
+                        <a href="?name=basil&page=3">3</a>
+                        <a href="?name=basil&page=2" class="next">Next »</a>
+                    </nav>
+                </div>
+            </section>
+
+        </div> <!-- End Tabs/Sections -->
+
+         <!-- == Related Ingredients Section == -->
+        <section class="related-ingredients card">
+            <h2>Related Ingredients</h2>
+             <!-- Could be varieties or ingredients with similar uses/profiles -->
+            <div class="related-items-list">
+                <!-- Item 1 (Placeholder) -->
+                <a href="ingredient-detail.html?name=thai-basil" class="related-item">
+                     <img src="images/placeholder/ingredient-thai-basil-thumb.jpg" alt="Thai Basil"> <!-- Update path -->
+                     <span>Thai Basil</span>
+                 </a>
+                 <!-- Item 2 (Placeholder) -->
+                 <a href="ingredient-detail.html?name=mint" class="related-item">
+                     <img src="images/placeholder/ingredient-mint-thumb.jpg" alt="Mint"> <!-- Update path -->
+                     <span>Mint</span>
+                 </a>
+                 <!-- Item 3 (Placeholder) -->
+                 <a href="ingredient-detail.html?name=parsley" class="related-item">
+                     <img src="images/placeholder/ingredient-parsley-thumb.jpg" alt="Parsley"> <!-- Update path -->
+                     <span>Italian Parsley</span>
+                 </a>
+                 <!-- Add more related items -->
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ========================================================================= -->
+    <!-- FOOTER (Consistent across site)                                         -->
+    <!-- Include via server-side templating or copy/paste for static version.    -->
+    <!-- ========================================================================= -->
+    <footer class="site-footer">
+        <!-- Placeholder for footer content -->
+        <!-- Refer to index.html for full footer structure -->
+        <div class="container">
+             <nav class="footer-nav">...</nav>
+             <div class="social-links">...</div>
+             <p class="copyright">© 2023 ICDB. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- ========================================================================= -->
+    <!-- SCRIPTS                                                                   -->
+    <!-- ========================================================================= -->
+    <!-- Main Site Logic -->
+    <script src="js/main.js"></script> <!-- Handles header dropdowns, etc. -->
+    <!-- Component Initializers -->
+    <script src="js/components/tabs.js"></script> <!-- To handle tab switching -->
+    <!-- Page-Specific Logic -->
+    <script src="js/reviews.js"></script> <!-- Handles review form submission, voting -->
+    <script src="js/ingredient.js"></script> <!-- Handles ingredient-specific actions like substitution voting, add to list -->
+
+    <!-- Inline script for initializing components on this page -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize tabs
+            const tabContainer = document.querySelector('.ingredient-content-tabs');
+            if (tabContainer) {
+                // Assuming initializeTabs is defined in tabs.js
+                // initializeTabs(tabContainer);
+                 console.log("Ingredient detail page JS loaded, tabs initialized (concept).");
+            }
+
+            // Add event listeners for ingredient-specific buttons (add to list, submit review, vote on tips/substitutions)
+            // e.g., document.getElementById('add-ingredient-to-list-btn').addEventListener('click', handleAddIngredientToList);
+            // e.g., document.getElementById('ingredient-review-form').addEventListener('submit', handleIngredientReviewSubmit);
+            // e.g., document.querySelectorAll('.substitution-item .vote-up').forEach(btn => btn.addEventListener('click', handleSubstitutionVote));
+
+             // Initialize interactive star ratings if using a JS component
+            // e.g., initializeStarRatings(document.querySelectorAll('.stars'));
+        });
+    </script>
+
+</body>
+</html>

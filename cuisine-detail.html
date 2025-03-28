@@ -1,0 +1,398 @@
+Okay, here is the cuisine-detail.html code, following the established structure and incorporating elements specific to describing a world cuisine.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Update Title and Description Dynamically -->
+    <meta name="description" content="Explore Italian Cuisine: history, key ingredients like olive oil and tomatoes, signature dishes like pasta and pizza, regional variations, and recipes on ICDB.">
+    <title>Italian Cuisine - Profile & Recipes - ICDB</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon"> <!-- Update path if needed -->
+
+    <!-- CSS Stylesheets -->
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <!-- Structured Data (SEO for Article/WebPage describing the Cuisine) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article", // Using Article to describe the concept of the cuisine
+      "name": "Italian Cuisine", // Update dynamically
+      "headline": "An Exploration of Italian Cuisine", // Update dynamically
+      "image": "images/placeholder/cuisine-italian-hero.jpg", // Update dynamically
+      "author": { // Site can be the author of the descriptive content
+        "@type": "Organization",
+        "name": "ICDB"
+      },
+      "publisher": { // Site is the publisher
+         "@type": "Organization",
+         "name": "ICDB",
+         "logo": {
+           "@type": "ImageObject",
+           "url": "images/logo.png" // Replace with actual logo URL
+         }
+       },
+      "url": "cuisine-detail.html?name=italian", // Update dynamically
+      "about": [ // Link to related concepts/entities
+          {"@type": "Thing", "name": "Pasta"},
+          {"@type": "Thing", "name": "Pizza"},
+          {"@type": "Product", "name": "Olive Oil"},
+          {"@type": "Product", "name": "Tomatoes"},
+          {"@type": "Country", "name": "Italy"}
+          // Add more relevant things, ingredients, associated chefs (Person) etc.
+      ],
+      "articleBody": "Italian cuisine is characterized by its simplicity, reliance on high-quality seasonal ingredients, and strong regional diversity. Key elements include pasta, olive oil, tomatoes, cheeses, cured meats, and fresh vegetables..." // Add concise summary here (dynamic)
+      // Potentially link to Recipes using mentions or hasPart properties if applicable
+    }
+    </script>
+
+</head>
+<body>
+
+    <!-- ========================================================================= -->
+    <!-- HEADER (Consistent across site)                                         -->
+    <!-- Include via server-side templating or copy/paste for static version.    -->
+    <!-- ========================================================================= -->
+    <header class="site-header">
+        <!-- Placeholder for header content (Logo, Nav, Search, User Menu) -->
+        <!-- Refer to index.html for full header structure -->
+        <div class="container header-container">
+             <a href="index.html" class="logo" aria-label="ICDB Homepage"><img src="images/logo.png" alt="ICDB Logo"><span>ICDB</span></a>
+             <nav class="main-navigation">...</nav>
+             <form class="header-search">...</form>
+             <div class="user-actions">...</div>
+        </div>
+    </header>
+
+    <!-- ========================================================================= -->
+    <!-- MAIN CONTENT AREA - CUISINE DETAIL PAGE                                 -->
+    <!-- ========================================================================= -->
+    <main class="cuisine-detail-page container">
+
+        <!-- == Cuisine Header Section == -->
+        <section class="cuisine-header card">
+             <!-- Cuisine Name -->
+             <h1 class="cuisine-name">Italian Cuisine</h1> <!-- Update dynamically -->
+             <!-- Short description -->
+             <p class="cuisine-short-desc">A rich tapestry of regional flavors celebrated globally for its comforting pasta dishes, vibrant sauces, artisanal cheeses, and emphasis on fresh, high-quality ingredients.</p> <!-- Update dynamically -->
+
+             <!-- Hero Visual -->
+             <div class="cuisine-visual">
+                 <!-- Update src and alt dynamically -->
+                 <img src="images/placeholder/cuisine-italian-hero.jpg" alt="A spread of classic Italian dishes">
+             </div>
+
+            <!-- Characteristic Tags -->
+            <div class="characteristic-tags">
+                <!-- Update dynamically -->
+                <span class="tag">Pasta</span>
+                <span class="tag">Pizza</span>
+                <span class="tag">Olive Oil</span>
+                <span class="tag">Tomatoes</span>
+                <span class="tag">Cheese</span>
+                <span class="tag">Regional Diversity</span>
+                <span class="tag">Simplicity</span>
+                <span class="tag">Seasonal</span>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="cuisine-actions">
+                <a href="search-results.html?type=recipe&cuisine=italian" class="btn btn-primary btn-icon"> <!-- Update link dynamically -->
+                    <img src="images/icons/recipe-book.svg" alt="" class="icon"> Explore Recipes
+                </a>
+                <button class="btn btn-secondary btn-icon" id="share-cuisine-btn">
+                    <img src="images/icons/share.svg" alt="" class="icon"> Share
+                </button>
+                <!-- Future: Add to user's favorite cuisines -->
+                <!--
+                <button class="btn btn-secondary btn-icon" id="add-to-favorites-btn" data-cuisine-id="italian">
+                    <img src="images/icons/heart-outline.svg" alt="" class="icon"> Add to Favorites
+                </button>
+                -->
+            </div>
+        </section>
+
+        <!-- == Cuisine Content Tabs/Sections == -->
+        <div class="cuisine-content-tabs card">
+            <!-- Tab Navigation -->
+            <nav class="tabs">
+                <button class="tab-link active" data-tab="tab-overview">Overview</button>
+                <button class="tab-link" data-tab="tab-key-elements">Key Elements</button>
+                <button class="tab-link" data-tab="tab-signature-dishes">Signature Dishes</button>
+                <button class="tab-link" data-tab="tab-regional">Regional Variations</button>
+                <button class="tab-link" data-tab="tab-community">Community & Resources</button>
+            </nav>
+
+            <!-- Tab Content: Overview -->
+            <section id="tab-overview" class="tab-content active">
+                <h2>About Italian Cuisine</h2> <!-- Update dynamically -->
+
+                <!-- Description -->
+                <div class="content-section">
+                    <h3>Description</h3>
+                    <!-- Update dynamically -->
+                    <p>Italian cuisine is a Mediterranean cuisine consisting of the ingredients, recipes, and cooking techniques developed across the Italian Peninsula since antiquity, and later spread around the world with waves of Italian diaspora.</p>
+                    <p>It is characterized by its simplicity, with many dishes having only two to four main ingredients. Italian cooks rely chiefly on the quality of the ingredients rather than on elaborate preparation. Ingredients and dishes vary widely by region. Many dishes that were once regional have proliferated with variations throughout the country.</p>
+                </div>
+
+                <!-- History/Origins -->
+                <div class="content-section">
+                    <h3>History & Origins</h3>
+                    <!-- Update dynamically -->
+                    <p>Rooted in Etruscan, ancient Greek, and ancient Roman traditions, Italian cuisine has evolved significantly over the centuries. The discovery of the New World brought essential ingredients like potatoes, tomatoes, bell peppers, and maize, now central to the cuisine but introduced only in the 18th century.</p>
+                    <p>The country's unification in the 19th century and subsequent waves of emigration played a significant role in popularizing regional Italian dishes globally, often leading to adaptations like Italian-American cuisine.</p>
+                </div>
+
+                <!-- General Flavor Profile / Characteristics -->
+                <div class="content-section">
+                    <h3>Core Characteristics</h3>
+                    <!-- Update dynamically -->
+                    <ul>
+                        <li><strong>Simplicity:</strong> Focusing on a few high-quality ingredients.</li>
+                        <li><strong>Seasonality:</strong> Emphasis on using fresh, seasonal produce.</li>
+                        <li><strong>Regionality:</strong> Distinct culinary traditions between Northern, Central, and Southern Italy.</li>
+                        <li><strong>Key Flavors:</strong> Savory, herbaceous, rich (from cheeses/meats), bright (from tomatoes/lemon), pungent (garlic).</li>
+                        <li><strong>Balance:</strong> Often balancing rich elements with fresh or acidic components.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Tab Content: Key Elements (Ingredients/Techniques) -->
+            <section id="tab-key-elements" class="tab-content">
+                <h2>Key Ingredients & Techniques</h2>
+
+                <!-- Key Ingredients -->
+                <div class="content-section">
+                    <h3>Staple Ingredients</h3>
+                    <p>While incredibly diverse, some ingredients are fundamental across many Italian regions:</p>
+                     <!-- Use a list or grid with links -->
+                    <ul class="key-elements-list">
+                        <!-- Update dynamically -->
+                        <li><a href="ingredient-detail.html?name=olive-oil"><img src="images/placeholder/ingredient-oliveoil-thumb.jpg" alt="Olive Oil"> Olive Oil</a> (especially Extra Virgin)</li>
+                        <li><a href="ingredient-detail.html?name=tomatoes"><img src="images/placeholder/ingredient-tomato-thumb.jpg" alt="Tomatoes"> Tomatoes</a> (fresh, canned, paste)</li>
+                        <li><a href="ingredient-detail.html?name=pasta"><img src="images/placeholder/ingredient-pasta-thumb.jpg" alt="Pasta"> Pasta</a> (countless shapes, fresh and dried)</li>
+                        <li><a href="ingredient-detail.html?name=garlic"><img src="images/placeholder/ingredient-garlic-thumb.jpg" alt="Garlic"> Garlic</a></li>
+                        <li><a href="ingredient-detail.html?name=basil"><img src="images/placeholder/ingredient-basil-thumb.jpg" alt="Basil"> Fresh Herbs</a> (Basil, Parsley, Oregano, Rosemary)</li>
+                        <li><a href="ingredient-detail.html?name=parmesan"><img src="images/placeholder/ingredient-parmesan-thumb.jpg" alt="Parmesan Cheese"> Cheeses</a> (Parmigiano-Reggiano, Mozzarella, Ricotta, Pecorino)</li>
+                        <li><a href="ingredient-detail.html?name=prosciutto"><img src="images/placeholder/ingredient-prosciutto-thumb.jpg" alt="Prosciutto"> Cured Meats</a> (Prosciutto, Pancetta, Salami)</li>
+                        <li>Wine (for cooking and drinking)</li>
+                        <li>Legumes (Beans, Lentils)</li>
+                        <!-- Add more -->
+                    </ul>
+                </div>
+
+                <!-- Common Techniques -->
+                <div class="content-section">
+                    <h3>Common Cooking Techniques</h3>
+                     <!-- Link to technique detail pages -->
+                    <ul class="key-elements-list">
+                        <!-- Update dynamically -->
+                         <li><a href="technique-detail.html?name=boiling">Boiling</a> (especially for pasta)</li>
+                         <li><a href="technique-detail.html?name=simmering">Simmering</a> (for sauces and stews)</li>
+                         <li><a href="technique-detail.html?name=sauteing">Sautéing</a> (building flavor bases)</li>
+                         <li><a href="technique-detail.html?name=roasting">Roasting</a> (meats and vegetables)</li>
+                         <li><a href="technique-detail.html?name=braising">Braising</a> (tougher cuts of meat)</li>
+                         <li><a href="technique-detail.html?name=grilling">Grilling</a></li>
+                         <li><a href="technique-detail.html?name=frying">Frying</a> (various methods)</li>
+                         <!-- Add more -->
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Tab Content: Signature Dishes -->
+            <section id="tab-signature-dishes" class="tab-content">
+                <h2>Iconic Italian Dishes</h2> <!-- Update dynamically -->
+                <p>A small sample of globally recognized dishes originating from Italy.</p>
+                <div class="recipe-card-grid">
+                     <!-- Recipe Card 1 (Placeholder - Load dynamically) -->
+                     <div class="recipe-card card card-interactive">
+                        <a href="recipe-detail.html?id=123" class="card-image-link"> <!-- Link to existing Lasagna -->
+                            <img src="images/placeholder/recipe-thumb-1.jpg" alt="Lasagna Bolognese Thumbnail"> <!-- Update path -->
+                        </a>
+                        <div class="card-content">
+                            <h3 class="card-title"><a href="recipe-detail.html?id=123">Lasagna Bolognese</a></h3>
+                            <div class="card-rating">★★★★☆ <span class="rating-text">(8.8/10)</span></div>
+                            <p class="card-description">Layered pasta, rich meat sauce, béchamel, and cheese.</p>
+                        </div>
+                    </div>
+                    <!-- Recipe Card 2 (Placeholder) -->
+                    <div class="recipe-card card card-interactive">
+                        <a href="recipe-detail.html?id=4002" class="card-image-link">
+                            <img src="images/placeholder/recipe-margherita-thumb.jpg" alt="Pizza Margherita Thumbnail"> <!-- Update path -->
+                        </a>
+                        <div class="card-content">
+                            <h3 class="card-title"><a href="recipe-detail.html?id=4002">Pizza Margherita</a></h3>
+                            <div class="card-rating">★★★★★ <span class="rating-text">(9.6/10)</span></div>
+                            <p class="card-description">The Neapolitan classic: tomatoes, mozzarella, basil, olive oil.</p>
+                        </div>
+                    </div>
+                     <!-- Recipe Card 3 (Placeholder) -->
+                     <div class="recipe-card card card-interactive">
+                        <a href="recipe-detail.html?id=456" class="card-image-link"> <!-- Example: Spaghetti Carbonara -->
+                            <img src="images/placeholder/related-recipe-1.jpg" alt="Spaghetti Carbonara Thumbnail"> <!-- Update path -->
+                        </a>
+                        <div class="card-content">
+                            <h3 class="card-title"><a href="recipe-detail.html?id=456">Spaghetti Carbonara</a></h3>
+                            <div class="card-rating">★★★★☆ <span class="rating-text">(8.5/10)</span></div>
+                            <p class="card-description">Pasta with eggs, Pecorino Romano, guanciale, black pepper.</p>
+                        </div>
+                    </div>
+                     <!-- Recipe Card 4 (Placeholder) -->
+                     <div class="recipe-card card card-interactive">
+                         <a href="recipe-detail.html?id=1003" class="card-image-link"> <!-- Link to existing Risotto -->
+                            <img src="images/placeholder/recipe-risotto.jpg" alt="Mushroom Risotto Thumbnail"> <!-- Update path -->
+                        </a>
+                        <div class="card-content">
+                            <h3 class="card-title"><a href="recipe-detail.html?id=1003">Mushroom Risotto</a></h3>
+                             <div class="card-rating">★★★★☆ <span class="rating-text">(8.7/10)</span></div>
+                            <p class="card-description">Creamy Arborio rice dish, often a Northern Italian staple.</p>
+                        </div>
+                    </div>
+                    <!-- Add more iconic recipe cards dynamically -->
+                </div>
+                 <!-- Link to view all recipes for this cuisine -->
+                <div class="section-link">
+                    <a href="search-results.html?type=recipe&cuisine=italian" class="btn btn-secondary">View All Italian Recipes</a> <!-- Update dynamically -->
+                </div>
+            </section>
+
+            <!-- Tab Content: Regional Variations -->
+            <section id="tab-regional" class="tab-content">
+                <h2>Regional Variations</h2>
+                 <!-- Update dynamically -->
+                <p>Italy's cuisine varies significantly by region, shaped by geography, climate, history, and local ingredients.</p>
+
+                <div class="region-section">
+                    <h3>Northern Italy</h3>
+                    <p>(Piedmont, Lombardy, Veneto, etc.)</p>
+                    <p>Characterized by richer dishes using butter, cream, polenta, risotto, and stuffed pastas. Less reliance on olive oil and tomatoes compared to the South. Notable dishes include Osso Buco, Risotto alla Milanese, Polenta, and various stuffed pastas like Tortellini.</p>
+                    <!-- Link to recipes filtered by North Italian region? -->
+                </div>
+
+                <div class="region-section">
+                    <h3>Central Italy</h3>
+                    <p>(Tuscany, Umbria, Lazio, etc.)</p>
+                    <p>Known for simpler, rustic preparations featuring legumes, cured meats, cheeses (like Pecorino), and high-quality olive oil. Home to famous dishes like Bistecca alla Fiorentina (Florentine Steak), pasta dishes like Carbonara and Amatriciana (Lazio), and simple bean soups.</p>
+                     <!-- Link to recipes filtered by Central Italian region? -->
+                </div>
+
+                 <div class="region-section">
+                    <h3>Southern Italy & Islands</h3>
+                    <p>(Campania, Calabria, Sicily, Sardinia, etc.)</p>
+                    <p>Often seen as the stereotypical "Italian" food globally. Features abundant use of olive oil, tomatoes, pasta (often dried), fresh vegetables (eggplant, peppers), seafood, citrus, and sharper cheeses. Birthplace of pizza (Naples) and known for dishes like Pasta alla Norma (Sicily), various seafood preparations, and bright, vibrant flavors.</p>
+                      <!-- Link to recipes filtered by Southern Italian region? -->
+                </div>
+            </section>
+
+            <!-- Tab Content: Community & Resources -->
+            <section id="tab-community" class="tab-content">
+                <h2>Community Discussion & Resources</h2>
+
+                <!-- Link to Forums -->
+                <div class="content-section">
+                    <h3>Discuss Italian Cuisine</h3>
+                    <p>Share your favorite recipes, ask questions, and discuss regional specialties with fellow food lovers.</p>
+                    <a href="/forums?category=italian-cuisine" class="btn btn-secondary">Go to Italian Cuisine Forum</a> <!-- Update link dynamically -->
+                </div>
+
+                <!-- Notable Chefs -->
+                 <div class="content-section">
+                    <h3>Notable Chefs (Associated with Italian Cuisine)</h3>
+                    <!-- Load dynamically, link to chef profiles -->
+                    <ul class="notable-list">
+                        <li><a href="chef-detail.html?id=501">Massimo Bottura</a></li>
+                        <li><a href="chef-detail.html?id=502">Lidia Bastianich</a></li>
+                        <li><a href="chef-detail.html?id=503">Marcella Hazan</a> (Influential Author)</li>
+                        <!-- Add more -->
+                    </ul>
+                     <a href="search-results.html?type=chef&cuisine=italian" class="link-more">See More Chefs...</a>
+                </div>
+
+                 <!-- Top Rated Cookbooks -->
+                 <div class="content-section">
+                    <h3>Highly Rated Cookbooks</h3>
+                     <!-- Load dynamically, link to cookbook profiles -->
+                     <ul class="notable-list">
+                         <li><a href="cookbook-detail.html?id=601">Essentials of Classic Italian Cooking by Marcella Hazan</a></li>
+                         <li><a href="cookbook-detail.html?id=602">The Silver Spoon (Il Cucchiaio d'Argento)</a></li>
+                          <li><a href="cookbook-detail.html?id=603">Mastering Pasta by Marc Vetri</a></li>
+                         <!-- Add more -->
+                    </ul>
+                      <a href="search-results.html?type=cookbook&cuisine=italian" class="link-more">See More Cookbooks...</a>
+                </div>
+            </section>
+
+        </div> <!-- End Tabs/Sections -->
+
+         <!-- == Related Cuisines Section == -->
+        <section class="related-cuisines card">
+            <h2>Related Cuisines</h2>
+            <p>Explore cuisines with historical connections or similar characteristics.</p>
+            <div class="related-items-list">
+                 <!-- Update dynamically -->
+                <a href="cuisine-detail.html?name=french" class="related-item">
+                     <img src="images/placeholder/cuisine-french-thumb.jpg" alt="French Cuisine"> <!-- Update path -->
+                     <span>French Cuisine</span>
+                 </a>
+                 <a href="cuisine-detail.html?name=greek" class="related-item">
+                     <img src="images/placeholder/cuisine-greek-thumb.jpg" alt="Greek Cuisine"> <!-- Update path -->
+                     <span>Greek Cuisine</span>
+                 </a>
+                  <a href="cuisine-detail.html?name=spanish" class="related-item">
+                     <img src="images/placeholder/cuisine-spanish-thumb.jpg" alt="Spanish Cuisine"> <!-- Update path -->
+                     <span>Spanish Cuisine</span>
+                 </a>
+                 <!-- Add more related items -->
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ========================================================================= -->
+    <!-- FOOTER (Consistent across site)                                         -->
+    <!-- Include via server-side templating or copy/paste for static version.    -->
+    <!-- ========================================================================= -->
+    <footer class="site-footer">
+        <!-- Placeholder for footer content -->
+        <!-- Refer to index.html for full footer structure -->
+        <div class="container">
+             <nav class="footer-nav">...</nav>
+             <div class="social-links">...</div>
+             <p class="copyright">© 2023 ICDB. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- ========================================================================= -->
+    <!-- SCRIPTS                                                                   -->
+    <!-- ========================================================================= -->
+    <!-- Main Site Logic -->
+    <script src="js/main.js"></script> <!-- Handles header dropdowns, etc. -->
+    <!-- Component Initializers -->
+    <script src="js/components/tabs.js"></script> <!-- To handle tab switching -->
+    <!-- Page-Specific Logic (Might not be needed unless interactions are added) -->
+    <!-- <script src="js/cuisine.js"></script> -->
+
+    <!-- Inline script for initializing components on this page -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize tabs
+            const tabContainer = document.querySelector('.cuisine-content-tabs');
+            if (tabContainer) {
+                // Assuming initializeTabs is defined in tabs.js
+                // initializeTabs(tabContainer);
+                 console.log("Cuisine detail page JS loaded, tabs initialized (concept).");
+            }
+
+            // Add event listeners for cuisine-specific buttons if any (e.g., add to favorites)
+            // ...
+
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,373 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Update Title and Description Dynamically -->
+    <meta name="description" content="Details, reviews, ratings, and featured recipes for the cookbook 'Salt, Fat, Acid, Heat: Mastering the Elements of Good Cooking' by Samin Nosrat on ICDB.">
+    <title>Salt, Fat, Acid, Heat - Cookbook Details - ICDB</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon"> <!-- Update path if needed -->
+
+    <!-- CSS Stylesheets -->
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <!-- Structured Data (SEO for Book) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Book",
+      "name": "Salt, Fat, Acid, Heat: Mastering the Elements of Good Cooking", // Update dynamically
+      "author": {
+        "@type": "Person",
+        "name": "Samin Nosrat", // Update dynamically
+        "url": "chef-detail.html?id=701" // Link to author's profile page (Update dynamically)
+      },
+      "illustrator": { // Optional, if applicable
+          "@type": "Person",
+          "name": "Wendy MacNaughton"
+      },
+      "image": "images/placeholder/cookbook-sfa.jpg", // Update dynamically
+      "description": "A visionary new master class in cooking that distills decades of professional experience into just four simple elements, from the woman declared 'America's next great cooking teacher' by Alice Waters.", // Update dynamically
+      "isbn": "978-1476753836", // Update dynamically
+      "publisher": "Simon & Schuster", // Update dynamically
+      "datePublished": "2017-04-25", // Update dynamically
+      "numberOfPages": "480", // Update dynamically (Optional)
+      "bookFormat": "https://schema.org/Hardcover", // Or EBook, Paperback etc. (Update dynamically)
+      "url": "cookbook-detail.html?id=601", // Update dynamically with actual URL
+      // Aggregate Rating based on user reviews
+      // "aggregateRating": {
+      //   "@type": "AggregateRating",
+      //   "ratingValue": "9.5", // Update dynamically
+      //   "reviewCount": "1567" // Update dynamically
+      // },
+      // Potential: Link recipes using workExample or mentions
+      // "workExample": [
+      //   { "@type": "Recipe", "name": "Buttermilk Roasted Chicken", "url": "recipe-detail.html?id=5001"},
+      //   { "@type": "Recipe", "name": "Classic Caesar Salad", "url": "recipe-detail.html?id=5002"}
+      // ]
+    }
+    </script>
+
+</head>
+<body>
+
+    <!-- ========================================================================= -->
+    <!-- HEADER (Consistent across site)                                         -->
+    <!-- Include via server-side templating or copy/paste for static version.    -->
+    <!-- ========================================================================= -->
+    <header class="site-header">
+        <!-- Placeholder for header content (Logo, Nav, Search, User Menu) -->
+        <!-- Refer to index.html for full header structure -->
+        <div class="container header-container">
+             <a href="index.html" class="logo" aria-label="ICDB Homepage"><img src="images/logo.png" alt="ICDB Logo"><span>ICDB</span></a>
+             <nav class="main-navigation">...</nav>
+             <form class="header-search">...</form>
+             <div class="user-actions">...</div>
+        </div>
+    </header>
+
+    <!-- ========================================================================= -->
+    <!-- MAIN CONTENT AREA - COOKBOOK DETAIL PAGE                                -->
+    <!-- ========================================================================= -->
+    <main class="cookbook-detail-page container">
+
+        <!-- == Cookbook Header Section == -->
+        <section class="cookbook-header card">
+            <div class="cookbook-header-content">
+                <!-- Cookbook Cover -->
+                <div class="cookbook-cover">
+                    <!-- Update src and alt dynamically -->
+                    <img src="images/placeholder/cookbook-sfa.jpg" alt="Cover of Salt, Fat, Acid, Heat">
+                </div>
+
+                <!-- Cookbook Core Information -->
+                <div class="cookbook-info">
+                    <!-- Title -->
+                    <h1 class="cookbook-title">Salt, Fat, Acid, Heat: Mastering the Elements of Good Cooking</h1> <!-- Update dynamically -->
+                    <!-- Author(s) -->
+                    <p class="cookbook-author">
+                        By <a href="chef-detail.html?id=701">Samin Nosrat</a> <!-- Update link dynamically -->
+                        <!-- Add Illustrator if significant -->
+                        <span class="illustrator-credit"> | Illustrated by Wendy MacNaughton</span>
+                    </p>
+                     <!-- Publication Details -->
+                     <p class="publication-details">
+                        <!-- Update dynamically -->
+                        Publisher: Simon & Schuster | Published: April 25, 2017 | ISBN: 978-1476753836
+                     </p>
+
+                    <!-- Ratings Summary -->
+                    <div class="ratings-summary">
+                        <!-- Overall Score -->
+                        <div class="overall-rating">
+                            <span class="rating-value">9.5</span>/10 <!-- Update dynamically -->
+                            <span class="rating-count">(1,567 votes)</span> <!-- Update dynamically -->
+                        </div>
+                        <!-- Detailed Ratings (Usefulness, Entertainment) -->
+                        <div class="detailed-sub-ratings">
+                             <!-- Update dynamically -->
+                            <span>Usefulness: 9.8</span> | <span>Readability/Entertainment: 9.2</span>
+                        </div>
+                         <!-- Placeholder for interactive rating stars component -->
+                         <div class="rating-stars" aria-label="Average rating: 9.5 out of 10">★★★★★</div> <!-- Update dynamically -->
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="cookbook-actions">
+                         <!-- Add to a user list (like Cooklist, but maybe 'Want to Read' or 'Own') -->
+                         <button class="btn btn-primary btn-icon" id="add-to-booklist-btn" data-book-id="601">
+                            <img src="images/icons/add-to-list.svg" alt="" class="icon"> Add to My Books
+                        </button>
+                        <button class="btn btn-secondary btn-icon" id="share-book-btn">
+                            <img src="images/icons/share.svg" alt="" class="icon"> Share
+                        </button>
+                         <!-- Affiliate Link (Example) -->
+                         <a href="https://www.amazon.com/dp/1476753830?tag=ICDB-20" target="_blank" rel="noopener sponsored" class="btn btn-secondary btn-icon affiliate-link"> <!-- Update URL & tag -->
+                            <img src="images/icons/shopping-cart.svg" alt="" class="icon"> Buy on Amazon
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- == Cookbook Content Tabs/Sections == -->
+        <div class="cookbook-content-tabs card">
+            <!-- Tab Navigation -->
+            <nav class="tabs">
+                <button class="tab-link active" data-tab="tab-overview">Overview</button>
+                <button class="tab-link" data-tab="tab-recipes">Featured Recipes</button>
+                <button class="tab-link" data-tab="tab-reviews">User Reviews</button> <!-- Might show review count -->
+            </nav>
+
+            <!-- Tab Content: Overview -->
+            <section id="tab-overview" class="tab-content active">
+                <h2>About This Cookbook</h2> <!-- Update dynamically -->
+
+                <!-- Synopsis/Description -->
+                <div class="content-section">
+                    <h3>Synopsis</h3>
+                    <!-- Update dynamically -->
+                    <p>In the tradition of 'The Joy of Cooking' and 'How to Cook Everything' comes 'Salt, Fat, Acid, Heat,' an ambitious new approach to cooking by a major new culinary voice. Chef and writer Samin Nosrat has taught everyone from professional chefs to middle school kids to cook using her revolutionary, yet simple, philosophy.</p>
+                    <p>Master the use of just four elements—Salt, which enhances flavor; Fat, which delivers flavor and generates texture; Acid, which balances flavor; and Heat, which ultimately determines the texture of food—and anything you cook will be delicious. By explaining the hows and whys of good cooking, 'Salt, Fat, Acid, Heat' will teach and inspire a new generation of cooks how to confidently make better decisions in the kitchen and cook delicious meals with any ingredients, anywhere, at any time.</p>
+                    <p>Features include: 100 essential recipes (and dozens of variations), foundational techniques, whimsical illustrations by Wendy MacNaughton, and practical kitchen science.</p>
+                </div>
+
+                <!-- Target Audience / Style -->
+                <div class="content-section">
+                    <h3>Who Is This Book For?</h3>
+                     <!-- Update dynamically -->
+                    <p>Ideal for both beginners seeking to understand the fundamentals of cooking and experienced home cooks looking to elevate their intuition and technique. It focuses more on *why* things work than just providing recipes.</p>
+                     <h3>Style & Approach</h3>
+                    <p>Educational yet approachable, combining scientific explanations with engaging prose and charming illustrations. It teaches principles that can be applied broadly, rather than just step-by-step recipe following.</p>
+                </div>
+                 <!-- Optional: Table of Contents Highlights -->
+                 <!-- <div class="content-section"><h3>Table of Contents Highlights</h3><ul><li>Part 1: Salt</li><li>Part 2: Fat</li>...</ul></div> -->
+            </section>
+
+            <!-- Tab Content: Featured Recipes -->
+            <section id="tab-recipes" class="tab-content">
+                <h2>Featured Recipes from the Book</h2>
+                <p>A selection of recipes highlighted in or inspired by "Salt, Fat, Acid, Heat". (Note: Cookbooks often contain many more recipes.)</p>
+                <div class="recipe-card-grid">
+                    <!-- Recipe Card 1 (Placeholder - Load dynamically) -->
+                    <div class="recipe-card card card-interactive">
+                        <a href="recipe-detail.html?id=5001" class="card-image-link">
+                            <img src="images/placeholder/recipe-buttermilk-chicken.jpg" alt="Buttermilk Roasted Chicken Thumbnail"> <!-- Update path -->
+                        </a>
+                        <div class="card-content">
+                            <h3 class="card-title"><a href="recipe-detail.html?id=5001">Buttermilk Roasted Chicken</a></h3>
+                            <div class="card-rating">★★★★★ <span class="rating-text">(9.7/10)</span></div>
+                            <p class="card-description">A famous example demonstrating the power of salt and fat for tender, flavorful chicken.</p>
+                        </div>
+                    </div>
+                    <!-- Recipe Card 2 (Placeholder) -->
+                    <div class="recipe-card card card-interactive">
+                        <a href="recipe-detail.html?id=5002" class="card-image-link">
+                            <img src="images/placeholder/recipe-caesar-salad.jpg" alt="Classic Caesar Salad Thumbnail"> <!-- Update path -->
+                        </a>
+                        <div class="card-content">
+                            <h3 class="card-title"><a href="recipe-detail.html?id=5002">Classic Caesar Salad Dressing</a></h3>
+                            <div class="card-rating">★★★★☆ <span class="rating-text">(9.0/10)</span></div>
+                            <p class="card-description">Mastering the balance of fat (oil, egg yolk) and acid (lemon juice).</p>
+                        </div>
+                    </div>
+                     <!-- Recipe Card 3 (Placeholder) -->
+                     <div class="recipe-card card card-interactive">
+                        <a href="recipe-detail.html?id=5003" class="card-image-link">
+                            <img src="images/placeholder/recipe-pasta-sauce.jpg" alt="Light Tomato Sauce Thumbnail"> <!-- Update path -->
+                        </a>
+                        <div class="card-content">
+                            <h3 class="card-title"><a href="recipe-detail.html?id=5003">Light and Bright Tomato Sauce</a></h3>
+                            <div class="card-rating">★★★★☆ <span class="rating-text">(8.9/10)</span></div>
+                            <p class="card-description">Understanding how heat affects tomatoes and how acid brightens flavor.</p>
+                        </div>
+                    </div>
+                    <!-- Add more representative recipe cards dynamically -->
+                </div>
+                 <!-- Link to view all user-submitted recipes *inspired* by the book? (Optional advanced feature) -->
+                <!-- <div class="section-link"><a href="search-results.html?type=recipe&inspired_by_book=601" class="btn btn-secondary">View Recipes Inspired by this Book</a></div> -->
+            </section>
+
+            <!-- Tab Content: User Reviews -->
+            <section id="tab-reviews" class="tab-content">
+                <h2>User Reviews & Ratings for "Salt, Fat, Acid, Heat"</h2> <!-- Update dynamically -->
+
+                <!-- Submit Review Form (Logged-in users only) -->
+                <div class="submit-review-form card-inset">
+                    <h3>Rate & Review This Cookbook</h3>
+                    <form id="cookbook-review-form">
+                         <!-- Rating fields specific to cookbooks -->
+                        <div class="form-group rating-group">
+                            <label>Your Rating:</label>
+                             <div class="sub-rating">
+                                <label for="rating-usefulness">Usefulness (Learning/Reference):</label>
+                                <!-- Star rating input component placeholder -->
+                                <div class="stars" id="rating-usefulness"> ☆☆☆☆☆ </div>
+                            </div>
+                             <div class="sub-rating">
+                                <label for="rating-entertainment">Readability / Entertainment:</label>
+                                <div class="stars" id="rating-entertainment"> ☆☆☆☆☆ </div>
+                            </div>
+                             <div class="sub-rating"> <!-- Overall is often helpful too -->
+                                <label for="rating-overall">Overall:</label>
+                                <div class="stars" id="rating-overall"> ☆☆☆☆☆ </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="review-text-cookbook">Your Review:</label>
+                            <textarea id="review-text-cookbook" name="review_text" rows="4" required placeholder="Share your thoughts on the book's content, recipes, illustrations, and impact on your cooking..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit Review</button>
+                    </form>
+                </div>
+
+                <!-- Existing Reviews List -->
+                <div class="reviews-list">
+                    <!-- Review Sort/Filter Options -->
+                    <div class="review-controls">
+                        <label for="sort-reviews">Sort by:</label>
+                        <select id="sort-reviews">
+                            <option value="helpful">Most Helpful</option>
+                            <option value="newest">Newest</option>
+                            <option value="highest">Highest Rated</option>
+                            <option value="lowest">Lowest Rated</option>
+                        </select>
+                    </div>
+
+                    <!-- Single Review Card (Placeholder - Load dynamically) -->
+                    <article class="review-card">
+                        <div class="review-author">
+                            <img src="images/placeholder/user-avatar-4.png" alt="User Avatar" class="avatar"> <!-- Update path -->
+                            <a href="profile.html?user=home_cook_hero">Home_Cook_Hero</a> <!-- Update dynamically -->
+                            <span class="review-date">Feb 15, 2024</span> <!-- Update dynamically -->
+                        </div>
+                        <div class="review-rating">
+                             <!-- Display overall or specific sub-ratings given by this user -->
+                            ★★★★★ (Overall: 10/10, Usefulness: 10/10, Entertainment: 9/10) <!-- Update dynamically -->
+                        </div>
+                        <div class="review-body">
+                             <!-- Update dynamically -->
+                            <p>This book fundamentally changed the way I cook. Understanding *why* you add salt or acid makes you so much more confident in the kitchen. It's not just recipes; it's a framework for thinking about flavor. Plus, the illustrations are delightful. Highly recommend!</p>
+                            <!-- No "Made This" photo for cookbook reviews -->
+                        </div>
+                        <div class="review-actions">
+                            <span>Was this review helpful?</span>
+                             <!-- Update counts dynamically -->
+                            <button class="vote-helpful-yes">Yes (112)</button>
+                            <button class="vote-helpful-no">No (2)</button>
+                            <button class="report-review">Report</button>
+                        </div>
+                    </article>
+
+                     <!-- Add more review cards dynamically -->
+                     <article class="review-card"> ... </article>
+
+                    <!-- Pagination for reviews -->
+                    <nav class="pagination" aria-label="Review Pagination">
+                        <!-- Pagination links go here -->
+                        <span class="current-page">1</span>
+                        <a href="?id=601&page=2">2</a>
+                        <a href="?id=601&page=3">3</a>
+                        <a href="?id=601&page=2" class="next">Next »</a>
+                    </nav>
+                </div>
+            </section>
+
+        </div> <!-- End Tabs/Sections -->
+
+         <!-- == Related Cookbooks Section == -->
+        <section class="related-cookbooks card">
+            <h2>You Might Also Like</h2>
+            <p>Cookbooks by the same author or with similar themes.</p>
+            <div class="related-items-list">
+                 <!-- Item 1 (Placeholder - Update dynamically) -->
+                <a href="cookbook-detail.html?id=605" class="related-item">
+                     <img src="images/placeholder/cookbook-joyofcooking-thumb.jpg" alt="The Joy of Cooking"> <!-- Update path -->
+                     <span>The Joy of Cooking</span>
+                 </a>
+                 <!-- Item 2 (Placeholder) -->
+                 <a href="cookbook-detail.html?id=606" class="related-item">
+                     <img src="images/placeholder/cookbook-foodlab-thumb.jpg" alt="The Food Lab"> <!-- Update path -->
+                     <span>The Food Lab by J. Kenji López-Alt</span>
+                 </a>
+                  <!-- Item 3 (Placeholder - Another book by same author?) -->
+                 <!-- <a href="cookbook-detail.html?id=705" class="related-item"><img src="..."><span>Another Samin Nosrat Book</span></a> -->
+                 <!-- Add more related items -->
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ========================================================================= -->
+    <!-- FOOTER (Consistent across site)                                         -->
+    <!-- Include via server-side templating or copy/paste for static version.    -->
+    <!-- ========================================================================= -->
+    <footer class="site-footer">
+        <!-- Placeholder for footer content -->
+        <!-- Refer to index.html for full footer structure -->
+        <div class="container">
+             <nav class="footer-nav">...</nav>
+             <div class="social-links">...</div>
+             <p class="copyright">© 2023 ICDB. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- ========================================================================= -->
+    <!-- SCRIPTS                                                                   -->
+    <!-- ========================================================================= -->
+    <!-- Main Site Logic -->
+    <script src="js/main.js"></script> <!-- Handles header dropdowns, etc. -->
+    <!-- Component Initializers -->
+    <script src="js/components/tabs.js"></script> <!-- To handle tab switching -->
+    <!-- Page-Specific Logic -->
+    <script src="js/reviews.js"></script> <!-- Handles review form submission, voting -->
+    <script src="js/cookbook.js"></script> <!-- Handles cookbook-specific actions like add to list -->
+
+    <!-- Inline script for initializing components on this page -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize tabs
+            const tabContainer = document.querySelector('.cookbook-content-tabs');
+            if (tabContainer) {
+                // Assuming initializeTabs is defined in tabs.js
+                // initializeTabs(tabContainer);
+                 console.log("Cookbook detail page JS loaded, tabs initialized (concept).");
+            }
+
+            // Add event listeners for cookbook-specific buttons (add to list, submit review, etc.)
+            // e.g., document.getElementById('add-to-booklist-btn').addEventListener('click', handleAddToBooklist);
+            // e.g., document.getElementById('cookbook-review-form').addEventListener('submit', handleCookbookReviewSubmit);
+
+             // Initialize interactive star ratings if using a JS component
+            // e.g., initializeStarRatings(document.querySelectorAll('.stars'));
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sign up for a free ICDB account to rate recipes, create cooklists, join discussions, and share your culinary journey.">
+    <!-- Generally prevent indexing of registration pages -->
+    <meta name="robots" content="noindex, nofollow">
+    <title>Sign Up - ICDB</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon"> <!-- Update path if needed -->
+
+    <!-- CSS Stylesheets -->
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <!-- Specific styles for auth pages (similar to login.html) -->
+    <style>
+        /* Basic centering for the registration form */
+        body.register-page {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 2rem 0; /* Add padding for scroll on smaller screens */
+            background-color: #f5f5f5; /* Light background */
+        }
+        .register-container {
+            width: 100%;
+            max-width: 450px; /* Slightly wider for potentially more fields */
+            padding: 2rem;
+        }
+        .register-form .form-group {
+            margin-bottom: 1.25rem; /* Slightly tighter spacing */
+        }
+        .register-form .form-actions {
+            margin-top: 2rem;
+        }
+        .register-links {
+            margin-top: 1.5rem;
+            text-align: center;
+            font-size: 0.9em;
+        }
+        .register-title {
+             text-align: center;
+             margin-bottom: 1rem;
+        }
+         .register-logo {
+            display: block;
+            margin: 0 auto 1.5rem auto;
+            max-width: 150px; /* Adjust as needed */
+         }
+         .form-message.error { /* Style for error messages */
+             color: #dc3545; /* Red color for errors */
+             font-size: 0.9em;
+             margin-bottom: 1rem;
+             padding: 0.75rem 1rem;
+             border: 1px solid #f5c6cb;
+             background-color: #f8d7da;
+             border-radius: 4px;
+         }
+         .field-error { /* Style for field-specific errors */
+            color: #dc3545;
+            font-size: 0.8em;
+            display: block; /* Ensure it takes its own line */
+            margin-top: 0.25rem;
+         }
+         .password-strength {
+             margin-top: 0.5rem;
+             font-size: 0.8em;
+             /* Add styles for different strength levels (weak, medium, strong) */
+         }
+    </style>
+</head>
+<body class="register-page">
+
+    <!-- ========================================================================= -->
+    <!-- REGISTRATION FORM CONTAINER                                               -->
+    <!-- ========================================================================= -->
+    <main class="register-container card">
+
+        <!-- Site Logo -->
+         <a href="index.html" aria-label="ICDB Homepage">
+            <img src="images/logo.png" alt="ICDB Logo" class="register-logo"> <!-- Update path -->
+         </a>
+
+        <h1 class="register-title">Create Your ICDB Account</h1>
+
+        <!-- Registration Form -->
+        <!-- Action points to backend registration endpoint. METHOD MUST BE POST. -->
+        <form id="register-form" class="register-form" action="/api/auth/register" method="post">
+
+             <!-- Overall Form User Feedback / Error Message Area -->
+            <div class="form-message error" id="register-message" role="alert" style="display: none;"> <!-- Hide initially -->
+                 <!-- Example Error: Registration failed. Please check the fields below. -->
+            </div>
+
+            <div class="form-group">
+                <label for="username">Username <span class="required">*</span></label>
+                <input type="text" id="username" name="username" required autocomplete="username" placeholder="Choose a unique username" minlength="3" maxlength="30" pattern="^[a-zA-Z0-9_]+$"> <!-- Example pattern: letters, numbers, underscore -->
+                <small class="field-error" id="username-error" style="display: none;"></small> <!-- For JS validation messages -->
+                <small>3-30 characters. Letters, numbers, and underscores only.</small>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address <span class="required">*</span></label>
+                <input type="email" id="email" name="email" required autocomplete="email" placeholder="you@example.com">
+                 <small class="field-error" id="email-error" style="display: none;"></small>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password <span class="required">*</span></label>
+                <input type="password" id="password" name="password" required autocomplete="new-password" placeholder="Create a strong password" minlength="8">
+                 <!-- Optional: Password strength indicator placeholder -->
+                 <div id="password-strength" class="password-strength"></div>
+                 <small class="field-error" id="password-error" style="display: none;"></small>
+                 <small>Minimum 8 characters.</small>
+            </div>
+
+            <div class="form-group">
+                <label for="confirm-password">Confirm Password <span class="required">*</span></label>
+                <input type="password" id="confirm-password" name="confirm_password" required autocomplete="new-password" placeholder="Re-enter your password">
+                <small class="field-error" id="confirm-password-error" style="display: none;">Passwords do not match.</small>
+            </div>
+
+             <div class="form-group checkbox-group terms-agreement">
+                <label for="terms-agree">
+                    <input type="checkbox" id="terms-agree" name="terms_agree" required>
+                    I agree to the ICDB <a href="/terms.html" target="_blank">Terms of Service</a> and <a href="/privacy.html" target="_blank">Privacy Policy</a>. <span class="required">*</span>
+                </label>
+                  <small class="field-error" id="terms-error" style="display: none;">You must agree to the terms.</small>
+            </div>
+
+            <div class="form-actions">
+                 <!-- Submit button triggers form submission -->
+                <button type="submit" class="btn btn-primary btn-large btn-block">Create Account</button>
+            </div>
+
+             <!-- Link back to Login page -->
+            <div class="register-links">
+                <span>Already have an account?</span>
+                <a href="login.html">Log In</a>
+            </div>
+
+        </form>
+
+    </main>
+
+    <!-- No Footer usually on dedicated registration pages -->
+
+    <!-- ========================================================================= -->
+    <!-- SCRIPTS                                                                   -->
+    <!-- ========================================================================= -->
+    <!-- JS for client-side validation (password match, maybe strength), error display -->
+    <!-- Or if using AJAX for registration -->
+    <script src="js/auth.js"></script>
+
+    <script>
+        // Example: Basic JS for client-side password match validation
+        document.addEventListener('DOMContentLoaded', function() {
+            const passwordInput = document.getElementById('password');
+            const confirmPasswordInput = document.getElementById('confirm-password');
+            const confirmPasswordError = document.getElementById('confirm-password-error');
+            const registerForm = document.getElementById('register-form');
+
+            function validatePasswordMatch() {
+                if (passwordInput.value !== confirmPasswordInput.value && confirmPasswordInput.value.length > 0) {
+                    confirmPasswordError.style.display = 'block'; // Show error
+                    confirmPasswordInput.setCustomValidity("Passwords do not match."); // For native validation bubble
+                    return false;
+                } else {
+                    confirmPasswordError.style.display = 'none'; // Hide error
+                    confirmPasswordInput.setCustomValidity(""); // Clear custom validity
+                    return true;
+                }
+            }
+
+            if (passwordInput && confirmPasswordInput && confirmPasswordError) {
+                // Validate on input in confirm field
+                confirmPasswordInput.addEventListener('input', validatePasswordMatch);
+                // Also validate if the main password changes after confirm field has content
+                passwordInput.addEventListener('input', () => {
+                    if(confirmPasswordInput.value.length > 0) {
+                        validatePasswordMatch();
+                    }
+                });
+            }
+
+            // Basic handling for server-side errors passed via URL (similar to login)
+            const urlParams = new URLSearchParams(window.location.search);
+            const errorParam = urlParams.get('error');
+            const messageDiv = document.getElementById('register-message');
+
+             if (errorParam && messageDiv) {
+                 let errorMessage = "Registration failed. Please check the fields below.";
+                // Decode common error codes (customize based on backend implementation)
+                if (errorParam === 'email_exists') {
+                    errorMessage = "An account with this email address already exists. Please log in or use a different email.";
+                    // Optionally highlight email field
+                } else if (errorParam === 'username_exists') {
+                     errorMessage = "This username is already taken. Please choose another.";
+                      // Optionally highlight username field
+                } // Add more cases as needed
+
+                messageDiv.textContent = errorMessage;
+                messageDiv.style.display = 'block';
+             }
+
+
+             // Prevent form submission if passwords don't match (basic example)
+             /*
+             if (registerForm) {
+                 registerForm.addEventListener('submit', function(event) {
+                     if (!validatePasswordMatch()) {
+                         event.preventDefault(); // Stop submission
+                         // Optionally scroll to the error field
+                         confirmPasswordInput.focus();
+                     }
+                     // Add other client-side validation checks here
+                 });
+             }
+            */
+            // More robust validation would happen in auth.js
+            console.log("Register page JS loaded (concept). Needs implementation in auth.js for validation, strength meter etc.");
+
+        });
+    </script>
+
+</body>
+</html>
