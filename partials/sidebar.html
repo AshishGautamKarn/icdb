@@ -1,0 +1,80 @@
+partials/sidebar.html (Conceptual Path)
+<!-- ========================================================================= -->
+<!-- partials/sidebar.html - Optional Reusable Sidebar Content             -->
+<!-- Content varies depending on the main page context.                    -->
+<!-- May contain navigation, related links, featured items, ads, etc.      -->
+<!-- Needs dynamic inclusion and content population.                       -->
+<!-- Layout positioning (e.g., left/right) handled by layout.css.          -->
+<!-- ========================================================================= -->
+
+<aside class="sidebar card" aria-labelledby="sidebar-title"> <!-- Or use aria-label -->
+
+    <!-- Sidebar Title (Optional but recommended for context) -->
+    <h2 class="sidebar-title" id="sidebar-title">[SIDEBAR_TITLE]</h2> <!-- Dynamic: e.g., "Related Info", "Explore", "On This Page" -->
+
+    <!-- Example Section: Contextual Navigation -->
+    <section class="sidebar-section" id="sidebar-nav-section" style="display: none;"> <!-- Hide sections by default, show dynamically -->
+        <h3 class="sidebar-section-title">Navigation</h3>
+        <nav aria-label="Sidebar Navigation">
+            <ul class="sidebar-list nav-list">
+                <!-- Populate dynamically -->
+                <li><a href="#section1">Section 1</a></li>
+                <li><a href="#section2">Section 2</a></li>
+                <li><a href="/related-page.html">Related Page</a></li>
+            </ul>
+        </nav>
+    </section>
+
+    <!-- Example Section: Related Items (e.g., Recipes, Chefs) -->
+    <section class="sidebar-section" id="sidebar-related-section" style="display: none;">
+        <h3 class="sidebar-section-title">Related [ITEM_TYPE]</h3> <!-- Dynamic: e.g., "Related Recipes" -->
+        <ul class="sidebar-list related-items-list-condensed">
+            <!-- Populate dynamically -->
+            <li class="related-item-condensed">
+                <a href="[ITEM_URL_1]">
+                    <img src="images/placeholder/related-thumb-1.jpg" alt="[ITEM_NAME_1]" class="item-thumb-small"> <!-- Dynamic -->
+                    <span class="item-name">[ITEM_NAME_1]</span> <!-- Dynamic -->
+                </a>
+            </li>
+            <li class="related-item-condensed">
+                <a href="[ITEM_URL_2]">
+                     <img src="images/placeholder/related-thumb-2.jpg" alt="[ITEM_NAME_2]" class="item-thumb-small"> <!-- Dynamic -->
+                    <span class="item-name">[ITEM_NAME_2]</span> <!-- Dynamic -->
+                </a>
+            </li>
+            <!-- ... more items -->
+            <li><a href="[VIEW_ALL_URL]" class="link-more">View All...</a></li> <!-- Dynamic -->
+        </ul>
+    </section>
+
+    <!-- Example Section: Featured Content (e.g., Trending, Top Rated) -->
+     <section class="sidebar-section" id="sidebar-featured-section" style="display: none;">
+        <h3 class="sidebar-section-title">Featured [CONTENT_TYPE]</h3> <!-- Dynamic: e.g., "Trending Recipes" -->
+         <ul class="sidebar-list featured-items-list">
+             <!-- Populate dynamically -->
+            <li><a href="[ITEM_URL_A]">[FEATURED_ITEM_A]</a></li>
+            <li><a href="[ITEM_URL_B]">[FEATURED_ITEM_B]</a></li>
+             <!-- ... more items -->
+        </ul>
+    </section>
+
+     <!-- Example Section: User Actions (Less common, e.g., Add to list buttons if relevant) -->
+    <section class="sidebar-section" id="sidebar-actions-section" style="display: none;">
+         <h3 class="sidebar-section-title">Quick Actions</h3>
+         <div class="sidebar-actions">
+             <!-- Populate dynamically -->
+             <!-- <button class="btn btn-secondary btn-block">Action 1</button> -->
+             <!-- <button class="btn btn-secondary btn-block">Action 2</button> -->
+         </div>
+    </section>
+
+    <!-- Example Section: Advertisement Placeholder -->
+    <section class="sidebar-section advertisement" id="sidebar-ad-section" style="display: none;">
+        <h3 class="sidebar-section-title sr-only">Advertisement</h3> <!-- Screen-reader only title -->
+        <div class="ad-placeholder">
+            <!-- Ad code or image goes here -->
+            <img src="images/placeholder/ad-sidebar.png" alt="Advertisement">
+        </div>
+    </section>
+
+</aside> <!-- End .sidebar -->
