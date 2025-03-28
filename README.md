@@ -1,64 +1,64 @@
 # icdb
 icdb
 
-icdb/ ├── index.html # Homepage 
-├── recipe-detail.html # etc... (HTML pages for each entity type) 
-├── chef-detail.html ├── ingredient-detail.html 
-├── technique-detail.html 
-├── cuisine-detail.html 
-├── cookbook-detail.html 
-├── show-detail.html 
-├── equipment-detail.html 
-├── search-results.html 
-├── profile.html 
-├── settings.html 
-├── submit-recipe.html 
-├── forums.html 
-├── shopping-list.html 
-├── login.html 
-├── register.html 
-│ ├── css/ 
-│ ├── style.css # Main theme, base styles, variables 
-│ ├── layout.css # Grid, flexbox, container, major page layouts 
-│ ├── components.css # Cards, buttons, forms, tabs, lists, etc. 
-│ ├── responsive.css # Media queries for screen size adjustments 
-│ └── print.css # Print-specific styles 
-│ ├── js/ 
-│ ├── main.js # Global initializations, header/nav logic 
-│ ├── auth.js # Login/Register form handling (simulated) 
-│ ├── recipe.js # Recipe scaling, timers, interactions 
-│ ├── reviews.js # Review submission, voting, reporting 
-│ ├── lists.js # Cooklist/Shopping List management 
-│ ├── search.js # Search results filtering/sorting/pagination 
-│ ├── profile.js # Profile page logic (follow, etc.) 
-│ ├── settings.js # Settings page form handling 
-│ ├── submit-recipe.js # Dynamic recipe submission form 
-│ ├── technique.js # Technique page interactions (voting) 
-│ ├── equipment.js # Equipment page interactions 
-│ ├── cookbook.js # Cookbook page interactions 
-│ ├── show.js # Show page interactions 
-│ ├── components/ # JS for reusable components 
-│ │ ├── modal.js # Modal dialog logic 
-│ │ └── tabs.js # Tab interface logic 
-│ └── vendor/ # Third-party libraries (if any) 
-│ ├── images/ 
-│ ├── logo.svg # Changed to SVG 
-│ ├── placeholder/ # Placeholder images for development 
-│ └── icons/ # UI Icons (SVG preferred) 
-│ ├── star-filled.svg 
-│ ├── star-empty.svg 
-│ ├── star-half.svg # (Need to create) 
-│ ├── add-to-list.svg 
-│ ├── share.svg # (Choose one style) 
-│ └── ... (search, delete, edit, check, close, etc.) 
-│ ├── partials/ # Conceptual: Reusable HTML snippets (header, footer, cards) 
-│ ├── header.html 
-│ ├── footer.html 
-│ ├── recipe-card.html 
-│ ├── review-card.html 
-│ ├── rating-stars.html 
-│ └── sidebar.html 
-│ ├── README.md # This file 
+icdb/├── index.html # Homepage
+├── recipe-detail.html # etc... (HTML pages for each entity type)
+├── chef-detail.html├── ingredient-detail.html
+├── technique-detail.html
+├── cuisine-detail.html
+├── cookbook-detail.html
+├── show-detail.html
+├── equipment-detail.html
+├── search-results.html
+├── profile.html
+├── settings.html
+├── submit-recipe.html
+├── forums.html
+├── shopping-list.html
+├── login.html
+├── register.html
+│├── css/
+│ ├── style.css # Main theme, base styles, variables
+│ ├── layout.css # Grid, flexbox, container, major page layouts
+│ ├── components.css # Cards, buttons, forms, tabs, lists, etc.
+│ ├── responsive.css # Media queries for screen size adjustments
+│ └── print.css # Print-specific styles
+│├── js/
+│ ├── main.js # Global initializations, header/nav logic
+│ ├── auth.js # Login/Register form handling (simulated)
+│ ├── recipe.js # Recipe scaling, timers, interactions
+│ ├── reviews.js # Review submission, voting, reporting
+│ ├── lists.js # Cooklist/Shopping List management
+│ ├── search.js # Search results filtering/sorting/pagination
+│ ├── profile.js # Profile page logic (follow, etc.)
+│ ├── settings.js # Settings page form handling
+│ ├── submit-recipe.js # Dynamic recipe submission form
+│ ├── technique.js # Technique page interactions (voting)
+│ ├── equipment.js # Equipment page interactions
+│ ├── cookbook.js # Cookbook page interactions
+│ ├── show.js # Show page interactions
+│ ├── components/ # JS for reusable components
+│ │ ├── modal.js # Modal dialog logic
+│ │ └── tabs.js # Tab interface logic
+│ └── vendor/ # Third-party libraries (if any)
+│├── images/
+│ ├── logo.svg # Changed to SVG
+│ ├── placeholder/ # Placeholder images for development
+│ └── icons/ # UI Icons (SVG preferred)
+│ ├── star-filled.svg
+│ ├── star-empty.svg
+│ ├── star-half.svg # (Need to create)
+│ ├── add-to-list.svg
+│ ├── share.svg # (Choose one style)
+│ └── ... (search, delete, edit, check, close, etc.)
+│├── partials/ # Conceptual: Reusable HTML snippets (header, footer, cards)
+│ ├── header.html
+│ ├── footer.html
+│ ├── recipe-card.html
+│ ├── review-card.html
+│ ├── rating-stars.html
+│ └── sidebar.html
+│├── README.md # This file
 └── LICENSE # Project License (Add your chosen license file - e.g. LICENSE.md)
 ## Setup & Running (Static Prototype)
 
