@@ -748,6 +748,129 @@ select {
 .dropdown-menu a:hover {
     background-color: rgba(0,0,0,0.05);
 }
+/* Sidebar General Styling */
+.sidebar {
+    /* Inherits .card styles (bg, padding, shadow, border-radius) */
+    /* Layout position defined in layout.css */
+    padding: var(--spacing-md); /* Maybe slightly less padding than main cards */
+}
+
+.sidebar-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: var(--spacing-lg);
+    color: var(--md-primary-color); /* Example: Use primary color for title */
+    padding-bottom: var(--spacing-sm);
+    border-bottom: 1px solid var(--md-border-color);
+}
+
+.sidebar-section {
+    margin-bottom: var(--spacing-lg);
+}
+.sidebar-section:last-child {
+    margin-bottom: 0;
+}
+
+.sidebar-section-title {
+    font-size: 0.95rem;
+    font-weight: 500;
+    margin-bottom: var(--spacing-md);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--md-text-secondary-color);
+}
+
+/* Sidebar List Styling */
+.sidebar-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 0; /* Reset default list margin */
+}
+
+.sidebar-list li {
+    margin-bottom: var(--spacing-sm);
+}
+
+.sidebar-list a {
+    text-decoration: none;
+    color: var(--md-on-surface-color);
+    font-size: 0.9rem;
+    display: block; /* Make links easier to click */
+    padding: var(--spacing-xs) 0;
+    transition: color 0.2s ease-in-out;
+}
+
+.sidebar-list a:hover,
+.sidebar-list a:focus {
+    color: var(--md-primary-color);
+    text-decoration: none; /* Keep underline off */
+    outline: none;
+}
+
+/* Condensed list for related items with thumbnails */
+.related-items-list-condensed li {
+     margin-bottom: var(--spacing-md);
+}
+.related-items-list-condensed a {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+.related-items-list-condensed .item-thumb-small {
+    width: 40px; /* Small thumbnail */
+    height: 40px;
+    object-fit: cover;
+    border-radius: var(--md-border-radius);
+    flex-shrink: 0;
+}
+.related-items-list-condensed .item-name {
+    flex-grow: 1;
+    line-height: 1.3;
+}
+.related-items-list-condensed .link-more {
+    font-weight: 500;
+    font-size: 0.85rem;
+    margin-top: var(--spacing-sm);
+}
+
+/* Advertisement Placeholder */
+.ad-placeholder {
+    background-color: var(--md-background-color);
+    border: 1px dashed var(--md-border-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 150px; /* Example minimum height */
+    text-align: center;
+    color: var(--md-text-hint-color);
+    font-size: 0.9rem;
+}
+.ad-placeholder img {
+    max-width: 100%;
+    height: auto;
+}
+.rating-stars-display {
+    display: inline-flex; /* Align stars horizontally */
+    align-items: center;
+    gap: 2px; /* Small gap between stars */
+    line-height: 1; /* Prevent extra vertical space */
+}
+
+.rating-stars-display .star-icon {
+    width: 1.1em; /* Control star size relative to font size */
+    height: 1.1em;
+    vertical-align: middle; /* Align nicely with text if needed */
+    /* Optional: Define fill color for SVG if not set intrinsically */
+    /* fill: #FFC107; */ /* Gold color example */
+}
+
+/* Optional: Specific color overrides if needed */
+/* .rating-stars-display .star-icon.filled { fill: #FFC107; } */
+/* .rating-stars-display .star-icon.half { fill: #FFC107; }  */ /* Assuming half icon uses same color */
+/* .rating-stars-display .star-icon.empty { fill: #e0e0e0; } */ /* Grey for empty */
+
+
 /* JS will toggle display: block/none or add/remove an 'open' class */
 
 /* --- Add more component styles as needed --- */
